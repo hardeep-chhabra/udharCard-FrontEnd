@@ -1,76 +1,282 @@
-import { StyleSheet, Text, View, useColorScheme, Platform, KeyboardAvoidingView, TouchableOpacity, Dimensions, TextInput, StatusBar } from 'react-native'
-import React from 'react'
-import { Button, Input, Image } from 'react-native-elements'
-import { Colors} from 'react-native/Libraries/NewAppScreen';
+import React from "react"
+import { StyleSheet, Image, Text, View, ImageBackground, TouchableOpacity } from "react-native"
+import { Input } from "react-native-elements"
+import {TextInput, } from 'react-native-paper';
 
-const screenHeight = Dimensions.get('screen')['height']
-
-
-const LoginScreen = () => {
-
-    // const backgroundStyle = {
-    //   backgroundColor: isDarkMode ? Colors.lighter : Colors.darker,
-    // };
-
-    const isDarkMode = useColorScheme() === 'dark';
-    console.log('000000000000000000000000', screenHeight)
-
-
-
-
+export default function SignIn() {
+  
   return (
-    <KeyboardAvoidingView style={styles.viewContainer} >
-        {/* <Input style={styles.inputName} placeholder='Username' textContentType='givenName'>
-            </Input> */}
-        <TextInput style={styles.inputName} placeholder='Username' placeholderTextColor='black'>
-        </TextInput>
-        <TextInput secureTextEntry style={styles.inputPassword} placeholder='Password' placeholderTextColor='black'>
-        </TextInput>
-        <TouchableOpacity style={{backgroundColor:'red',flex:1/16}}>
-        <Text>Press Here</Text>
-            </TouchableOpacity>
-    </KeyboardAvoidingView>
+    <View style={styles.SignIn}>
+      <View style={styles.Group929}>
+        <Text style={styles.Txt609}>Logo</Text>
+        <View style={styles.Group2610}>
+          <Image
+            style={styles.User}
+            source={{
+              uri: "https://firebasestorage.googleapis.com/v0/b/unify-bc2ad.appspot.com/o/8YKbQsmLBfONJUj4JItjeY-34%3A226?alt=media&token=b6802ea3-cd6b-4478-8d43-f26269ae5b50",
+            }}
+          />
+          <Text style={styles.Txt618}>Username</Text>
+        </View>
+        <View style={styles.Group4101}>
+          <Image
+            style={styles.User}
+            source={{
+              uri: "https://firebasestorage.googleapis.com/v0/b/unify-bc2ad.appspot.com/o/8YKbQsmLBfONJUj4JItjeY-34%3A219?alt=media&token=70116d08-2e36-4de7-931c-fdf443c5a6a5",
+            }}
+          />
+          <Text style={styles.Txt618}>Password</Text>
+        </View>
+        <TouchableOpacity>
+        <Text style={styles.Txt667}>Forget Password ?</Text>
+        </TouchableOpacity>
+        <TouchableOpacity>
+        <View style={styles.Group457}>
+          <Text style={styles.Txt4104}>Sign In</Text>
+        </View>
+        </TouchableOpacity>
+        <Text style={styles.Txt3108}>or</Text>
+        <View style={styles.Group1027}>
+        <TouchableOpacity>
+          <View style={styles.Group484}>
+            <Image
+              style={styles.Surface85389450}
+              source={{
+                uri: "https://firebasestorage.googleapis.com/v0/b/unify-bc2ad.appspot.com/o/8YKbQsmLBfONJUj4JItjeY-34%3A232?alt=media&token=d09975cc-30bc-45b3-a84f-2578cc3a31b1",
+              }}
+            />
+          </View>
+          </TouchableOpacity>
+          <TouchableOpacity>
+          <View style={styles.Group620}>
+            <Image
+              style={styles.Surface85324364}
+              source={{
+                uri: "https://firebasestorage.googleapis.com/v0/b/unify-bc2ad.appspot.com/o/8YKbQsmLBfONJUj4JItjeY-34%3A230?alt=media&token=2f5bb932-ffbf-40e4-995b-bac252ec74f1",
+              }}
+            />
+          </View>
+          </TouchableOpacity>
+        </View>
+        <View style={styles.Line1} />
+        <TouchableOpacity style={{flexDirection:'row'}}>
+        <Text style={styles.multiple1}>Don’t have Account ? </Text>
+        <Text style={styles.multiple2}>SIGN UP</Text>
+        </TouchableOpacity>
+      </View>
+      {/* <Image
+        style={styles.Group}
+        source={{
+          uri: "https://firebasestorage.googleapis.com/v0/b/unify-bc2ad.appspot.com/o/8YKbQsmLBfONJUj4JItjeY-34%3A237?alt=media&token=9f85432f-86de-43a1-801f-088f5b22beda",
+        }}
+      /> */}
+    </View>
   )
-
-
 }
 
-
-
-export default LoginScreen
-
-
 const styles = StyleSheet.create({
+  SignIn: {
+    display: "flex",
+    flex:1,
+    flexDirection: "column",
+    justifyContent: "flex-start",
+    alignItems: "flex-start",
+    position: "relative",
+    paddingTop: 0,
+    paddingBottom: 34,
+    paddingLeft: 36,
+    paddingRight: 0,
+    backgroundColor: "black",
+    /*  linear-gradient(90.15deg, rgba(27,23,34,0.9) 1%, rgba(37,29,49,0.9) 100%, ) , linear-gradient(0deg, rgba(255, 255, 255, 1), rgba(255, 255, 255, 1)) */
+    width: 375,
+    height: 667,
+  },
+  Group929: {
+    display: "flex",
+    flexDirection: "column",
+    alignItems: "center",
+  },
+  Txt609: {
+    fontSize: 16,
+    fontFamily: "undefined",
+    fontWeight: "600",
+    color: "rgba(255, 255, 255, 1)",
+    marginBottom: 87,
+  },
+  Group2610: {
+    display: "flex",
+    flexDirection: "row",
+    paddingTop: 14,
+    paddingBottom: 14,
+    paddingLeft: 13,
+    paddingRight: 192,
+    marginBottom: 25,
+    borderRadius: 5,
+    backgroundColor: "rgba(229,229,229,1)",
+    shadowColor: "rgba(0,97,255,1)",
+    elevation: 1,
+    shadowOffset: { width: 0, height: 2 },
+  },
+  User: {
+    width: 20,
+    height: 20,
+    marginRight: 10,
+  },
+  Txt618: {
+    fontSize: 12,
+    fontFamily: "undefined",
+    fontWeight: "400",
+    color: "rgba(0,0,0,1)",
+  },
 
-    viewContainer: {
-      flex:1,
-      flexDirection:'column',
-      backgroundColor:'hsl(240, 7%, 16%)',
-      justifyContent:'center'
-    },
+  Group4101: {
+    display: "flex",
+    flexDirection: "row",
+    paddingTop: 15,
+    paddingBottom: 13,
+    paddingLeft: 13,
+    paddingRight: 196,
+    marginBottom: 36,
+    borderRadius: 5,
+    backgroundColor: "rgba(255, 255, 255, 1)",
+    shadowColor: "rgba(0,97,255,1)",
+    elevation: 1,
+    shadowOffset: { width: 0, height: 2 },
+  },
+  User: {
+    width: 20,
+    height: 20,
+    marginRight: 10,
+  },
+  Txt618: {
+    fontSize: 12,
+    fontFamily: "undefined",
+    fontWeight: "400",
+    color: "rgba(0,0,0,1)",
+  },
 
-    inputName: {
-        backgroundColor:'white', 
-        marginBottom: 30, 
-        flex:1/16,
-        marginHorizontal:30, 
-        borderRadius:7, 
-        color:'black',
-        fontStyle:'italic', 
-        paddingLeft:50
-        // marginBottom:50
-    },
+  Txt667: {
+    fontSize: 12,
+    fontFamily: "undefined",
+    fontWeight: "500",
+    color: "rgba(255, 255, 255, 1)",
+    marginBottom: 31,
+  },
+  Group457: {
+    paddingTop: 14,
+    paddingBottom: 12,
+    paddingLeft: 122,
+    paddingRight: 120,
+    marginBottom: 24,
+    borderRadius: 5,
+    backgroundColor: "rgba(0,97,255,1)",
+    width: 300,
+    height: 50,
+  },
+  Txt4104: {
+    fontSize: 14,
+    fontFamily: "undefined",
+    fontWeight: "600",
+    color: "rgba(255, 255, 255, 1)",
+    width: 56,
+  },
 
-    inputPassword: {
-        backgroundColor:'white',
-        flex:1/16, 
-        marginBottom: screenHeight*0.2, 
-        marginHorizontal:30, 
-        borderRadius:7, 
-        color:'black',
-        fontStyle:'italic', 
-        paddingLeft:50
-    }
+  Txt3108: {
+    fontSize: 16,
+    fontFamily: "undefined",
+    fontWeight: "600",
+    color: "rgba(255, 255, 255, 1)",
+    marginBottom: 18,
+  },
+  Group1027: {
+    display: "flex",
+    flexDirection: "row",
+    marginBottom: 25,
+  },
+  Group484: {
+    paddingTop: 9,
+    paddingBottom: 9,
+    paddingLeft: 9,
+    paddingRight: 9,
+    marginRight: 34,
+    borderRadius: 17.5,
+    borderWidth: 1,
+    borderStyle: "solid",
+    borderColor: "rgba(255, 255, 255, 1)",
+    width: 35,
+    height: 35,
+  },
+  Surface85389450: {
+    width: 15,
+    height: 15,
+  },
 
+  Group620: {
+    paddingTop: 8,
+    paddingBottom: 8,
+    paddingLeft: 12,
+    paddingRight: 12,
+    borderRadius: 17.5,
+    borderWidth: 1,
+    borderStyle: "solid",
+    borderColor: "rgba(255, 255, 255, 1)",
+    width: 35,
+    height: 35,
+  },
+  Surface85324364: {
+    width: 9.11,
+    height: 17,
+  },
 
-  });
+  Line1: {
+    borderWidth: 0.75,
+    borderStyle: "solid",
+    borderColor: "rgba(255, 255, 255, 1)",
+    width: 300,
+    height: 0.75,
+    marginBottom: 31,
+  },
+  // multiple1: {
+  //   main: "Txt552",
+  //   seg1: "[object Object]",
+  //   seg2: "[object Object]",
+  // },
+  multiple1: {
+    fontSize: 12,
+    fontFamily: "undefined",
+    fontWeight: "500",
+    color: "rgba(255, 255, 255, 1)",
+    marginBottom: 31,
+  },
+
+  multiple2: {
+    fontSize: 12,
+    fontFamily: "undefined",
+    fontWeight: "500",
+    color: "rgba(0,97,255,1)",
+    marginBottom: 31,
+  },
+
+  Group: {
+    position: "absolute",
+    top: 132,
+    left: 204,
+    width: 321.86,
+    height: 287.76,
+  },
+
+  inputUsername: {
+    backgroundColor:'white', 
+    borderWidth:1, 
+    padding:10, 
+    width:300,
+    marginBottom:30,
+    backgroundColor: "rgba(255, 255, 255, 1)",
+    shadowColor: "rgba(0,97,255,1)",
+    elevation: 1,
+    shadowOffset: { width: 0, height: 2 },
+    borderRadius: 5,
+    
+  },
+
+})

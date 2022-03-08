@@ -11,6 +11,7 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 
 import LoginScreen from './screens/LoginScreen';
+import ClientList from './screens/clientList';
 
 // const Stack = createStackNavigator();
 
@@ -18,7 +19,7 @@ import LoginScreen from './screens/LoginScreen';
 const App = () => {
 
   return (
-    <LoginScreen />
+    <ClientList />
   );
 };
 
