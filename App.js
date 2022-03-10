@@ -19,7 +19,7 @@ import ClientList from './screens/clientList';
 const App = () => {
 
   return (
-    <ClientList />
+    <LoginScreen />
   );
 };
 

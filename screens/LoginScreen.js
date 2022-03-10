@@ -1,6 +1,6 @@
 import React from "react"
-import { StyleSheet, Image, Text, View, ImageBackground, TouchableOpacity } from "react-native"
-import { Input } from "react-native-elements"
+import { StyleSheet, Image, Text, View,StatusBar, TextInput, ImageBackground, TouchableOpacity } from "react-native"
+import Icon from "react-native-vector-icons/Feather";
 
 
 
@@ -10,7 +10,7 @@ export default function SignIn() {
     <View style={styles.SignIn}>
       <View style={styles.Group929}>
         <Text style={styles.Txt609}>Logo</Text>
-        <View style={styles.Group2610}>
+        {/* <View style={styles.Group2610}>
           <Image
             style={styles.User}
             source={{
@@ -18,7 +18,30 @@ export default function SignIn() {
             }}
           />
           <Text style={styles.Txt618}>Username</Text>
-        </View>
+        </View> */}
+      <StatusBar backgroundColor="black" />
+      <View style={styles.Group2611}>
+        <TextInput
+          placeholder="Username"
+          multiline={false}
+          keyboardAppearance="dark"
+          // defaultValue="none"
+          // inlineImagePadding={"null"}
+          // numberOfLines={"null"}
+          autoCapitalize="none"
+          keyboardType="default"
+          selectionColor="grey"
+          disableFullscreenUI={true}
+          clearTextOnFocus={false}
+          autoCorrect={false}
+          selectTextOnFocus={false}
+          editable={true}
+          placeholderTextColor='black'
+          // style={styles.textInput}
+          style={{height:45, width:300, paddingLeft:40, backgroundColor:'white'}}
+        ></TextInput>
+        <Icon name="user" style={styles.icon}></Icon>
+      </View>
         <View style={styles.Group4101}>
           <Image
             style={styles.User}
@@ -75,6 +98,9 @@ export default function SignIn() {
   )
 }
 
+
+
+
 const styles = StyleSheet.create({
   SignIn: {
     display: "flex",
@@ -118,6 +144,22 @@ const styles = StyleSheet.create({
     elevation: 1,
     shadowOffset: { width: 0, height: 2 },
   },
+
+  Group2611: {
+    // display: "flex",
+    // flexDirection: "row",
+    // paddingTop: 14,
+    // paddingBottom: 14,
+    // paddingLeft: 13,
+    // paddingRight: 192,
+    marginBottom: 25,
+    borderRadius: 5,
+    backgroundColor: "rgba(229,229,229,1)",
+    shadowColor: "rgba(0,97,255,1)",
+    elevation: 1,
+    shadowOffset: { width: 0, height: 2 },
+  },
+
   User: {
     width: 20,
     height: 20,
@@ -144,11 +186,13 @@ const styles = StyleSheet.create({
     elevation: 1,
     shadowOffset: { width: 0, height: 2 },
   },
+
   User: {
     width: 20,
     height: 20,
     marginRight: 10,
   },
+
   Txt618: {
     fontSize: 12,
     fontFamily: "undefined",
@@ -279,5 +323,52 @@ const styles = StyleSheet.create({
     borderRadius: 5,
     
   },
+
+  container: {
+    flex: 1,
+    borderWidth: 1,
+    borderColor: "#000000"
+  },
+  textInput: {
+    top: 0,
+    position: "absolute",
+    fontFamily: "roboto-700italic",
+    color: "#121212",
+    height: 54,
+    width: 302,
+    textDecorationLine: "underline",
+    left: 0,
+    borderWidth: 3,
+    borderColor: "white",
+    borderStyle: "solid",
+    borderRadius: 14,
+    shadowColor: "white",
+    shadowOffset: {
+      height: 3,
+      width: 3
+        },
+    elevation: 5,
+    shadowOpacity: 0.14,
+    shadowRadius: 0,
+    textAlign: "center",
+    letterSpacing: 2,
+    lineHeight: 4
+  },
+
+  icon: {
+    top: 4,
+    left: 10,
+    position: "absolute",
+    color: "black",
+    fontSize: 30,
+    width: 30,
+    height: 30
+  },
+  textInputStack: {
+    width: 302,
+    height: 54,
+    marginTop: 103,
+    marginLeft: 19
+  }
 
 })

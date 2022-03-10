@@ -7,21 +7,19 @@ export default function ClientList() {
 
   useEffect(() => {
 
-    const aksjdnsajkd = async () => {
-      let json = await fetch('https://jsonplaceholder.typicode.com/todos')
-      let response = await json.json()
+    const clientListAPIFunc = async () => {
+      let json = await fetch('https://jsonplaceholder.typicode.com/posts');
+      let response = await json.json();
       setClientsData(response);
-    }
+  }
+  
+    clientListAPIFunc();
         
-    aksjdnsajkd();
-    console.log('aaaaaaaaaaaaaaaaaaaaaaaaa', clientsData)
-        
+    // return () => {
+    //   console.log('bbbbbbbbbbbbbbbbbbbbbbbbbbb')
+    // }
 
-    return () => {
-      console.log('bbbbbbbbbbbbbbbbbbbbbbbbbbb')
-    }
-
-  }, [clientList, supplierList])
+  }, [setClientListText])
 
 
   const [supplierList, setSupplierList] = useState(styles.Group105);
@@ -30,12 +28,11 @@ export default function ClientList() {
   const [clientListText, setClientListText] = useState(styles.Txt159);
 
   const [clientsData, setClientsData] = useState([]);
-  console.log('11111111111111111111')
 
 
 
   return (
-    <View style={styles.ClientList}>
+      <View style={styles.ClientList}>
       <Image
         style={styles.Search}
         source={{
@@ -59,6 +56,43 @@ export default function ClientList() {
       
       <ScrollView style={styles.Group482} contentContainerStyle={{alignItems:'center', paddingBottom:24}}>
       {/* <View style={styles.Group482}> */}
+
+      {/* THIS IS THE REAL API LOOP, TO BE REPLACED BY THE FAKE TESTING API RUN ON THE USE-EFFECT HOOK */}
+      {/* {clientsData.map((index,item) => {
+        return (<View style={styles.Group9104}>
+          <View style={styles.Group091}>
+            <Text style={styles.Txt081}>John Due</Text>
+            <Text style={styles.Txt766}>info@gmail.com</Text>
+            <View style={styles.Line3} />
+            <View style={styles.Group851}>
+              <Text style={styles.Txt2109}>Expense : 500</Text>
+              <Image
+                style={styles.Graph}
+                source={{
+                  uri: "https://firebasestorage.googleapis.com/v0/b/unify-bc2ad.appspot.com/o/8YKbQsmLBfONJUj4JItjeY-56%3A508?alt=media&token=637fa258-99ac-42ab-aed8-071f86f14063",
+                }}
+              />
+            </View>
+          </View>
+          <View style={styles.Group091}>
+              <Text style={styles.Txt081}>John Due</Text>
+              <Text style={styles.Txt766}>info@gmail.com</Text>
+                <View style={styles.Line3} />
+              <View style={styles.Group851}>
+                <Text style={styles.Txt2109}>Expense : 500</Text>
+                <Image
+                  style={styles.Graph}
+                  source={{
+                    uri: "https://firebasestorage.googleapis.com/v0/b/unify-bc2ad.appspot.com/o/8YKbQsmLBfONJUj4JItjeY-56%3A513?alt=media&token=55e1952a-d007-4708-a91f-6b77bb0da9d7",
+                  }}
+                />
+              </View>
+          </View>
+        </View>)
+      })} */}
+
+
+      {/* TO BE REMOVED AFTER ASSIGNING REAL RESTAPI */}
         <View style={styles.Group9104}>
           <View style={styles.Group091}>
             <Text style={styles.Txt081}>John Due</Text>
@@ -284,7 +318,6 @@ export default function ClientList() {
       
       <View style={supplierList}>
         <Text onPress={() => {
-          console.log('000000000000000000000000');
           setSupplierList(styles.Group106);
           setSupplierListText(styles.Txt159);
           setClientList(styles.Group549);
@@ -294,7 +327,6 @@ export default function ClientList() {
       </View>
       <View style={clientList}>
         <Text onPress={() => {
-          console.log('333333333333333333333333333');
           setSupplierList(styles.Group105);
           setSupplierListText(styles.Txt966);
           setClientList(styles.Group548);
@@ -312,6 +344,7 @@ export default function ClientList() {
         </View>
       </View>
     </View>
+
   )
 }
 
