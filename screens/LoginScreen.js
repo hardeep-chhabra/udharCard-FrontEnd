@@ -1,7 +1,8 @@
 import React from "react"
 import { StyleSheet, Image, Text, View, ImageBackground, TouchableOpacity } from "react-native"
 import { Input } from "react-native-elements"
-import {TextInput, } from 'react-native-paper';
+
+
 
 export default function SignIn() {
   

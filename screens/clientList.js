@@ -1,7 +1,39 @@
-import React from "react"
-import { StyleSheet, Image, Text, View, ImageBackground } from "react-native"
+import React, { useEffect, useState } from "react"
+import { StyleSheet, Image, Text, View, ImageBackground, FlatList, ScrollView, StatusBar } from "react-native"
+
+
 
 export default function ClientList() {
+
+  useEffect(() => {
+
+    const aksjdnsajkd = async () => {
+      let json = await fetch('https://jsonplaceholder.typicode.com/todos')
+      let response = await json.json()
+      setClientsData(response);
+    }
+        
+    aksjdnsajkd();
+    console.log('aaaaaaaaaaaaaaaaaaaaaaaaa', clientsData)
+        
+
+    return () => {
+      console.log('bbbbbbbbbbbbbbbbbbbbbbbbbbb')
+    }
+
+  }, [clientList, supplierList])
+
+
+  const [supplierList, setSupplierList] = useState(styles.Group105);
+  const [supplierListText, setSupplierListText] = useState(styles.Txt966);
+  const [clientList, setClientList] = useState(styles.Group548);
+  const [clientListText, setClientListText] = useState(styles.Txt159);
+
+  const [clientsData, setClientsData] = useState([]);
+  console.log('11111111111111111111')
+
+
+
   return (
     <View style={styles.ClientList}>
       <Image
@@ -22,8 +54,11 @@ export default function ClientList() {
           uri: "https://firebasestorage.googleapis.com/v0/b/unify-bc2ad.appspot.com/o/8YKbQsmLBfONJUj4JItjeY-56%3A473?alt=media&token=634762dc-18c6-46a9-a2c0-b74ba0dcdf63",
         }}
       />
-      <View style={styles.Group482}>
-        <View style={styles.Line10} />
+
+      <View style={styles.Line10} />
+      
+      <ScrollView style={styles.Group482} contentContainerStyle={{alignItems:'center', paddingBottom:24}}>
+      {/* <View style={styles.Group482}> */}
         <View style={styles.Group9104}>
           <View style={styles.Group091}>
             <Text style={styles.Txt081}>John Due</Text>
@@ -39,10 +74,11 @@ export default function ClientList() {
               />
             </View>
           </View>
-          <View style={styles.Group909}>
-            <View style={styles.Group14}>
+          <View style={styles.Group091}>
+            {/* <View style={styles.Group14}> */}
               <Text style={styles.Txt081}>John Due</Text>
-              <Text style={styles.Txt1084}>info@gmail.com</Text>
+              <Text style={styles.Txt766}>info@gmail.com</Text>
+                <View style={styles.Line3} />
               <View style={styles.Group851}>
                 <Text style={styles.Txt2109}>Expense : 500</Text>
                 <Image
@@ -52,91 +88,234 @@ export default function ClientList() {
                   }}
                 />
               </View>
+            {/* </View> */}
+          </View>
+        </View>
+        <View style={styles.Group9104}>
+          <View style={styles.Group091}>
+            <Text style={styles.Txt081}>John Due</Text>
+            <Text style={styles.Txt766}>info@gmail.com</Text>
+            <View style={styles.Line3} />
+            <View style={styles.Group851}>
+              <Text style={styles.Txt2109}>Expense : 500</Text>
+              <Image
+                style={styles.Graph}
+                source={{
+                  uri: "https://firebasestorage.googleapis.com/v0/b/unify-bc2ad.appspot.com/o/8YKbQsmLBfONJUj4JItjeY-56%3A508?alt=media&token=637fa258-99ac-42ab-aed8-071f86f14063",
+                }}
+              />
+            </View>
+          </View>
+          <View style={styles.Group091}>
+            {/* <View style={styles.Group14}> */}
+              <Text style={styles.Txt081}>John Due</Text>
+              <Text style={styles.Txt766}>info@gmail.com</Text>
+                <View style={styles.Line3} />
+              <View style={styles.Group851}>
+                <Text style={styles.Txt2109}>Expense : 500</Text>
+                <Image
+                  style={styles.Graph}
+                  source={{
+                    uri: "https://firebasestorage.googleapis.com/v0/b/unify-bc2ad.appspot.com/o/8YKbQsmLBfONJUj4JItjeY-56%3A513?alt=media&token=55e1952a-d007-4708-a91f-6b77bb0da9d7",
+                  }}
+                />
+              </View>
+            {/* </View> */}
+          </View>
+        </View>
+        <View style={styles.Group9104}>
+          <View style={styles.Group091}>
+            <Text style={styles.Txt081}>John Due</Text>
+            <Text style={styles.Txt766}>info@gmail.com</Text>
+            <View style={styles.Line3} />
+            <View style={styles.Group851}>
+              <Text style={styles.Txt2109}>Expense : 500</Text>
+              <Image
+                style={styles.Graph}
+                source={{
+                  uri: "https://firebasestorage.googleapis.com/v0/b/unify-bc2ad.appspot.com/o/8YKbQsmLBfONJUj4JItjeY-56%3A508?alt=media&token=637fa258-99ac-42ab-aed8-071f86f14063",
+                }}
+              />
+            </View>
+          </View>
+          <View style={styles.Group091}>
+            {/* <View style={styles.Group14}> */}
+              <Text style={styles.Txt081}>John Due</Text>
+              <Text style={styles.Txt766}>info@gmail.com</Text>
+                <View style={styles.Line3} />
+              <View style={styles.Group851}>
+                <Text style={styles.Txt2109}>Expense : 500</Text>
+                <Image
+                  style={styles.Graph}
+                  source={{
+                    uri: "https://firebasestorage.googleapis.com/v0/b/unify-bc2ad.appspot.com/o/8YKbQsmLBfONJUj4JItjeY-56%3A513?alt=media&token=55e1952a-d007-4708-a91f-6b77bb0da9d7",
+                  }}
+                />
+              </View>
+            {/* </View> */}
+          </View>
+        </View>
+        <View style={styles.Group9104}>
+          <View style={styles.Group091}>
+            <Text style={styles.Txt081}>John Due</Text>
+            <Text style={styles.Txt766}>info@gmail.com</Text>
+            <View style={styles.Line3} />
+            <View style={styles.Group851}>
+              <Text style={styles.Txt2109}>Expense : 500</Text>
+              <Image
+                style={styles.Graph}
+                source={{
+                  uri: "https://firebasestorage.googleapis.com/v0/b/unify-bc2ad.appspot.com/o/8YKbQsmLBfONJUj4JItjeY-56%3A508?alt=media&token=637fa258-99ac-42ab-aed8-071f86f14063",
+                }}
+              />
+            </View>
+          </View>
+          <View style={styles.Group091}>
+            {/* <View style={styles.Group14}> */}
+              <Text style={styles.Txt081}>John Due</Text>
+              <Text style={styles.Txt766}>info@gmail.com</Text>
+                <View style={styles.Line3} />
+              <View style={styles.Group851}>
+                <Text style={styles.Txt2109}>Expense : 500</Text>
+                <Image
+                  style={styles.Graph}
+                  source={{
+                    uri: "https://firebasestorage.googleapis.com/v0/b/unify-bc2ad.appspot.com/o/8YKbQsmLBfONJUj4JItjeY-56%3A513?alt=media&token=55e1952a-d007-4708-a91f-6b77bb0da9d7",
+                  }}
+                />
+              </View>
+            {/* </View> */}
+          </View>
+        </View>
+        <View style={styles.Group9104}>
+          <View style={styles.Group091}>
+            <Text style={styles.Txt081}>John Due</Text>
+            <Text style={styles.Txt766}>info@gmail.com</Text>
+            <View style={styles.Line3} />
+            <View style={styles.Group851}>
+              <Text style={styles.Txt2109}>Expense : 500</Text>
+              <Image
+                style={styles.Graph}
+                source={{
+                  uri: "https://firebasestorage.googleapis.com/v0/b/unify-bc2ad.appspot.com/o/8YKbQsmLBfONJUj4JItjeY-56%3A508?alt=media&token=637fa258-99ac-42ab-aed8-071f86f14063",
+                }}
+              />
+            </View>
+          </View>
+          <View style={styles.Group091}>
+            {/* <View style={styles.Group14}> */}
+              <Text style={styles.Txt081}>John Due</Text>
+              <Text style={styles.Txt766}>info@gmail.com</Text>
+                <View style={styles.Line3} />
+              <View style={styles.Group851}>
+                <Text style={styles.Txt2109}>Expense : 500</Text>
+                <Image
+                  style={styles.Graph}
+                  source={{
+                    uri: "https://firebasestorage.googleapis.com/v0/b/unify-bc2ad.appspot.com/o/8YKbQsmLBfONJUj4JItjeY-56%3A513?alt=media&token=55e1952a-d007-4708-a91f-6b77bb0da9d7",
+                  }}
+                />
+              </View>
+            {/* </View> */}
+          </View>
+        </View>
+        <View style={styles.Group9104}>
+        <View style={styles.Group091}>
+            <Text style={styles.Txt081}>John Due</Text>
+            <Text style={styles.Txt766}>info@gmail.com</Text>
+            <View style={styles.Line3} />
+            <View style={styles.Group851}>
+              <Text style={styles.Txt2109}>Expense : 500</Text>
+              <Image
+                style={styles.Graph}
+                source={{
+                  uri: "https://firebasestorage.googleapis.com/v0/b/unify-bc2ad.appspot.com/o/8YKbQsmLBfONJUj4JItjeY-56%3A508?alt=media&token=637fa258-99ac-42ab-aed8-071f86f14063",
+                }}
+              />
+            </View>
+          </View>
+          <View style={styles.Group091}>
+            <Text style={styles.Txt081}>John Due</Text>
+            <Text style={styles.Txt766}>info@gmail.com</Text>
+            <View style={styles.Line3} />
+            <View style={styles.Group851}>
+              <Text style={styles.Txt2109}>Expense : 500</Text>
+              <Image
+                style={styles.Graph}
+                source={{
+                  uri: "https://firebasestorage.googleapis.com/v0/b/unify-bc2ad.appspot.com/o/8YKbQsmLBfONJUj4JItjeY-56%3A508?alt=media&token=637fa258-99ac-42ab-aed8-071f86f14063",
+                }}
+              />
             </View>
           </View>
         </View>
         <View style={styles.Group9104}>
-          <View style={styles.Group414}>
-            <View style={styles.Group14}>
-              <Text style={styles.Txt081}>John Due</Text>
-              <Text style={styles.Txt1084}>info@gmail.com</Text>
-              <View style={styles.Group851}>
-                <Text style={styles.Txt2109}>Expense : 500</Text>
-                <Image
-                  style={styles.Graph}
-                  source={{
-                    uri: "https://firebasestorage.googleapis.com/v0/b/unify-bc2ad.appspot.com/o/8YKbQsmLBfONJUj4JItjeY-56%3A526?alt=media&token=ca035430-eac8-4aed-ad1d-054e18596594",
-                  }}
-                />
-              </View>
+        <View style={styles.Group091}>
+            <Text style={styles.Txt081}>John Due</Text>
+            <Text style={styles.Txt766}>info@gmail.com</Text>
+            <View style={styles.Line3} />
+            <View style={styles.Group851}>
+              <Text style={styles.Txt2109}>Expense : 500</Text>
+              <Image
+                style={styles.Graph}
+                source={{
+                  uri: "https://firebasestorage.googleapis.com/v0/b/unify-bc2ad.appspot.com/o/8YKbQsmLBfONJUj4JItjeY-56%3A508?alt=media&token=637fa258-99ac-42ab-aed8-071f86f14063",
+                }}
+              />
             </View>
           </View>
-          <View style={styles.Group790}>
-            <View style={styles.Group14}>
-              <Text style={styles.Txt081}>John Due</Text>
-              <Text style={styles.Txt1084}>info@gmail.com</Text>
-              <View style={styles.Group851}>
-                <Text style={styles.Txt2109}>Expense : 500</Text>
-                <Image
-                  style={styles.Graph}
-                  source={{
-                    uri: "https://firebasestorage.googleapis.com/v0/b/unify-bc2ad.appspot.com/o/8YKbQsmLBfONJUj4JItjeY-56%3A532?alt=media&token=7d943e73-e675-4051-bc4d-3b89bfacd824",
-                  }}
-                />
-              </View>
-            </View>
-          </View>
-        </View>
-        <View style={styles.Group851}>
-          <View style={styles.Group921}>
-            <View style={styles.Group14}>
-              <Text style={styles.Txt081}>John Due</Text>
-              <Text style={styles.Txt1084}>info@gmail.com</Text>
-              <View style={styles.Group851}>
-                <Text style={styles.Txt2109}>Expense : 500</Text>
-                <Image
-                  style={styles.Graph}
-                  source={{
-                    uri: "https://firebasestorage.googleapis.com/v0/b/unify-bc2ad.appspot.com/o/8YKbQsmLBfONJUj4JItjeY-56%3A538?alt=media&token=2ba4d16e-08e4-424b-9160-dd66b41b5354",
-                  }}
-                />
-              </View>
-            </View>
-          </View>
-          <View style={styles.Group884}>
-            <View style={styles.Group14}>
-              <Text style={styles.Txt081}>John Due</Text>
-              <Text style={styles.Txt1084}>info@gmail.com</Text>
-              <View style={styles.Group851}>
-                <Text style={styles.Txt2109}>Expense : 500</Text>
-                <Image
-                  style={styles.Graph}
-                  source={{
-                    uri: "https://firebasestorage.googleapis.com/v0/b/unify-bc2ad.appspot.com/o/8YKbQsmLBfONJUj4JItjeY-56%3A544?alt=media&token=a4641e1d-c260-4746-9e25-fb7c2314f5fb",
-                  }}
-                />
-              </View>
+          <View style={styles.Group091}>
+            <Text style={styles.Txt081}>John Due</Text>
+            <Text style={styles.Txt766}>info@gmail.com</Text>
+            <View style={styles.Line3} />
+            <View style={styles.Group851}>
+              <Text style={styles.Txt2109}>Expense : 500</Text>
+              <Image
+                style={styles.Graph}
+                source={{
+                  uri: "https://firebasestorage.googleapis.com/v0/b/unify-bc2ad.appspot.com/o/8YKbQsmLBfONJUj4JItjeY-56%3A508?alt=media&token=637fa258-99ac-42ab-aed8-071f86f14063",
+                }}
+              />
             </View>
           </View>
         </View>
+      {/* </View> */}
+      </ScrollView>
+      
+      <View style={supplierList}>
+        <Text onPress={() => {
+          console.log('000000000000000000000000');
+          setSupplierList(styles.Group106);
+          setSupplierListText(styles.Txt159);
+          setClientList(styles.Group549);
+          setClientListText(styles.Txt966);
+          
+        }} style={supplierListText}>Supplier List</Text>
       </View>
-      <View style={styles.Group105}>
-        <Text style={styles.Txt966}>Supplier List</Text>
-      </View>
-      <View style={styles.Group548}>
-        <Text style={styles.Txt159}>Client list</Text>
+      <View style={clientList}>
+        <Text onPress={() => {
+          console.log('333333333333333333333333333');
+          setSupplierList(styles.Group105);
+          setSupplierListText(styles.Txt966);
+          setClientList(styles.Group548);
+          setClientListText(styles.Txt159);
+
+          
+        }} style={clientListText}>Client list</Text>
       </View>
       <View style={styles.Group599}>
         <View style={styles.Group13}></View>
         <View style={styles.Group856}>
-          <Text style={styles.Txt159}>Buyer List</Text>
-          <View style={styles.Ellipse8} />
-          <Text style={styles.Txt159}>Payment details</Text>
+          <Text style={styles.Txt160}>Buyer List</Text>
+          {/* <View style={styles.Ellipse8} /> */}
+          <Text style={styles.Txt161}>Payment details</Text>
         </View>
       </View>
     </View>
   )
 }
+
+
 
 const styles = StyleSheet.create({
   ClientList: {
@@ -163,8 +342,9 @@ const styles = StyleSheet.create({
     top: 26,
     left: 335,
     width: 20,
-    height: 20,
+    height: 20
   },
+
   Group: {
     position: "absolute",
     top: 133,
@@ -172,15 +352,17 @@ const styles = StyleSheet.create({
     width: 321.86,
     height: 287.76,
   },
+  
   Group482: {
+    // flex:1,
     display: "flex",
     flexDirection: "column",
-    alignItems: "center",
+    // alignItems: "center",
     position: "absolute",
     top: 164,
     none: "0px",
     paddingTop: 24,
-    paddingBottom: 32,
+    // paddingBottom: 32,
     paddingLeft: 19,
     paddingRight: 19,
     borderTopLeftRadius: 40,
@@ -195,19 +377,24 @@ const styles = StyleSheet.create({
     width: 375,
     height: 503,
   },
+
   Line10: {
     borderWidth: 5,
-    borderStyle: "solid",
-    borderColor: "rgba(255,",
-    width: 37,
+    // borderStyle: "solid",
+    borderColor: "rgba(255,255,255,1)",
+    width: 45,
     height: 5,
     marginBottom: 23,
+    borderRadius:10,
+    left:160,
+    marginTop:150
   },
   Group9104: {
     display: "flex",
     flexDirection: "row",
     marginBottom: 16,
   },
+
   Group091: {
     display: "flex",
     flexDirection: "column",
@@ -217,8 +404,21 @@ const styles = StyleSheet.create({
     paddingRight: 10,
     marginRight: 11,
     borderRadius: 10,
-    backgroundColor: "rgba(220,200,172,1)",
+    backgroundColor: "rgba(255,200,87,1)",
   },
+
+  Group909: {
+    display: "flex",
+    flexDirection: "column",
+    paddingTop: 16,
+    paddingBottom: 16,
+    paddingLeft: 10,
+    paddingRight: 10,
+    marginRight: 11,
+    borderRadius: 10,
+    backgroundColor: "rgba(97,219,180,1)",
+  },
+
   Txt081: {
     fontSize: 14,
     fontFamily: "undefined",
@@ -261,16 +461,6 @@ const styles = StyleSheet.create({
     height: 18,
   },
 
-  Group909: {
-    paddingTop: 16,
-    paddingBottom: 16,
-    paddingLeft: 10,
-    paddingRight: 10,
-    borderRadius: 10,
-    backgroundColor: "rgba(97,219,180,1)",
-    width: 162,
-    height: 130,
-  },
   Group14: {
     display: "flex",
     flexDirection: "column",
@@ -547,28 +737,6 @@ const styles = StyleSheet.create({
     height: 18,
   },
 
-  Group105: {
-    position: "absolute",
-    top: 64,
-    none: "0px",
-    paddingTop: 7,
-    paddingBottom: 6,
-    paddingLeft: 218,
-    paddingRight: 41,
-    borderRadius: 50,
-    backgroundColor: "rgba(255, 255, 255, 1)",
-    width: 335,
-    height: 34,
-  },
-  Txt966: {
-    fontSize: 12,
-    fontFamily: "undefined",
-    fontWeight: "500",
-    color: "rgba(0,0,0,1)",
-    textAlign: "center",
-    justifyContent: "center",
-  },
-
   Group548: {
     position: "absolute",
     top: 64,
@@ -581,7 +749,63 @@ const styles = StyleSheet.create({
     backgroundColor: "rgba(0,97,255,1)",
     width: 184,
     height: 34,
+    left:10
   },
+
+  Group549: {
+    position: "absolute",
+    top: 64,
+    none: "0px",
+    paddingTop: 7,
+    paddingBottom: 6,
+    paddingLeft: 63,
+    paddingRight: 62,
+    borderRadius: 50,
+    backgroundColor: "rgba(255, 255, 255, 1)",
+    width: 184,
+    height: 34,
+    left:10
+  },
+
+  Group105: {
+    position: "absolute",
+    top: 64,
+    none: "0px",
+    paddingTop: 7,
+    paddingBottom: 6,
+    paddingLeft: 190,
+    paddingRight: 41,
+    borderRadius: 50,
+    backgroundColor: "rgba(255, 255, 255, 1)",
+    width: 335,
+    height: 34,
+    left:10
+  },
+
+  Group106: {
+    position: "absolute",
+    top: 64,
+    none: "0px",
+    paddingTop: 7,
+    paddingBottom: 6,
+    paddingLeft: 190,
+    paddingRight: 41,
+    borderRadius: 50,
+    backgroundColor: "rgba(0,97,255,1)",
+    width: 335,
+    height: 34,
+    left:10
+  },
+
+  Txt966: {
+    fontSize: 12,
+    fontFamily: "undefined",
+    fontWeight: "500",
+    color: "rgba(0,0,0,1)",
+    textAlign: "center",
+    justifyContent: "center",
+  },
+  
   Txt159: {
     fontSize: 12,
     fontFamily: "undefined",
@@ -589,6 +813,27 @@ const styles = StyleSheet.create({
     color: "rgba(255, 255, 255, 1)",
     textAlign: "center",
     justifyContent: "center",
+  },
+
+  Txt160: {
+    fontSize: 12,
+    fontFamily: "undefined",
+    fontWeight: "500",
+    color: "rgba(255, 255, 255, 1)",
+    textAlign: "center",
+    justifyContent: "center",
+    borderBottomWidth:3,
+    borderBottomColor:'rgba(0,97,255,1)'
+  },
+
+  Txt161: {
+    fontSize: 12,
+    fontFamily: "undefined",
+    fontWeight: "500",
+    color: "rgba(255, 255, 255, 1)",
+    textAlign: "center",
+    justifyContent: "center",
+    borderBottomWidth:3,
   },
 
   Group599: {
@@ -604,17 +849,22 @@ const styles = StyleSheet.create({
     marginBottom: 79,
     borderWidth: 3,
     borderStyle: "solid",
-    borderColor: "rgba(255,",
+    borderColor: "rgba(255, 255, 255, 1)",
     borderTop: "3px solid rgba(255, 255, 255, 1)",
     width: 25,
     height: 8,
+    left:10
   },
 
   Group856: {
     display: "flex",
     flexDirection: "row",
     alignItems: "flex-end",
+    justifyContent:'space-between',
+    left:20,
+    flex:1
   },
+  
   Txt159: {
     fontSize: 12,
     fontFamily: "undefined",
@@ -625,7 +875,7 @@ const styles = StyleSheet.create({
   },
   Ellipse8: {
     backgroundColor: "rgba(0,97,255,1)",
-    width: 3,
+    width: 50,
     height: 3,
     borderRadius: 1.5,
     marginRight: 27,
