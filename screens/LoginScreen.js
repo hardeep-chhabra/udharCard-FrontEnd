@@ -31,16 +31,21 @@ export default function SignIn() {
           autoCapitalize="none"
           keyboardType="default"
           selectionColor="grey"
-          disableFullscreenUI={true}
+          disableFullscreenUI={false}
           clearTextOnFocus={false}
           autoCorrect={false}
           selectTextOnFocus={false}
           editable={true}
-          placeholderTextColor='black'
+          placeholderTextColor='rgba(0,0,0,1)'
           // style={styles.textInput}
-          style={{height:45, width:300, paddingLeft:40, backgroundColor:'white'}}
-        ></TextInput>
-        <Icon name="user" style={styles.icon}></Icon>
+          style={{height:45, width:300, paddingLeft:40, backgroundColor:'white', fontSize: 12, fontFamily: "undefined", fontWeight: "400"}} />
+        {/* <Icon name="user" style={styles.icon}></Icon> */}
+        <Image
+            style={styles.icon}
+            source={{
+              uri: "https://firebasestorage.googleapis.com/v0/b/unify-bc2ad.appspot.com/o/8YKbQsmLBfONJUj4JItjeY-34%3A226?alt=media&token=b6802ea3-cd6b-4478-8d43-f26269ae5b50",
+            }}
+          />
       </View>
         <View style={styles.Group4101}>
           <Image
@@ -185,12 +190,6 @@ const styles = StyleSheet.create({
     shadowColor: "rgba(0,97,255,1)",
     elevation: 1,
     shadowOffset: { width: 0, height: 2 },
-  },
-
-  User: {
-    width: 20,
-    height: 20,
-    marginRight: 10,
   },
 
   Txt618: {
@@ -356,13 +355,13 @@ const styles = StyleSheet.create({
   },
 
   icon: {
-    top: 4,
+    top: 10,
     left: 10,
     position: "absolute",
-    color: "black",
-    fontSize: 30,
-    width: 30,
-    height: 30
+    // color: "black",
+    // fontSize: 30,
+    width: 25,
+    height: 20
   },
   textInputStack: {
     width: 302,
