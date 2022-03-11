@@ -1,25 +1,32 @@
-import React from "react"
+import { useNavigation } from "@react-navigation/native";
+import React, { useEffect } from "react"
 import { StyleSheet, Image, Text, View,StatusBar, TextInput, ImageBackground, TouchableOpacity } from "react-native"
 import Icon from "react-native-vector-icons/Feather";
 
 
 
 export default function SignIn() {
+
+  const navigation = useNavigation();
+
+  useEffect(() => {
+    console.log('LOGINSCREEN MOUNTED');
+
+    return () => {
+    console.log('LOGINSCREEN UNMOUNTED');
+    }
+  })
+  
+  
+  
   
   return (
     <View style={styles.SignIn}>
       <View style={styles.Group929}>
         <Text style={styles.Txt609}>Logo</Text>
-        {/* <View style={styles.Group2610}>
-          <Image
-            style={styles.User}
-            source={{
-              uri: "https://firebasestorage.googleapis.com/v0/b/unify-bc2ad.appspot.com/o/8YKbQsmLBfONJUj4JItjeY-34%3A226?alt=media&token=b6802ea3-cd6b-4478-8d43-f26269ae5b50",
-            }}
-          />
-          <Text style={styles.Txt618}>Username</Text>
-        </View> */}
+
       <StatusBar backgroundColor="black" />
+
       <View style={styles.Group2611}>
         <TextInput
           placeholder="Username"
@@ -38,28 +45,50 @@ export default function SignIn() {
           editable={true}
           placeholderTextColor='rgba(0,0,0,1)'
           // style={styles.textInput}
-          style={{height:45, width:300, paddingLeft:40, backgroundColor:'white', fontSize: 12, fontFamily: "undefined", fontWeight: "400"}} />
+          style={{height:45, width:300, paddingLeft:40, backgroundColor:'white', fontSize: 12, fontFamily: "undefined", fontWeight: "400", borderRadius:10}} />
         {/* <Icon name="user" style={styles.icon}></Icon> */}
         <Image
-            style={styles.icon}
+            style={styles.userIcon}
             source={{
               uri: "https://firebasestorage.googleapis.com/v0/b/unify-bc2ad.appspot.com/o/8YKbQsmLBfONJUj4JItjeY-34%3A226?alt=media&token=b6802ea3-cd6b-4478-8d43-f26269ae5b50",
             }}
           />
       </View>
-        <View style={styles.Group4101}>
-          <Image
-            style={styles.User}
+
+        <View style={styles.Group2611}>
+        <TextInput
+          placeholder="Password"
+          multiline={false}
+          keyboardAppearance="dark"
+          // defaultValue="none"
+          // inlineImagePadding={"null"}
+          // numberOfLines={"null"}
+          autoCapitalize="none"
+          keyboardType="default"
+          selectionColor="grey"
+          disableFullscreenUI={false}
+          clearTextOnFocus={false}
+          autoCorrect={false}
+          selectTextOnFocus={false}
+          editable={true}
+          placeholderTextColor='rgba(0,0,0,1)'
+          // style={styles.textInput}
+          style={{height:45, width:300, paddingLeft:40, backgroundColor:'white', fontSize: 12, fontFamily: "undefined", fontWeight: "400", borderRadius:10}} />
+        {/* <Icon name="user" style={styles.icon}></Icon> */}
+        <Image
+            style={styles.passwordIcon}
             source={{
               uri: "https://firebasestorage.googleapis.com/v0/b/unify-bc2ad.appspot.com/o/8YKbQsmLBfONJUj4JItjeY-34%3A219?alt=media&token=70116d08-2e36-4de7-931c-fdf443c5a6a5",
             }}
           />
-          <Text style={styles.Txt618}>Password</Text>
-        </View>
+      </View>
+
         <TouchableOpacity>
         <Text style={styles.Txt667}>Forget Password ?</Text>
         </TouchableOpacity>
-        <TouchableOpacity>
+        <TouchableOpacity onPress={(() => {
+          navigation.replace('ClientListScreen')
+        })}>
         <View style={styles.Group457}>
           <Text style={styles.Txt4104}>Sign In</Text>
         </View>
@@ -354,15 +383,26 @@ const styles = StyleSheet.create({
     lineHeight: 4
   },
 
-  icon: {
+  passwordIcon: {
+    top: 14,
+    left: 10,
+    position: "absolute",
+    // color: "black",
+    // fontSize: 30,
+    width: 20,
+    height: 20
+  },
+
+  userIcon:{
     top: 10,
     left: 10,
     position: "absolute",
     // color: "black",
     // fontSize: 30,
-    width: 25,
+    width: 20,
     height: 20
   },
+  
   textInputStack: {
     width: 302,
     height: 54,

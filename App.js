@@ -13,13 +13,19 @@ import { createStackNavigator } from '@react-navigation/stack';
 import LoginScreen from './screens/LoginScreen';
 import ClientList from './screens/clientList';
 
-// const Stack = createStackNavigator();
+const Stack = createStackNavigator();
 
 
 const App = () => {
 
   return (
-    <LoginScreen />
+    <NavigationContainer>
+      <Stack.Navigator>
+      <Stack.Screen name='LoginScreen' component={LoginScreen} options={{headerShown:false}} />
+      <Stack.Screen name='ClientListScreen' component={ClientList} options={{headerShown:false}} />
+    {/* <LoginScreen /> */}
+    </Stack.Navigator>
+    </NavigationContainer>
   );
 };
 

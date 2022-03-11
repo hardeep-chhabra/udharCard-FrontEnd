@@ -3,7 +3,18 @@ import { StyleSheet, Image, Text, View, ImageBackground, FlatList, ScrollView, S
 
 
 
+
 export default function ClientList() {
+
+
+  useEffect(() => {
+    console.log('CLIENTLIST SCREEN MOUNTED');
+
+    return () => {
+    console.log('CLIENTLIST SCREEN UNMOUNTED');
+    }
+  })
+
 
   useEffect(() => {
 
