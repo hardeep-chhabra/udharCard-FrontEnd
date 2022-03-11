@@ -14,7 +14,6 @@ export default function RegisterScreen() {
         }
       })
 
-
     const navigation = useNavigation();
 
 

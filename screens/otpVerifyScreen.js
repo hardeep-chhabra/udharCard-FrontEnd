@@ -1,50 +1,117 @@
+import { useNavigation } from "@react-navigation/native";
 import React from "react"
-import { StyleSheet, Image, Text, View, ImageBackground } from "react-native"
+import { StyleSheet, Image, Text, View, ImageBackground, TextInput, TouchableOpacity } from "react-native"
 
 
 
 
 export default function OTPVerifyScreen() {
+
+    const navigation = useNavigation();
+
+
+
   return (
     <View style={styles.Otp_verify}>
+
       <Image
         style={styles.Group}
         source={{
           uri: "https://firebasestorage.googleapis.com/v0/b/unify-bc2ad.appspot.com/o/8YKbQsmLBfONJUj4JItjeY-53%3A346?alt=media&token=5016789f-0cc9-4595-adb1-027bc6a420c2",
         }}
       />
+
       <Image
         style={styles.Frame}
         source={{
           uri: "https://firebasestorage.googleapis.com/v0/b/unify-bc2ad.appspot.com/o/8YKbQsmLBfONJUj4JItjeY-53%3A360?alt=media&token=42dca3bf-5495-46e9-a0e8-a72d657deb90",
         }}
       />
+      
       <View style={styles.Group255}>
+          
         <Text style={styles.Txt905}>OTP verification</Text>
+
         <Text style={styles.Txt044}>
-          Enter the OTP Send to Your Number xxxx
+          Enter the OTP Sent to Your Number xxxx
         </Text>
-        <View style={styles.Group052}>
-          <View style={styles.Line4} />
-          <Text style={styles.Txt6310}>0</Text>
-          <View style={styles.Line5} />
-          <Text style={styles.Txt1077}>8</Text>
-          <View style={styles.Line6} />
-          <Text style={styles.Txt766}>1</Text>
-          <View style={styles.Line7} />
-          <Text style={styles.Txt361}>5</Text>
+
+        <View style={styles.container}>
+        {/* <View style={styles.placeholderRow}> */}
+        <TextInput
+          defaultValue="9"
+          maxLength={1}
+          textAlign='center'
+          selectTextOnFocus={false}
+          textContentType='oneTimeCode'
+          keyboardType="numeric"
+          numberOfLines={1}
+          style={styles.placeholder}
+        ></TextInput>
+        <TextInput
+          defaultValue="5"
+          maxLength={1}
+          textAlign='center'
+          selectTextOnFocus={false}
+          numberOfLines={1}
+          textContentType='oneTimeCode'
+          keyboardType="numeric"
+          style={styles.placeholder2}
+        ></TextInput>
+        <TextInput
+          defaultValue="2"
+          maxLength={1}
+          textAlign='center'
+          selectTextOnFocus={false}
+          numberOfLines={1}
+          textContentType='oneTimeCode'
+          keyboardType="numeric"
+          keyboardAppearance='light'
+          style={styles.placeholder3}
+        ></TextInput>
+        <TextInput
+          defaultValue="5"
+          maxLength={1}
+          textAlign='center'
+          selectTextOnFocus={false}
+          numberOfLines={1}
+          textContentType='oneTimeCode'
+          keyboardType="numeric"
+          style={styles.placeholder4}
+        ></TextInput>
+      {/* </View> */}
         </View>
-        <Text style={styles.multiple1}>Don’t receive the OTP ? RESEND OTP</Text>
-        <View style={styles.Group12}>
-          <Text style={styles.Txt708}>Verify & Proceed</Text>
-        </View>
+
+        <TouchableOpacity onPress={(() => {
+        //   navigation.replace('LoginScreen')
+        })} style={{flexDirection:'row'}}>
+        <Text style={styles.multiple1}>Didn't receive the OTP ? </Text>
+        <Text style={styles.multiple2}> RESEND OTP</Text>
+        </TouchableOpacity>
+
+        <TouchableOpacity 
+        onPress={(() => {
+            navigation.navigate('ClientListScreen')
+            })}
+        >
+            <View style={styles.Group12}>
+            <Text style={styles.Txt708}>Verify & Proceed</Text>
+            </View>
+        </TouchableOpacity>
+        
       </View>
+
+      <TouchableOpacity onPress={() => {
+            console.log('000000000000000000000000')
+            navigation.goBack('RegisterScreen')
+        }}>
       <Image
         style={styles.Back}
         source={{
           uri: "https://firebasestorage.googleapis.com/v0/b/unify-bc2ad.appspot.com/o/8YKbQsmLBfONJUj4JItjeY-56%3A547?alt=media&token=fb280039-c85d-46d7-8a09-7bbd36b41d54",
         }}
       />
+      </TouchableOpacity>
     </View>
   )
 }
@@ -53,6 +120,89 @@ export default function OTPVerifyScreen() {
 
 
 const styles = StyleSheet.create({
+
+container: {
+        flex: 1,
+        borderWidth: 0,
+        borderColor: "#000000",
+        flexDirection: "row",
+        justifyContent:'space-evenly'
+    },
+
+placeholder: {
+    fontFamily: "roboto-regular",
+    color: "white",
+    height: 57,
+    width: 36,
+    fontSize: 25,
+    backgroundColor: "black",
+    borderBottomColor:'white',
+    borderBottomWidth:3,
+    shadowColor: "rgba(0,0,0,1)",
+    shadowOffset: {
+        width: 3,
+        height: 3
+    },
+    elevation: 5,
+    shadowOpacity: 0.01,
+    shadowRadius: 0,
+    marginTop: 4,
+    left:30
+    },
+
+placeholder2: {
+    fontFamily: "roboto-regular",
+    color: "white",
+    height: 65,
+    width: 36,
+    marginLeft: 39,
+    fontSize: 25,
+    backgroundColor: "black",
+    borderBottomColor:'white',
+    borderBottomWidth:3,
+    left:30,
+    marginTop: -4,
+    shadowColor: "rgba(0,0,0,1)",
+    shadowOffset: {
+        width: 3,
+        height: 3
+        },
+    elevation: 5,
+    shadowOpacity: 0.01,
+    shadowRadius: 0,
+    paddingBottom:2
+    },
+
+placeholder3: {
+    fontFamily: "roboto-regular",
+    color: "white",
+    height: 57,
+    width: 36,
+    marginTop: 4,
+    backgroundColor: "black",
+    borderBottomColor:'white',
+    borderBottomWidth:3,
+    left:75,
+    fontSize: 25,
+    paddingBottom:10
+    },
+
+placeholder4: {
+    fontFamily: "roboto-regular",
+    color: "white",
+    height: 43,
+    width: 62,
+    marginLeft: 35,
+    left:80,
+    height: 57,
+    width: 36,
+    fontSize: 25,
+    backgroundColor: "black",
+    borderBottomColor:'white',
+    borderBottomWidth:3,
+    marginTop: 4,
+    },
+
   Otp_verify: {
     display: "flex",
     flexDirection: "column",
@@ -63,7 +213,9 @@ const styles = StyleSheet.create({
     /*  linear-gradient(90.15deg, rgba(27,23,34,0.9) 1%, rgba(37,29,49,0.9) 100%, ) , linear-gradient(0deg, rgba(255, 255, 255, 1), rgba(255, 255, 255, 1)) */
     width: 375,
     height: 667,
+    flex:1
   },
+
   Group: {
     position: "absolute",
     top: 133,
@@ -71,6 +223,7 @@ const styles = StyleSheet.create({
     width: 321.86,
     height: 287.76,
   },
+
   Frame: {
     position: "absolute",
     top: 110,
@@ -94,6 +247,7 @@ const styles = StyleSheet.create({
     fontWeight: "500",
     color: "rgba(255, 255, 255, 1)",
     marginBottom: 21,
+    left:65
   },
   Txt044: {
     fontSize: 12,
@@ -103,6 +257,7 @@ const styles = StyleSheet.create({
     textAlign: "center",
     justifyContent: "center",
     marginBottom: 34,
+    left:58
   },
   Group052: {
     display: "flex",
@@ -113,7 +268,7 @@ const styles = StyleSheet.create({
   Line4: {
     borderWidth: 1,
     borderStyle: "solid",
-    borderColor: "rgba(255,",
+    borderColor: "rgba(255, 255, 255, 1)",
     width: 41,
     height: 1,
   },
@@ -129,7 +284,7 @@ const styles = StyleSheet.create({
   Line5: {
     borderWidth: 1,
     borderStyle: "solid",
-    borderColor: "rgba(255,",
+    borderColor: "rgba(255, 255, 255, 1)",
     width: 41,
     height: 1,
   },
@@ -145,7 +300,7 @@ const styles = StyleSheet.create({
   Line6: {
     borderWidth: 1,
     borderStyle: "solid",
-    borderColor: "rgba(255,",
+    borderColor: "rgba(255, 255, 255, 1)",
     width: 41,
     height: 1,
   },
@@ -161,7 +316,7 @@ const styles = StyleSheet.create({
   Line7: {
     borderWidth: 1,
     borderStyle: "solid",
-    borderColor: "rgba(255,",
+    borderColor: "rgba(255, 255, 255, 1)",
     width: 41,
     height: 1,
   },
@@ -175,10 +330,22 @@ const styles = StyleSheet.create({
   },
 
   multiple1: {
-    main: "Txt10710",
-    seg1: "[object Object]",
-    seg2: "[object Object]",
+    fontSize: 12,
+    fontFamily: "undefined",
+    fontWeight: "500",
+    color: "rgba(255, 255, 255, 1)",
+    // marginBottom: 31,
+    marginLeft:90
   },
+
+  multiple2: {
+    fontSize: 12,
+    fontFamily: "undefined",
+    fontWeight: "500",
+    color: "rgba(0,97,255,1)",
+    // marginBottom: 31,
+  },
+
   Group12: {
     paddingTop: 14,
     paddingBottom: 14,
@@ -188,6 +355,8 @@ const styles = StyleSheet.create({
     backgroundColor: "rgba(0,97,255,1)",
     width: 232,
     height: 50,
+    left:50,
+    top:50,
   },
   Txt708: {
     fontSize: 14,
@@ -200,8 +369,8 @@ const styles = StyleSheet.create({
 
   Back: {
     position: "absolute",
-    top: 39,
-    left: 25,
+    top: 20,
+    left: 10,
     width: 30,
     height: 30,
   },
