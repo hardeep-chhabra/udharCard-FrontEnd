@@ -70,6 +70,7 @@ export default function SignIn() {
           clearTextOnFocus={false}
           autoCorrect={false}
           selectTextOnFocus={false}
+          secureTextEntry={true}
           editable={true}
           placeholderTextColor='rgba(0,0,0,1)'
           // style={styles.textInput}
@@ -86,6 +87,7 @@ export default function SignIn() {
         <TouchableOpacity>
         <Text style={styles.Txt667}>Forget Password ?</Text>
         </TouchableOpacity>
+
         <TouchableOpacity onPress={(() => {
           navigation.replace('ClientListScreen')
         })}>
@@ -93,7 +95,9 @@ export default function SignIn() {
           <Text style={styles.Txt4104}>Sign In</Text>
         </View>
         </TouchableOpacity>
+
         <Text style={styles.Txt3108}>or</Text>
+
         <View style={styles.Group1027}>
         <TouchableOpacity>
           <View style={styles.Group484}>
@@ -116,11 +120,16 @@ export default function SignIn() {
           </View>
           </TouchableOpacity>
         </View>
+
         <View style={styles.Line1} />
-        <TouchableOpacity style={{flexDirection:'row'}}>
+
+        <TouchableOpacity onPress={(() => {
+          navigation.replace('RegisterScreen')
+        })} style={{flexDirection:'row'}}>
         <Text style={styles.multiple1}>Don’t have Account ? </Text>
         <Text style={styles.multiple2}>SIGN UP</Text>
         </TouchableOpacity>
+
       </View>
       {/* <Image
         style={styles.Group}
@@ -246,6 +255,7 @@ const styles = StyleSheet.create({
     width: 300,
     height: 50,
   },
+
   Txt4104: {
     fontSize: 14,
     fontFamily: "undefined",
