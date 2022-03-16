@@ -1,18 +1,59 @@
 import { useNavigation } from "@react-navigation/native";
-import React from "react"
-import { StyleSheet, Image, Text, View, ImageBackground, TextInput, TouchableOpacity } from "react-native"
+import React, { useEffect, useRef, useState } from "react"
+import { StyleSheet, Image, Text, View, ImageBackground, TextInput, TouchableOpacity, Animated } from "react-native"
 
 
 
 
 export default function OTPVerifyScreen() {
 
+
+  useEffect(() => {
+    // Animated.timing(animateTextOpacity, {
+    //   toValue:1,
+    //   delay:2000,
+    //   duration:3000,
+    //   isInteraction:true,
+    //   useNativeDriver:true
+    // }).start();
+
+      }, [])
+
+
     const navigation = useNavigation();
 
+    const inputTextRef = useRef('SJDBSJHBD');
+    const inputTextRef2 = useRef();
+    const inputTextRef3 = useRef();
+    const inputTextRef4 = useRef();
+
+    const inputTextValue1 = useRef(0);
+    const inputTextValue2 = useRef(0);
+    const inputTextValue3 = useRef(0);
+    const inputTextValue4 = useRef(0);
+
+    const animateTextOpacity = new Animated.Value(0)
+    const animateTextDisplay = new Animated.Value(0)
+
+
+    const akjaskdjsa = Animated.timing(animateTextOpacity, {
+      toValue:1,
+      delay:2000,
+      duration:3000,
+      useNativeDriver:true
+    })
+
+    console.log('DDDDDDDDDDDDDDDDDDDDDDDD', akjaskdjsa);
 
 
   return (
     <View style={styles.Otp_verify}>
+
+      <Animated.View style={{backgroundColor:'white', opacity:animateTextOpacity}}>
+        <Text>
+          adjhabhdbasbdasbhdb
+          </Text>
+        </Animated.View>
 
       <Image
         style={styles.Group}
@@ -39,17 +80,27 @@ export default function OTPVerifyScreen() {
         <View style={styles.container}>
         {/* <View style={styles.placeholderRow}> */}
         <TextInput
-          defaultValue="9"
+          // defaultValue="9"
           maxLength={1}
           textAlign='center'
+          ref={inputTextRef}
           selectTextOnFocus={false}
           textContentType='oneTimeCode'
           keyboardType="numeric"
           numberOfLines={1}
           style={styles.placeholder}
+          autoFocus
+          onChangeText={(value) => {
+            
+            if (value!=='') {
+              inputTextValue1.current = value;
+              inputTextRef2.current.focus();
+            }
+            console.log('AAAAAAAAAAAAAAAAAAAAAAAA', inputTextValue1);
+          }}
         ></TextInput>
         <TextInput
-          defaultValue="5"
+          ref={inputTextRef2}
           maxLength={1}
           textAlign='center'
           selectTextOnFocus={false}
@@ -57,9 +108,17 @@ export default function OTPVerifyScreen() {
           textContentType='oneTimeCode'
           keyboardType="numeric"
           style={styles.placeholder2}
+          onChangeText={(value) => {
+
+            if (value!=='') {
+              inputTextValue2.current = value;
+              inputTextRef3.current.focus()
+            }
+
+          }}
         ></TextInput>
         <TextInput
-          defaultValue="2"
+          ref={inputTextRef3}
           maxLength={1}
           textAlign='center'
           selectTextOnFocus={false}
@@ -68,9 +127,17 @@ export default function OTPVerifyScreen() {
           keyboardType="numeric"
           keyboardAppearance='light'
           style={styles.placeholder3}
+          onChangeText={(value) => {
+
+            if (value!=='') {
+              inputTextValue3.current = value;
+              inputTextRef4.current.focus()
+            }
+
+          }}
         ></TextInput>
         <TextInput
-          defaultValue="5"
+          ref={inputTextRef4}
           maxLength={1}
           textAlign='center'
           selectTextOnFocus={false}
@@ -78,32 +145,42 @@ export default function OTPVerifyScreen() {
           textContentType='oneTimeCode'
           keyboardType="numeric"
           style={styles.placeholder4}
+          onChangeText={(value) => {
+            inputTextValue4.current = value;
+            console.log('BBBBBBBBBBBBBBBBBBBBBBBBB', inputTextValue4)
+          }}
         ></TextInput>
       {/* </View> */}
         </View>
 
-        <TouchableOpacity onPress={(async () => {
-          const response = await fetch(`https://verify1-1227-pufhrk.twil.io/start-verify`, {
-            method: "POST",
-            headers: {
-              "Content-Type": "application/json",
-            },
-            body: JSON.stringify({
-              to: "+919662079915",
-              channel: "sms",
-            }),
-            });
-            const json = await response.json();
-            console.log('000000000000000000000000', response,json)
+        <TouchableOpacity 
+        // onPress={(async () => {
+        //   const response = await fetch(`https://verify1-1227-pufhrk.twil.io/start-verify`, {
+        //     method: "POST",
+        //     headers: {
+        //       "Content-Type": "application/json",
+        //     },
+        //     body: JSON.stringify({
+        //       to: "+919662079915",
+        //       channel: "sms",
+        //     }),
+        //     });
+        //     const json = await response.json();
+        //     console.log('000000000000000000000000', response, json)
 
-        //   navigation.replace('LoginScreen')
-        })} style={{flexDirection:'row'}}>
+        // //   navigation.replace('LoginScreen')
+        // })}
+        onPress={() => {
+          akjaskdjsa.start();
+        }}
+        style={{flexDirection:'row'}}>
         <Text style={styles.multiple1}>Didn't receive the OTP ? </Text>
         <Text style={styles.multiple2}> RESEND OTP</Text>
         </TouchableOpacity>
 
         <TouchableOpacity 
         onPress={(() => {
+            console.log('CCCCCCCCCCCCCCCCCCCCC', inputTextValue1,inputTextValue2,inputTextValue3,inputTextValue4)
             navigation.navigate('ClientListScreen')
             })}
         >
@@ -159,8 +236,9 @@ placeholder: {
     elevation: 5,
     shadowOpacity: 0.01,
     shadowRadius: 0,
-    marginTop: 4,
-    left:30
+    marginTop: 6,
+    left:30,
+    paddingBottom:7
     },
 
 placeholder2: {
@@ -174,7 +252,7 @@ placeholder2: {
     borderBottomColor:'white',
     borderBottomWidth:3,
     left:30,
-    marginTop: -4,
+    marginTop: -2,
     shadowColor: "rgba(0,0,0,1)",
     shadowOffset: {
         width: 3,
@@ -191,7 +269,7 @@ placeholder3: {
     color: "white",
     height: 57,
     width: 36,
-    marginTop: 4,
+    marginTop: 5,
     backgroundColor: "black",
     borderBottomColor:'white',
     borderBottomWidth:3,
@@ -214,6 +292,7 @@ placeholder4: {
     borderBottomColor:'white',
     borderBottomWidth:3,
     marginTop: 4,
+    paddingBottom:7
     },
 
   Otp_verify: {
