@@ -45,7 +45,7 @@ export default function SignIn() {
           editable={true}
           placeholderTextColor='rgba(0,0,0,1)'
           // style={styles.textInput}
-          style={{height:45, width:300, paddingLeft:40, backgroundColor:'white', fontSize: 12, fontFamily: "undefined", fontWeight: "400", borderRadius:10, color:'red'}} />
+          style={{height:45, width:300, paddingLeft:40, backgroundColor:'white', fontSize: 12, fontFamily: "undefined", fontWeight: "400", borderRadius:10}} />
         {/* <Icon name="user" style={styles.icon}></Icon> */}
         <Image
             style={styles.userIcon}

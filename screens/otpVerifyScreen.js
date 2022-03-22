@@ -1,6 +1,6 @@
 import { useNavigation } from "@react-navigation/native";
 import React, { useEffect, useRef, useState } from "react"
-import { StyleSheet, Image, Text, View, ImageBackground, TextInput, TouchableOpacity, Animated } from "react-native"
+import { StyleSheet, Image, Text, View, ImageBackground, TextInput, TouchableOpacity, Animated, Easing, StatusBar } from "react-native"
 
 
 
@@ -8,16 +8,16 @@ import { StyleSheet, Image, Text, View, ImageBackground, TextInput, TouchableOpa
 export default function OTPVerifyScreen() {
 
 
-  useEffect(() => {
-    // Animated.timing(animateTextOpacity, {
-    //   toValue:1,
-    //   delay:2000,
-    //   duration:3000,
-    //   isInteraction:true,
-    //   useNativeDriver:true
-    // }).start();
+  // useEffect(() => {
+  //   Animated.timing(animateTextOpacity, {
+  //     toValue:1,
+  //     delay:2000,
+  //     duration:3000,
+  //     isInteraction:true,
+  //     useNativeDriver:true
+  //   }).start();
 
-      }, [])
+  //     }, [])
 
 
     const navigation = useNavigation();
@@ -32,27 +32,39 @@ export default function OTPVerifyScreen() {
     const inputTextValue3 = useRef(0);
     const inputTextValue4 = useRef(0);
 
-    const animateTextOpacity = new Animated.Value(0)
-    const animateTextDisplay = new Animated.Value(0)
+    const animatedTextOTPValue = useRef();
+
+    const animateTextOpacity = new Animated.Value(1)
 
 
-    const akjaskdjsa = Animated.timing(animateTextOpacity, {
+    const loginMessageAnimation = Animated.sequence([Animated.timing(animateTextOpacity, {
       toValue:1,
       delay:2000,
-      duration:3000,
-      useNativeDriver:true
-    })
+      duration:200,
+      useNativeDriver:false
+    }),
+    Animated.timing(animateTextOpacity, {
+      toValue:0,
+      delay:100,
+      duration:2000,
+      useNativeDriver:false
+    })])
 
-    console.log('DDDDDDDDDDDDDDDDDDDDDDDD', akjaskdjsa);
+    console.log('DDDDDDDDDDDDDDDDDDDDDDDD');
 
 
   return (
     <View style={styles.Otp_verify}>
 
-      <Animated.View style={{backgroundColor:'white', opacity:animateTextOpacity}}>
-        <Text>
-          adjhabhdbasbdasbhdb
-          </Text>
+      <StatusBar backgroundColor="black" />
+
+      <Animated.View style={[styles.animatedViewMsg, {opacity:animateTextOpacity,
+      backgroundColor:animateTextOpacity.interpolate({
+        inputRange:[0,1],
+        outputRange:['rgba(0,97,255,1)','black'],
+      })}]}>
+        <TextInput editable={false} ref={animatedTextOTPValue} style={{color:'rgba(255, 255, 255, 1)', padding:0, paddingTop:0}}>
+          </TextInput>
         </Animated.View>
 
       <Image
@@ -96,7 +108,6 @@ export default function OTPVerifyScreen() {
               inputTextValue1.current = value;
               inputTextRef2.current.focus();
             }
-            console.log('AAAAAAAAAAAAAAAAAAAAAAAA', inputTextValue1);
           }}
         ></TextInput>
         <TextInput
@@ -147,42 +158,65 @@ export default function OTPVerifyScreen() {
           style={styles.placeholder4}
           onChangeText={(value) => {
             inputTextValue4.current = value;
-            console.log('BBBBBBBBBBBBBBBBBBBBBBBBB', inputTextValue4)
           }}
         ></TextInput>
       {/* </View> */}
         </View>
 
-        <TouchableOpacity 
-        // onPress={(async () => {
-        //   const response = await fetch(`https://verify1-1227-pufhrk.twil.io/start-verify`, {
-        //     method: "POST",
-        //     headers: {
-        //       "Content-Type": "application/json",
-        //     },
-        //     body: JSON.stringify({
-        //       to: "+919662079915",
-        //       channel: "sms",
-        //     }),
-        //     });
-        //     const json = await response.json();
-        //     console.log('000000000000000000000000', response, json)
+        <TouchableOpacity
 
-        // //   navigation.replace('LoginScreen')
-        // })}
-        onPress={() => {
-          akjaskdjsa.start();
+        onPress={async () => {
+          // const response = await fetch(`https://verify1-1227-pufhrk.twil.io/start-verify`, {
+          //   method: "POST",
+          //   headers: {
+          //     "Content-Type": "application/json",
+          //   },
+          //   body: JSON.stringify({
+          //     to: "+919662079915",
+          //     channel: "sms",
+          //   }),
+          //   });
+          // const json = await response.json();
+
+          animatedTextOTPValue.current.setNativeProps({'text':'               OTP Resent Successfully !!!'})
+          loginMessageAnimation.start(() => {
+            loginMessageAnimation.reset();
+          });
         }}
+
         style={{flexDirection:'row'}}>
         <Text style={styles.multiple1}>Didn't receive the OTP ? </Text>
         <Text style={styles.multiple2}> RESEND OTP</Text>
         </TouchableOpacity>
 
-        <TouchableOpacity 
-        onPress={(() => {
-            console.log('CCCCCCCCCCCCCCCCCCCCC', inputTextValue1,inputTextValue2,inputTextValue3,inputTextValue4)
-            navigation.navigate('ClientListScreen')
-            })}
+        <TouchableOpacity
+          onPress={(() => {
+            // const response = await fetch(`https://verify1-1227-pufhrk.twil.io/start-verify`, {
+            //   method: "POST",
+            //   headers: {
+            //     "Content-Type": "application/json",
+            //   },
+            //   body: JSON.stringify({
+            //     to: "+919662079915",
+            //     channel: "sms",
+            //   }),
+            //   });
+            // const json = await response.json();
+
+            if (1 > 2) {
+            animatedTextOTPValue.current.setNativeProps({'text':'         Please Insert the Correct OTP !!!'})
+            loginMessageAnimation.start(() => {
+              console.log('EEEEEEEEEEEEEEEEEEEEEEEEEEEE');
+              loginMessageAnimation.reset();
+            });
+            console.log('GGGGGGGGGGGGGGGGGGGGGGGGG');
+            console.log('HHHHHHHHHHHHHHHHHHHHH');
+            }
+            else {
+            navigation.replace('ClientListScreen')
+          }
+
+          })}
         >
             <View style={styles.Group12}>
             <Text style={styles.Txt708}>Verify & Proceed</Text>
@@ -192,7 +226,6 @@ export default function OTPVerifyScreen() {
       </View>
 
       <TouchableOpacity onPress={() => {
-            console.log('000000000000000000000000')
             navigation.goBack('RegisterScreen')
         }}>
       <Image
@@ -294,6 +327,12 @@ placeholder4: {
     marginTop: 4,
     paddingBottom:7
     },
+
+    animatedViewMsg: {
+      left:25,
+      marginBottom:-30,
+      top:70,
+      },
 
   Otp_verify: {
     display: "flex",

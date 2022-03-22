@@ -1,6 +1,6 @@
 import { useNavigation } from "@react-navigation/native";
 import React, { useEffect } from "react"
-import { StyleSheet, Image, Text, View, ImageBackground, TouchableOpacity, TextInput } from "react-native"
+import { StyleSheet, Image, Text, View, ImageBackground, TouchableOpacity, TextInput, StatusBar } from "react-native"
 
 
 
@@ -20,6 +20,9 @@ export default function RegisterScreen() {
 
   return (
     <View style={styles.SignUp}>
+
+      <StatusBar backgroundColor="black" />
+
       <View style={styles.Group696}>
         <Text style={styles.Txt698}>Logo</Text>
 
