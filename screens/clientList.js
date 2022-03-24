@@ -1,3 +1,4 @@
+import { createDrawerNavigator } from "@react-navigation/drawer";
 import React, { useEffect, useState } from "react"
 import { StyleSheet, Image, Text, View, ImageBackground, FlatList, ScrollView, StatusBar } from "react-native"
 
@@ -5,6 +6,7 @@ import { StyleSheet, Image, Text, View, ImageBackground, FlatList, ScrollView, S
 
 
 export default function ClientList() {
+
 
 
   useEffect(() => {

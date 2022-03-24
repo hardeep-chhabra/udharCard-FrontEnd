@@ -216,7 +216,7 @@ export default function OTPVerifyScreen() {
             console.log('GGGGGGGGGGGGGGGGGGGGGGGGG', sadasd11);
           }
             else {
-            navigation.replace('ClientListScreen')
+            navigation.navigate('ClientListDrawerScreens')
           }
 
           })}
