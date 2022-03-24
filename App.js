@@ -14,6 +14,9 @@ import LoginScreen from './screens/LoginScreen';
 import ClientList from './screens/clientList';
 import RegisterScreen from './screens/RegisterScreen';
 import OTPVerifyScreen from './screens/otpVerifyScreen';
+import { Provider } from 'react-redux';
+import { reduxStore } from './reduxStore';
+
 
 const Stack = createStackNavigator();
 
@@ -21,6 +24,7 @@ const Stack = createStackNavigator();
 const App = () => {
 
   return (
+    <Provider store={reduxStore}>
     <NavigationContainer>
       <Stack.Navigator>
       <Stack.Screen name='LoginScreen' component={LoginScreen} options={{headerShown:false}} />
@@ -29,6 +33,7 @@ const App = () => {
       <Stack.Screen name='OTPVerifyScreen' component={OTPVerifyScreen} options={{headerShown:false}} />
     </Stack.Navigator>
     </NavigationContainer>
+    </Provider>
   );
 };
 

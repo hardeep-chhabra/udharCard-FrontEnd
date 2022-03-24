@@ -1,24 +1,27 @@
+import { useAsyncStorage } from "@react-native-community/async-storage";
 import { useNavigation } from "@react-navigation/native";
 import React, { useEffect, useRef, useState } from "react"
 import { StyleSheet, Image, Text, View, ImageBackground, TextInput, TouchableOpacity, Animated, Easing, StatusBar } from "react-native"
+import { useSelector } from "react-redux";
+import { selectPhoneNumber } from "../reduxSlices/infoSlice";
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
 
 
 
 export default function OTPVerifyScreen() {
 
+      useEffect(() => {
+        console.log('OTPVerifyScreen MOUNTED');
 
-  // useEffect(() => {
-  //   Animated.timing(animateTextOpacity, {
-  //     toValue:1,
-  //     delay:2000,
-  //     duration:3000,
-  //     isInteraction:true,
-  //     useNativeDriver:true
-  //   }).start();
+        return () => {
+        console.log('OTPVerifyScreen UNMOUNTED');
+        }
+      })
 
-  //     }, [])
 
+    const origin = useSelector(selectPhoneNumber)
+    let origin1 = origin ? origin.slice(0,7) + 'xxx' : origin
 
     const navigation = useNavigation();
 
@@ -50,7 +53,6 @@ export default function OTPVerifyScreen() {
       useNativeDriver:false
     })])
 
-    console.log('DDDDDDDDDDDDDDDDDDDDDDDD');
 
 
   return (
@@ -86,7 +88,7 @@ export default function OTPVerifyScreen() {
         <Text style={styles.Txt905}>OTP verification</Text>
 
         <Text style={styles.Txt044}>
-          Enter the OTP Sent to Your Number xxxx
+          Enter the OTP Sent to Your Number {origin1}
         </Text>
 
         <View style={styles.container}>
@@ -190,7 +192,7 @@ export default function OTPVerifyScreen() {
         </TouchableOpacity>
 
         <TouchableOpacity
-          onPress={(() => {
+          onPress={(async () => {
             // const response = await fetch(`https://verify1-1227-pufhrk.twil.io/start-verify`, {
             //   method: "POST",
             //   headers: {
@@ -209,9 +211,10 @@ export default function OTPVerifyScreen() {
               console.log('EEEEEEEEEEEEEEEEEEEEEEEEEEEE');
               loginMessageAnimation.reset();
             });
-            console.log('GGGGGGGGGGGGGGGGGGGGGGGGG');
-            console.log('HHHHHHHHHHHHHHHHHHHHH');
-            }
+            // let sadasd = await AsyncStorage.setItem('mobileNo11','96622915')
+            let sadasd11 = await AsyncStorage.getItem('mobileNo11')
+            console.log('GGGGGGGGGGGGGGGGGGGGGGGGG', sadasd11);
+          }
             else {
             navigation.replace('ClientListScreen')
           }

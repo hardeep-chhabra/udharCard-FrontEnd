@@ -2,12 +2,12 @@ import { useNavigation } from "@react-navigation/native";
 import React, { useEffect } from "react"
 import { StyleSheet, Image, Text, View,StatusBar, TextInput, ImageBackground, TouchableOpacity } from "react-native"
 import Icon from "react-native-vector-icons/Feather";
+import { useSelector } from "react-redux";
+import { selectPhoneNumber } from "../reduxSlices/infoSlice";
 
 
 
 export default function SignIn() {
-
-  const navigation = useNavigation();
 
   useEffect(() => {
     console.log('LOGINSCREEN MOUNTED');
@@ -18,6 +18,10 @@ export default function SignIn() {
   })
   
   
+  const navigation = useNavigation();
+
+  const origin = useSelector(selectPhoneNumber)
+  console.log('DDDDDDDDDDDDDDDDDDDDDDDD');
   
   
   return (

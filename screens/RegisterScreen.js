@@ -1,6 +1,8 @@
 import { useNavigation } from "@react-navigation/native";
 import React, { useEffect } from "react"
 import { StyleSheet, Image, Text, View, ImageBackground, TouchableOpacity, TextInput, StatusBar } from "react-native"
+import { useDispatch } from "react-redux";
+import { setPhoneNumber } from "../reduxSlices/infoSlice";
 
 
 
@@ -15,6 +17,7 @@ export default function RegisterScreen() {
       })
 
     const navigation = useNavigation();
+    const dispatch = useDispatch();
 
 
 
@@ -83,6 +86,10 @@ export default function RegisterScreen() {
 
         <View style={styles.Group2611}>
             <TextInput
+            onSubmitEditing={(event) => {
+              console.log('ZZZZZZZZZZZZZZZZZZZZZZZZZZZZZ', setPhoneNumber)
+              dispatch(setPhoneNumber(event.nativeEvent.text))
+            }}
             placeholder="Mobile Number"
             multiline={false}
             keyboardAppearance="dark"
