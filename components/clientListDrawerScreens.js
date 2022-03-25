@@ -4,6 +4,7 @@ import { createDrawerNavigator } from '@react-navigation/drawer';
 import ClientList from '../screens/clientList';
 import RegisterScreen from '../screens/RegisterScreen';
 import DrawerNavCustomPage from './DrawerNavCustomPage';
+import LogoutScreen from '../screens/LogoutScreen';
 
 
 
@@ -24,14 +25,15 @@ const ClientListDrawerScreens = () => {
   
     return (
       <Drawer.Navigator
-      screenOptions={{headerShown:false}}
+      screenOptions={{headerShown:false, swipeEdgeWidth:50, drawerActiveTintColor:'black', drawerInactiveTintColor:'black', drawerActiveBackgroundColor:'gray'}}
       drawerContent={(props) => {
           console.log('YYYYYYYYYYYYYYYYYYYYYYY', {...props})
           return <DrawerNavCustomPage {...props}/>
       }}
       >
         <Drawer.Screen name="ClientList" component={ClientList} /> 
-        <Drawer.Screen name="DSFSDFSDFsad" component={RegisterScreen} /> 
+        <Drawer.Screen name="RegisterScreen11" component={RegisterScreen} /> 
+        <Drawer.Screen name="Logoutscreen1" component={LogoutScreen} /> 
       </Drawer.Navigator>
     )
 

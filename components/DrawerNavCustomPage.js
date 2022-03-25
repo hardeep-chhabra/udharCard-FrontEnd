@@ -1,6 +1,7 @@
-import { StyleSheet, View, StatusBar, Image, Text } from 'react-native'
+import { StyleSheet, View, StatusBar, Image, Text, Linking } from 'react-native'
 import React from 'react'
-import { DrawerContentScrollView, DrawerItemList } from '@react-navigation/drawer'
+import { DrawerContentScrollView, DrawerItem, DrawerItemList } from '@react-navigation/drawer'
+import { Icon } from 'react-native-elements'
 
 
 
@@ -26,18 +27,21 @@ const DrawerNavCustomPage = (props) => {
 
       <View style={styles.singleHorizontalLine}></View>
 
-      {/* <View style={styles.rect}>
-        <View style={styles.rect2}></View>
-        <View style={styles.rect3}></View>
-        <View style={styles.rect4}></View>
-        <View style={styles.rect5}></View>
-        <View style={styles.rect6}></View>
-        <View style={styles.rect7}></View>
-        <View style={styles.rect8}></View>
-      </View> */}
-      <Text style={styles.notification}>Notification</Text>
-      <Text style={styles.changePassword}>Change Password</Text>
-      <Text style={styles.logout}>Logout</Text>
+      <DrawerContentScrollView contentContainerStyle={{backgroundColor:'white', top:40}}>
+
+        <DrawerItemList {...props} />
+
+        <DrawerItem
+        label="Help"
+        onPress={() => Linking.openURL('tel:9662079915')}
+        />
+
+        {/* <Text style={styles.notification}>Notification</Text>
+        <Text style={styles.changePassword}>Change Password</Text>
+        <Text style={styles.logout}>Logout</Text> */}
+
+      </DrawerContentScrollView>
+
     </View>
 
   );
@@ -84,47 +88,7 @@ const styles = StyleSheet.create({
     marginLeft: 14,
     // marginRight: 26,
   },
-  rect: {
-    width: 324,
-    height: 41,
-    backgroundColor: "white",
-    borderWidth: 0,
-    borderColor: "black",
-    borderStyle: "solid",
-    overflow: "visible",
-    marginTop: 53,
-    marginLeft: 14
-  },
-  rect2: {
-    flex: 0.14,
-    backgroundColor: "white",
-    margin: 0
-  },
-  rect3: {
-    flex: 0.14,
-    backgroundColor: "rgba(212, 212, 212,1)",
-    margin: 0
-  },
-  rect4: {
-    flex: 0.14,
-    backgroundColor: "rgba(250, 250, 250,1)"
-  },
-  rect5: {
-    flex: 0.14,
-    backgroundColor: "rgba(232, 232, 232,1)"
-  },
-  rect6: {
-    flex: 0.14,
-    backgroundColor: "rgba(246, 246, 246,1)"
-  },
-  rect7: {
-    flex: 0.14,
-    backgroundColor: "rgba(218, 218, 218,1)"
-  },
-  rect8: {
-    flex: 0.16,
-    backgroundColor: "rgba(240, 240, 240,1)"
-  },
+  
   notification: {
     fontFamily: "roboto-regular",
     color: "#121212",
@@ -135,6 +99,7 @@ const styles = StyleSheet.create({
     marginTop: 25,
     marginLeft: 45
   },
+
   changePassword: {
     fontFamily: "roboto-regular",
     color: "#121212",
@@ -145,6 +110,7 @@ const styles = StyleSheet.create({
     marginTop: 1,
     marginLeft: 45
   },
+
   logout: {
     fontFamily: "roboto-regular",
     color: "#121212",
