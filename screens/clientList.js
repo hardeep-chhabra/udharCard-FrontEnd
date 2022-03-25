@@ -1,6 +1,9 @@
 import { createDrawerNavigator } from "@react-navigation/drawer";
+import { createMaterialTopTabNavigator } from "@react-navigation/material-top-tabs";
 import React, { useEffect, useState } from "react"
 import { StyleSheet, Image, Text, View, ImageBackground, FlatList, ScrollView, StatusBar } from "react-native"
+import ClientDetailsListTab from "../components/ClientDetailsListTab";
+import ClientPaymentDetailsTab from "../components/ClientPaymentDetailsTab";
 
 
 
@@ -42,9 +45,12 @@ export default function ClientList() {
 
   const [clientsData, setClientsData] = useState([]);
 
+  const Tab = createMaterialTopTabNavigator();
+
 
 
   return (
+    <>
       <View style={styles.ClientList}>
       <Image
         style={styles.Search}
@@ -58,16 +64,10 @@ export default function ClientList() {
           uri: "https://firebasestorage.googleapis.com/v0/b/unify-bc2ad.appspot.com/o/8YKbQsmLBfONJUj4JItjeY-56%3A472?alt=media&token=901ff0f3-a9fd-4f3d-ba30-0493b1ea32bd",
         }}
       />
-      <Image
-        style={styles.Group}
-        source={{
-          uri: "https://firebasestorage.googleapis.com/v0/b/unify-bc2ad.appspot.com/o/8YKbQsmLBfONJUj4JItjeY-56%3A473?alt=media&token=634762dc-18c6-46a9-a2c0-b74ba0dcdf63",
-        }}
-      />
 
-      <View style={styles.Line10} />
+      {/* <View style={styles.Line10} /> */}
       
-      <ScrollView style={styles.Group482} contentContainerStyle={{alignItems:'center', paddingBottom:24}}>
+      {/* <ScrollView style={styles.Group482} contentContainerStyle={{alignItems:'center', paddingBottom:24}}> */}
       {/* <View style={styles.Group482}> */}
 
       {/* THIS IS THE REAL API LOOP, TO BE REPLACED BY THE FAKE TESTING API RUN ON THE USE-EFFECT HOOK */}
@@ -106,167 +106,7 @@ export default function ClientList() {
 
 
       {/* TO BE REMOVED AFTER ASSIGNING REAL RESTAPI */}
-        <View style={styles.Group9104}>
-          <View style={styles.Group091}>
-            <Text style={styles.Txt081}>John Due</Text>
-            <Text style={styles.Txt766}>info@gmail.com</Text>
-            <View style={styles.Line3} />
-            <View style={styles.Group851}>
-              <Text style={styles.Txt2109}>Expense : 500</Text>
-              <Image
-                style={styles.Graph}
-                source={{
-                  uri: "https://firebasestorage.googleapis.com/v0/b/unify-bc2ad.appspot.com/o/8YKbQsmLBfONJUj4JItjeY-56%3A508?alt=media&token=637fa258-99ac-42ab-aed8-071f86f14063",
-                }}
-              />
-            </View>
-          </View>
-          <View style={styles.Group091}>
-            {/* <View style={styles.Group14}> */}
-              <Text style={styles.Txt081}>John Due</Text>
-              <Text style={styles.Txt766}>info@gmail.com</Text>
-                <View style={styles.Line3} />
-              <View style={styles.Group851}>
-                <Text style={styles.Txt2109}>Expense : 500</Text>
-                <Image
-                  style={styles.Graph}
-                  source={{
-                    uri: "https://firebasestorage.googleapis.com/v0/b/unify-bc2ad.appspot.com/o/8YKbQsmLBfONJUj4JItjeY-56%3A513?alt=media&token=55e1952a-d007-4708-a91f-6b77bb0da9d7",
-                  }}
-                />
-              </View>
-            {/* </View> */}
-          </View>
-        </View>
-        <View style={styles.Group9104}>
-          <View style={styles.Group091}>
-            <Text style={styles.Txt081}>John Due</Text>
-            <Text style={styles.Txt766}>info@gmail.com</Text>
-            <View style={styles.Line3} />
-            <View style={styles.Group851}>
-              <Text style={styles.Txt2109}>Expense : 500</Text>
-              <Image
-                style={styles.Graph}
-                source={{
-                  uri: "https://firebasestorage.googleapis.com/v0/b/unify-bc2ad.appspot.com/o/8YKbQsmLBfONJUj4JItjeY-56%3A508?alt=media&token=637fa258-99ac-42ab-aed8-071f86f14063",
-                }}
-              />
-            </View>
-          </View>
-          <View style={styles.Group091}>
-            {/* <View style={styles.Group14}> */}
-              <Text style={styles.Txt081}>John Due</Text>
-              <Text style={styles.Txt766}>info@gmail.com</Text>
-                <View style={styles.Line3} />
-              <View style={styles.Group851}>
-                <Text style={styles.Txt2109}>Expense : 500</Text>
-                <Image
-                  style={styles.Graph}
-                  source={{
-                    uri: "https://firebasestorage.googleapis.com/v0/b/unify-bc2ad.appspot.com/o/8YKbQsmLBfONJUj4JItjeY-56%3A513?alt=media&token=55e1952a-d007-4708-a91f-6b77bb0da9d7",
-                  }}
-                />
-              </View>
-            {/* </View> */}
-          </View>
-        </View>
-        <View style={styles.Group9104}>
-          <View style={styles.Group091}>
-            <Text style={styles.Txt081}>John Due</Text>
-            <Text style={styles.Txt766}>info@gmail.com</Text>
-            <View style={styles.Line3} />
-            <View style={styles.Group851}>
-              <Text style={styles.Txt2109}>Expense : 500</Text>
-              <Image
-                style={styles.Graph}
-                source={{
-                  uri: "https://firebasestorage.googleapis.com/v0/b/unify-bc2ad.appspot.com/o/8YKbQsmLBfONJUj4JItjeY-56%3A508?alt=media&token=637fa258-99ac-42ab-aed8-071f86f14063",
-                }}
-              />
-            </View>
-          </View>
-          <View style={styles.Group091}>
-            {/* <View style={styles.Group14}> */}
-              <Text style={styles.Txt081}>John Due</Text>
-              <Text style={styles.Txt766}>info@gmail.com</Text>
-                <View style={styles.Line3} />
-              <View style={styles.Group851}>
-                <Text style={styles.Txt2109}>Expense : 500</Text>
-                <Image
-                  style={styles.Graph}
-                  source={{
-                    uri: "https://firebasestorage.googleapis.com/v0/b/unify-bc2ad.appspot.com/o/8YKbQsmLBfONJUj4JItjeY-56%3A513?alt=media&token=55e1952a-d007-4708-a91f-6b77bb0da9d7",
-                  }}
-                />
-              </View>
-            {/* </View> */}
-          </View>
-        </View>
-        <View style={styles.Group9104}>
-          <View style={styles.Group091}>
-            <Text style={styles.Txt081}>John Due</Text>
-            <Text style={styles.Txt766}>info@gmail.com</Text>
-            <View style={styles.Line3} />
-            <View style={styles.Group851}>
-              <Text style={styles.Txt2109}>Expense : 500</Text>
-              <Image
-                style={styles.Graph}
-                source={{
-                  uri: "https://firebasestorage.googleapis.com/v0/b/unify-bc2ad.appspot.com/o/8YKbQsmLBfONJUj4JItjeY-56%3A508?alt=media&token=637fa258-99ac-42ab-aed8-071f86f14063",
-                }}
-              />
-            </View>
-          </View>
-          <View style={styles.Group091}>
-            {/* <View style={styles.Group14}> */}
-              <Text style={styles.Txt081}>John Due</Text>
-              <Text style={styles.Txt766}>info@gmail.com</Text>
-                <View style={styles.Line3} />
-              <View style={styles.Group851}>
-                <Text style={styles.Txt2109}>Expense : 500</Text>
-                <Image
-                  style={styles.Graph}
-                  source={{
-                    uri: "https://firebasestorage.googleapis.com/v0/b/unify-bc2ad.appspot.com/o/8YKbQsmLBfONJUj4JItjeY-56%3A513?alt=media&token=55e1952a-d007-4708-a91f-6b77bb0da9d7",
-                  }}
-                />
-              </View>
-            {/* </View> */}
-          </View>
-        </View>
-        <View style={styles.Group9104}>
-          <View style={styles.Group091}>
-            <Text style={styles.Txt081}>John Due</Text>
-            <Text style={styles.Txt766}>info@gmail.com</Text>
-            <View style={styles.Line3} />
-            <View style={styles.Group851}>
-              <Text style={styles.Txt2109}>Expense : 500</Text>
-              <Image
-                style={styles.Graph}
-                source={{
-                  uri: "https://firebasestorage.googleapis.com/v0/b/unify-bc2ad.appspot.com/o/8YKbQsmLBfONJUj4JItjeY-56%3A508?alt=media&token=637fa258-99ac-42ab-aed8-071f86f14063",
-                }}
-              />
-            </View>
-          </View>
-          <View style={styles.Group091}>
-            {/* <View style={styles.Group14}> */}
-              <Text style={styles.Txt081}>John Due</Text>
-              <Text style={styles.Txt766}>info@gmail.com</Text>
-                <View style={styles.Line3} />
-              <View style={styles.Group851}>
-                <Text style={styles.Txt2109}>Expense : 500</Text>
-                <Image
-                  style={styles.Graph}
-                  source={{
-                    uri: "https://firebasestorage.googleapis.com/v0/b/unify-bc2ad.appspot.com/o/8YKbQsmLBfONJUj4JItjeY-56%3A513?alt=media&token=55e1952a-d007-4708-a91f-6b77bb0da9d7",
-                  }}
-                />
-              </View>
-            {/* </View> */}
-          </View>
-        </View>
-        <View style={styles.Group9104}>
+        {/* <View style={styles.Group9104}>
         <View style={styles.Group091}>
             <Text style={styles.Txt081}>John Due</Text>
             <Text style={styles.Txt766}>info@gmail.com</Text>
@@ -325,9 +165,9 @@ export default function ClientList() {
               />
             </View>
           </View>
-        </View>
+        </View> */}
       {/* </View> */}
-      </ScrollView>
+      {/* </ScrollView> */}
       
       <View style={supplierList}>
         <Text onPress={() => {
@@ -348,15 +188,40 @@ export default function ClientList() {
           
         }} style={clientListText}>Client list</Text>
       </View>
-      <View style={styles.Group599}>
+
+      {/* <View style={styles.Group599}>
         <View style={styles.Group13}></View>
         <View style={styles.Group856}>
           <Text style={styles.Txt160}>Buyer List</Text>
-          {/* <View style={styles.Ellipse8} /> */}
           <Text style={styles.Txt161}>Payment details</Text>
         </View>
-      </View>
+      </View> */}
+    
     </View>
+
+<Tab.Navigator
+initialRouteName="Feesadsadd"
+style={{marginBottom:80}}
+screenOptions={{
+  tabBarActiveTintColor: 'white',
+  tabBarLabelStyle: { fontSize: 16 },
+  tabBarStyle: { backgroundColor: 'yellow', flex:2 },
+  tabBarContentContainerStyle:{backgroundColor:'green'}
+}}
+>
+<Tab.Screen
+  name="Feed"
+  component={ClientDetailsListTab}
+  options={{ tabBarLabel: 'Home' }}
+/>
+<Tab.Screen
+  name="Notifications"
+  component={ClientPaymentDetailsTab}
+  options={{ tabBarLabel: 'Updates' }}
+/>
+
+</Tab.Navigator>
+</>
 
   )
 }

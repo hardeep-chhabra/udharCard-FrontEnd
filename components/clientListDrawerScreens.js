@@ -24,6 +24,7 @@ const ClientListDrawerScreens = () => {
   
   
     return (
+      
       <Drawer.Navigator
       screenOptions={{headerShown:false, swipeEdgeWidth:50, drawerActiveTintColor:'black', drawerInactiveTintColor:'black', drawerActiveBackgroundColor:'gray'}}
       drawerContent={(props) => {
@@ -31,9 +32,9 @@ const ClientListDrawerScreens = () => {
           return <DrawerNavCustomPage {...props}/>
       }}
       >
-        <Drawer.Screen name="ClientList" component={ClientList} /> 
-        <Drawer.Screen name="RegisterScreen11" component={RegisterScreen} /> 
-        <Drawer.Screen name="Logoutscreen1" component={LogoutScreen} /> 
+        <Drawer.Screen name="Notification" component={ClientList} /> 
+        <Drawer.Screen name="Change Password" component={RegisterScreen} /> 
+        <Drawer.Screen name="Logout" component={LogoutScreen} /> 
       </Drawer.Navigator>
     )
 

@@ -26,7 +26,7 @@ const App = () => {
 
   const Stack = createStackNavigator();
   
-  enableScreens();
+  // enableScreens();
   
 
   return (

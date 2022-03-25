@@ -7,7 +7,8 @@ import { Icon } from 'react-native-elements'
 
 const DrawerNavCustomPage = (props) => {
 
-    console.log('ZZZZZZZZZZZZZZZZZZZZZZ')
+  let aa = [1,4,5,5,5,5,6,6]
+  console.log('ZZZZZZZZZZZZZZZZZZZZZZ')
 
   return (
 
@@ -32,6 +33,8 @@ const DrawerNavCustomPage = (props) => {
         <DrawerItemList {...props} />
 
         <DrawerItem
+        inactiveTintColor='black'
+        activeTintColor='black'
         label="Help"
         onPress={() => Linking.openURL('tel:9662079915')}
         />
