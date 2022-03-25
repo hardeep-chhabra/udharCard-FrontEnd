@@ -4,6 +4,7 @@ import React, { useEffect, useState } from "react"
 import { StyleSheet, Image, Text, View, ImageBackground, FlatList, ScrollView, StatusBar } from "react-native"
 import ClientDetailsListTab from "../components/ClientDetailsListTab";
 import ClientPaymentDetailsTab from "../components/ClientPaymentDetailsTab";
+import TabClientScreenCustomPage from "../components/TabClientScreenCustomPage";
 
 
 
@@ -201,7 +202,8 @@ export default function ClientList() {
 
 <Tab.Navigator
 initialRouteName="Feesadsadd"
-style={{marginBottom:80}}
+// style={{marginBottom:150}}
+tabBar={(props) => <TabClientScreenCustomPage {...props}/>}
 screenOptions={{
   tabBarActiveTintColor: 'white',
   tabBarLabelStyle: { fontSize: 16 },

@@ -8,7 +8,6 @@ import { Icon } from 'react-native-elements'
 const DrawerNavCustomPage = (props) => {
 
   let aa = [1,4,5,5,5,5,6,6]
-  console.log('ZZZZZZZZZZZZZZZZZZZZZZ')
 
   return (
 
