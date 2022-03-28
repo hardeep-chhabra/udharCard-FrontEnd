@@ -201,25 +201,25 @@ export default function ClientList() {
     </View>
 
 <Tab.Navigator
-initialRouteName="Feesadsadd"
-// style={{marginBottom:150}}
-tabBar={(props) => <TabClientScreenCustomPage {...props}/>}
+sceneContainerStyle={{backgroundColor:'black'}}
+style={{flex:1/0.2, backgroundColor:'black'}}
+// tabBar={(props) => <TabClientScreenCustomPage {...props}/>}
 screenOptions={{
   tabBarActiveTintColor: 'white',
-  tabBarLabelStyle: { fontSize: 16 },
-  tabBarStyle: { backgroundColor: 'yellow', flex:2 },
-  tabBarContentContainerStyle:{backgroundColor:'green'}
+  tabBarLabelStyle: { fontSize: 10 },
+  tabBarStyle: { backgroundColor: 'black', borderRadius:30, right:40, left:2 },
+  // tabBarContentContainerStyle:{backgroundColor:'green'}
 }}
 >
 <Tab.Screen
   name="Feed"
   component={ClientDetailsListTab}
-  options={{ tabBarLabel: 'Home' }}
+  options={{ tabBarLabel: 'Client List' }}
 />
 <Tab.Screen
   name="Notifications"
   component={ClientPaymentDetailsTab}
-  options={{ tabBarLabel: 'Updates' }}
+  options={{ tabBarLabel: 'Payment Details' }}
 />
 
 </Tab.Navigator>
