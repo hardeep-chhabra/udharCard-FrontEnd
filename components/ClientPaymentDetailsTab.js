@@ -1,14 +1,28 @@
 import { StyleSheet, Text, View } from 'react-native'
-import React from 'react'
+import React, { useEffect } from 'react'
 
 
 
 const ClientPaymentDetailsTab = () => {
-  return (
-    <View>
-      <Text>ClientPaymentDetailsTab</Text>
-    </View>
-  )
+
+      useEffect(() => {
+        console.log('ClientPaymentDetailsTab MOUNTED');
+
+        return () => {
+        console.log('ClientPaymentDetailsTab UNMOUNTED');
+        }
+      })
+
+
+
+
+      return (
+        <View>
+          <Text>ClientPaymentDetailsTab</Text>
+        </View>
+      )
+
+
 }
 
 export default ClientPaymentDetailsTab

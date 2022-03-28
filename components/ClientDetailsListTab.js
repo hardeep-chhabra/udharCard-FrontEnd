@@ -1,5 +1,6 @@
 import { Image, ScrollView, StyleSheet, Text, View } from 'react-native'
 import React, { useEffect, useState } from 'react'
+import { Input } from 'react-native-elements'
 
 
 
@@ -8,21 +9,27 @@ import React, { useEffect, useState } from 'react'
 const ClientDetailsListTab = () => {
 
       useEffect(() => {
+        console.log('ClientDetailsListTab MOUNTED');
+
+        return () => {
+        console.log('ClientDetailsListTab UNMOUNTED');
+        }
+      })
+
+
+      useEffect(() => {
 
         const clientListAPIFunc = async () => {
           let json = await fetch('https://jsonplaceholder.typicode.com/posts');
           let response = await json.json();
           setClientsData(response);
-      }
+          }
       
         clientListAPIFunc();
 
-      }, [setClientListText])
+      }, [clientListText])
 
-
-      const [supplierList, setSupplierList] = useState(styles.Group105);
-      const [supplierListText, setSupplierListText] = useState(styles.Txt966);
-      const [clientList, setClientList] = useState(styles.Group548);
+      
       const [clientListText, setClientListText] = useState(styles.Txt159);
 
       const [clientsData, setClientsData] = useState([]);
@@ -34,8 +41,7 @@ const ClientDetailsListTab = () => {
 
       <View style={styles.Line10} />
         
-      {/* <ScrollView style={styles.Group482} contentContainerStyle={{alignItems:'center', paddingBottom:24}}>
-          <View style={styles.Group482}>
+      <ScrollView style={styles.Group482} contentContainerStyle={{alignItems:'center', paddingBottom:24}}>
 
           {clientsData.map((index,item) => {
           return (<View style={styles.Group9104}>
@@ -70,7 +76,7 @@ const ClientDetailsListTab = () => {
           </View>)
         })}
 
-          <View style={styles.Group9104}>
+          {/* <View style={styles.Group9104}>
             <View style={styles.Group091}>
               <Text style={styles.Txt081}>John Due</Text>
               <Text style={styles.Txt766}>info@gmail.com</Text>
@@ -99,39 +105,9 @@ const ClientDetailsListTab = () => {
                 />
               </View>
             </View>
-          </View>
-          <View style={styles.Group9104}>
-          <View style={styles.Group091}>
-              <Text style={styles.Txt081}>John Due</Text>
-              <Text style={styles.Txt766}>info@gmail.com</Text>
-              <View style={styles.Line3} />
-              <View style={styles.Group851}>
-                <Text style={styles.Txt2109}>Expense : 500</Text>
-                <Image
-                  style={styles.Graph}
-                  source={{
-                    uri: "https://firebasestorage.googleapis.com/v0/b/unify-bc2ad.appspot.com/o/8YKbQsmLBfONJUj4JItjeY-56%3A508?alt=media&token=637fa258-99ac-42ab-aed8-071f86f14063",
-                  }}
-                />
-              </View>
-            </View>
-            <View style={styles.Group091}>
-              <Text style={styles.Txt081}>John Due</Text>
-              <Text style={styles.Txt766}>info@gmail.com</Text>
-              <View style={styles.Line3} />
-              <View style={styles.Group851}>
-                <Text style={styles.Txt2109}>Expense : 500</Text>
-                <Image
-                  style={styles.Graph}
-                  source={{
-                    uri: "https://firebasestorage.googleapis.com/v0/b/unify-bc2ad.appspot.com/o/8YKbQsmLBfONJUj4JItjeY-56%3A508?alt=media&token=637fa258-99ac-42ab-aed8-071f86f14063",
-                  }}
-                />
-              </View>
-            </View>
-          </View>
-          </View>
-      </ScrollView> */}
+          </View> */}
+
+      </ScrollView>
 
         </>
   )
@@ -183,7 +159,7 @@ const styles = StyleSheet.create({
     flexDirection: "column",
     // alignItems: "center",
     position: "absolute",
-    top: 164,
+    top: 20,
     none: "0px",
     paddingTop: 24,
     // paddingBottom: 32,
@@ -194,7 +170,7 @@ const styles = StyleSheet.create({
     borderBottomRightRadius: 0,
     borderBottomLeftRadius: 0,
     backgroundColor: "black",
-    /*  linear-gradient(180deg, rgba(54,49,63,1) 0%, rgba(55,49,64,1) 100%, )  */
+    // linear-gradient(180deg, rgba(54,49,63,1) 0%, rgba(55,49,64,1) 100%, ),
     shadowColor: "rgba(0,97,255,1)",
     elevation: 1,
     shadowOffset: { width: 0, height: 2 },
@@ -211,8 +187,9 @@ const styles = StyleSheet.create({
     marginBottom: 23,
     borderRadius:10,
     left:160,
-    marginTop:150
+    marginTop:10
   },
+  
   Group9104: {
     display: "flex",
     flexDirection: "row",
@@ -621,24 +598,6 @@ const styles = StyleSheet.create({
     left:10
   },
 
-  Txt966: {
-    fontSize: 12,
-    fontFamily: "undefined",
-    fontWeight: "500",
-    color: "rgba(0,0,0,1)",
-    textAlign: "center",
-    justifyContent: "center",
-  },
-  
-  Txt159: {
-    fontSize: 12,
-    fontFamily: "undefined",
-    fontWeight: "500",
-    color: "rgba(255, 255, 255, 1)",
-    textAlign: "center",
-    justifyContent: "center",
-  },
-
   Txt160: {
     fontSize: 12,
     fontFamily: "undefined",
@@ -689,14 +648,6 @@ const styles = StyleSheet.create({
     flex:1
   },
   
-  Txt159: {
-    fontSize: 12,
-    fontFamily: "undefined",
-    fontWeight: "500",
-    color: "rgba(255, 255, 255, 1)",
-    textAlign: "center",
-    justifyContent: "center",
-  },
   Ellipse8: {
     backgroundColor: "rgba(0,97,255,1)",
     width: 50,

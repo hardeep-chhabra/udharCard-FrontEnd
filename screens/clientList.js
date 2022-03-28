@@ -4,13 +4,20 @@ import React, { useEffect, useState } from "react"
 import { StyleSheet, Image, Text, View, ImageBackground, FlatList, ScrollView, StatusBar } from "react-native"
 import ClientDetailsListTab from "../components/ClientDetailsListTab";
 import ClientPaymentDetailsTab from "../components/ClientPaymentDetailsTab";
-import TabClientScreenCustomPage from "../components/TabClientScreenCustomPage";
 
 
 
 
 export default function ClientList() {
 
+  const [supplierList, setSupplierList] = useState(styles.Group105);
+  const [supplierListText, setSupplierListText] = useState(styles.Txt966);
+  const [clientList, setClientList] = useState(styles.Group548);
+  const [clientListText, setClientListText] = useState(styles.Txt159);
+
+  const [clientsData, setClientsData] = useState([]);
+
+  const Tab = createMaterialTopTabNavigator();
 
 
   useEffect(() => {
@@ -25,28 +32,16 @@ export default function ClientList() {
   useEffect(() => {
 
     const clientListAPIFunc = async () => {
-      let json = await fetch('https://jsonplaceholder.typicode.com/posts');
+
+      let json = clientList.backgroundColor === 'rgba(0,97,255,1)' ? await fetch('https://jsonplaceholder.typicode.com/posts') : await fetch('https://jsonplaceholder.typicode.com/albums')
       let response = await json.json();
       setClientsData(response);
+      console.log('0000000000000000000000', response)
   }
   
     clientListAPIFunc();
-        
-    // return () => {
-    //   console.log('bbbbbbbbbbbbbbbbbbbbbbbbbbb')
-    // }
 
-  }, [setClientListText])
-
-
-  const [supplierList, setSupplierList] = useState(styles.Group105);
-  const [supplierListText, setSupplierListText] = useState(styles.Txt966);
-  const [clientList, setClientList] = useState(styles.Group548);
-  const [clientListText, setClientListText] = useState(styles.Txt159);
-
-  const [clientsData, setClientsData] = useState([]);
-
-  const Tab = createMaterialTopTabNavigator();
+  }, [clientList])
 
 
 
@@ -65,110 +60,6 @@ export default function ClientList() {
           uri: "https://firebasestorage.googleapis.com/v0/b/unify-bc2ad.appspot.com/o/8YKbQsmLBfONJUj4JItjeY-56%3A472?alt=media&token=901ff0f3-a9fd-4f3d-ba30-0493b1ea32bd",
         }}
       />
-
-      {/* <View style={styles.Line10} /> */}
-      
-      {/* <ScrollView style={styles.Group482} contentContainerStyle={{alignItems:'center', paddingBottom:24}}> */}
-      {/* <View style={styles.Group482}> */}
-
-      {/* THIS IS THE REAL API LOOP, TO BE REPLACED BY THE FAKE TESTING API RUN ON THE USE-EFFECT HOOK */}
-      {/* {clientsData.map((index,item) => {
-        return (<View style={styles.Group9104}>
-          <View style={styles.Group091}>
-            <Text style={styles.Txt081}>John Due</Text>
-            <Text style={styles.Txt766}>info@gmail.com</Text>
-            <View style={styles.Line3} />
-            <View style={styles.Group851}>
-              <Text style={styles.Txt2109}>Expense : 500</Text>
-              <Image
-                style={styles.Graph}
-                source={{
-                  uri: "https://firebasestorage.googleapis.com/v0/b/unify-bc2ad.appspot.com/o/8YKbQsmLBfONJUj4JItjeY-56%3A508?alt=media&token=637fa258-99ac-42ab-aed8-071f86f14063",
-                }}
-              />
-            </View>
-          </View>
-          <View style={styles.Group091}>
-              <Text style={styles.Txt081}>John Due</Text>
-              <Text style={styles.Txt766}>info@gmail.com</Text>
-                <View style={styles.Line3} />
-              <View style={styles.Group851}>
-                <Text style={styles.Txt2109}>Expense : 500</Text>
-                <Image
-                  style={styles.Graph}
-                  source={{
-                    uri: "https://firebasestorage.googleapis.com/v0/b/unify-bc2ad.appspot.com/o/8YKbQsmLBfONJUj4JItjeY-56%3A513?alt=media&token=55e1952a-d007-4708-a91f-6b77bb0da9d7",
-                  }}
-                />
-              </View>
-          </View>
-        </View>)
-      })} */}
-
-
-      {/* TO BE REMOVED AFTER ASSIGNING REAL RESTAPI */}
-        {/* <View style={styles.Group9104}>
-        <View style={styles.Group091}>
-            <Text style={styles.Txt081}>John Due</Text>
-            <Text style={styles.Txt766}>info@gmail.com</Text>
-            <View style={styles.Line3} />
-            <View style={styles.Group851}>
-              <Text style={styles.Txt2109}>Expense : 500</Text>
-              <Image
-                style={styles.Graph}
-                source={{
-                  uri: "https://firebasestorage.googleapis.com/v0/b/unify-bc2ad.appspot.com/o/8YKbQsmLBfONJUj4JItjeY-56%3A508?alt=media&token=637fa258-99ac-42ab-aed8-071f86f14063",
-                }}
-              />
-            </View>
-          </View>
-          <View style={styles.Group091}>
-            <Text style={styles.Txt081}>John Due</Text>
-            <Text style={styles.Txt766}>info@gmail.com</Text>
-            <View style={styles.Line3} />
-            <View style={styles.Group851}>
-              <Text style={styles.Txt2109}>Expense : 500</Text>
-              <Image
-                style={styles.Graph}
-                source={{
-                  uri: "https://firebasestorage.googleapis.com/v0/b/unify-bc2ad.appspot.com/o/8YKbQsmLBfONJUj4JItjeY-56%3A508?alt=media&token=637fa258-99ac-42ab-aed8-071f86f14063",
-                }}
-              />
-            </View>
-          </View>
-        </View>
-        <View style={styles.Group9104}>
-        <View style={styles.Group091}>
-            <Text style={styles.Txt081}>John Due</Text>
-            <Text style={styles.Txt766}>info@gmail.com</Text>
-            <View style={styles.Line3} />
-            <View style={styles.Group851}>
-              <Text style={styles.Txt2109}>Expense : 500</Text>
-              <Image
-                style={styles.Graph}
-                source={{
-                  uri: "https://firebasestorage.googleapis.com/v0/b/unify-bc2ad.appspot.com/o/8YKbQsmLBfONJUj4JItjeY-56%3A508?alt=media&token=637fa258-99ac-42ab-aed8-071f86f14063",
-                }}
-              />
-            </View>
-          </View>
-          <View style={styles.Group091}>
-            <Text style={styles.Txt081}>John Due</Text>
-            <Text style={styles.Txt766}>info@gmail.com</Text>
-            <View style={styles.Line3} />
-            <View style={styles.Group851}>
-              <Text style={styles.Txt2109}>Expense : 500</Text>
-              <Image
-                style={styles.Graph}
-                source={{
-                  uri: "https://firebasestorage.googleapis.com/v0/b/unify-bc2ad.appspot.com/o/8YKbQsmLBfONJUj4JItjeY-56%3A508?alt=media&token=637fa258-99ac-42ab-aed8-071f86f14063",
-                }}
-              />
-            </View>
-          </View>
-        </View> */}
-      {/* </View> */}
-      {/* </ScrollView> */}
       
       <View style={supplierList}>
         <Text onPress={() => {
@@ -177,8 +68,10 @@ export default function ClientList() {
           setClientList(styles.Group549);
           setClientListText(styles.Txt966);
           
-        }} style={supplierListText}>Supplier List</Text>
+        }} 
+        style={supplierListText}>Supplier List</Text>
       </View>
+
       <View style={clientList}>
         <Text onPress={() => {
           setSupplierList(styles.Group105);
@@ -187,7 +80,8 @@ export default function ClientList() {
           setClientListText(styles.Txt159);
 
           
-        }} style={clientListText}>Client list</Text>
+        }} 
+        style={clientListText}>Client list</Text>
       </View>
 
       {/* <View style={styles.Group599}>
@@ -203,7 +97,6 @@ export default function ClientList() {
 <Tab.Navigator
 sceneContainerStyle={{backgroundColor:'black'}}
 style={{flex:1/0.2, backgroundColor:'black'}}
-// tabBar={(props) => <TabClientScreenCustomPage {...props}/>}
 screenOptions={{
   tabBarActiveTintColor: 'white',
   tabBarLabelStyle: { fontSize: 10 },
@@ -258,226 +151,9 @@ const styles = StyleSheet.create({
     height: 20
   },
 
-  Group: {
-    position: "absolute",
-    top: 133,
-    left: 203,
-    width: 321.86,
-    height: 287.76,
-  },
-  
-  Group482: {
-    // flex:1,
-    display: "flex",
-    flexDirection: "column",
-    // alignItems: "center",
-    position: "absolute",
-    top: 164,
-    none: "0px",
-    paddingTop: 24,
-    // paddingBottom: 32,
-    paddingLeft: 19,
-    paddingRight: 19,
-    borderTopLeftRadius: 40,
-    borderTopRightRadius: 40,
-    borderBottomRightRadius: 0,
-    borderBottomLeftRadius: 0,
-    backgroundColor: "black",
-    /*  linear-gradient(180deg, rgba(54,49,63,1) 0%, rgba(55,49,64,1) 100%, )  */
-    shadowColor: "rgba(0,97,255,1)",
-    elevation: 1,
-    shadowOffset: { width: 0, height: 2 },
-    width: 375,
-    height: 503,
-  },
-
-  Line10: {
-    borderWidth: 5,
-    // borderStyle: "solid",
-    borderColor: "rgba(255,255,255,1)",
-    width: 45,
-    height: 5,
-    marginBottom: 23,
-    borderRadius:10,
-    left:160,
-    marginTop:150
-  },
-  Group9104: {
-    display: "flex",
-    flexDirection: "row",
-    marginBottom: 16,
-  },
-
-  Group091: {
-    display: "flex",
-    flexDirection: "column",
-    paddingTop: 16,
-    paddingBottom: 16,
-    paddingLeft: 10,
-    paddingRight: 10,
-    marginRight: 11,
-    borderRadius: 10,
-    backgroundColor: "rgba(255,200,87,1)",
-  },
-
-  Group909: {
-    display: "flex",
-    flexDirection: "column",
-    paddingTop: 16,
-    paddingBottom: 16,
-    paddingLeft: 10,
-    paddingRight: 10,
-    marginRight: 11,
-    borderRadius: 10,
-    backgroundColor: "rgba(97,219,180,1)",
-  },
-
-  Txt081: {
-    fontSize: 14,
-    fontFamily: "undefined",
-    fontWeight: "500",
-    color: "rgba(55,49,64,1)",
-    width: 80,
-    height: 20,
-    marginBottom: 14,
-  },
-  Txt766: {
-    fontSize: 10,
-    fontFamily: "undefined",
-    fontWeight: "500",
-    color: "rgba(55,49,64,1)",
-    width: 88,
-    height: 17,
-    marginBottom: 14,
-  },
-  Line3: {
-    borderWidth: 1,
-    borderStyle: "solid",
-    borderColor: "rgba(55,49,64,1)",
-    width: 140,
-    height: 1,
-    marginBottom: 13,
-  },
   Group851: {
     display: "flex",
     flexDirection: "row",
-  },
-  Txt2109: {
-    fontSize: 10,
-    fontFamily: "undefined",
-    fontWeight: "500",
-    color: "rgba(55,49,64,1)",
-    marginRight: 51,
-  },
-  Graph: {
-    width: 18,
-    height: 18,
-  },
-
-  Group14: {
-    display: "flex",
-    flexDirection: "column",
-    paddingTop: 0,
-    paddingBottom: 0,
-    paddingLeft: 1,
-    paddingRight: 0,
-    borderWidth: 1,
-    borderStyle: "solid",
-    borderColor: "rgba(55,49,64,1)",
-  },
-  Txt081: {
-    fontSize: 14,
-    fontFamily: "undefined",
-    fontWeight: "500",
-    color: "rgba(55,49,64,1)",
-    width: 80,
-    height: 20,
-    marginBottom: 14,
-  },
-  Txt1084: {
-    fontSize: 10,
-    fontFamily: "undefined",
-    fontWeight: "500",
-    color: "rgba(55,49,64,1)",
-    width: 88,
-    height: 17,
-    marginBottom: 27,
-  },
-  Group851: {
-    display: "flex",
-    flexDirection: "row",
-  },
-  Txt2109: {
-    fontSize: 10,
-    fontFamily: "undefined",
-    fontWeight: "500",
-    color: "rgba(55,49,64,1)",
-    marginRight: 51,
-  },
-  Graph: {
-    width: 18,
-    height: 18,
-  },
-
-  Group9104: {
-    display: "flex",
-    flexDirection: "row",
-    marginBottom: 16,
-  },
-  Group414: {
-    paddingTop: 16,
-    paddingBottom: 16,
-    paddingLeft: 11,
-    paddingRight: 9,
-    marginRight: 11,
-    borderRadius: 10,
-    backgroundColor: "rgba(255,200,87,1)",
-    width: 162,
-    height: 130,
-  },
-  Group14: {
-    display: "flex",
-    flexDirection: "column",
-    paddingTop: 0,
-    paddingBottom: 0,
-    paddingLeft: 1,
-    paddingRight: 0,
-    borderWidth: 1,
-    borderStyle: "solid",
-    borderColor: "rgba(55,49,64,1)",
-  },
-  Txt081: {
-    fontSize: 14,
-    fontFamily: "undefined",
-    fontWeight: "500",
-    color: "rgba(55,49,64,1)",
-    width: 80,
-    height: 20,
-    marginBottom: 14,
-  },
-  Txt1084: {
-    fontSize: 10,
-    fontFamily: "undefined",
-    fontWeight: "500",
-    color: "rgba(55,49,64,1)",
-    width: 88,
-    height: 17,
-    marginBottom: 27,
-  },
-  Group851: {
-    display: "flex",
-    flexDirection: "row",
-  },
-  Txt2109: {
-    fontSize: 10,
-    fontFamily: "undefined",
-    fontWeight: "500",
-    color: "rgba(55,49,64,1)",
-    marginRight: 51,
-  },
-  Graph: {
-    width: 18,
-    height: 18,
   },
 
   Group790: {
@@ -501,38 +177,10 @@ const styles = StyleSheet.create({
     borderStyle: "solid",
     borderColor: "rgba(55,49,64,1)",
   },
-  Txt081: {
-    fontSize: 14,
-    fontFamily: "undefined",
-    fontWeight: "500",
-    color: "rgba(55,49,64,1)",
-    width: 80,
-    height: 20,
-    marginBottom: 14,
-  },
-  Txt1084: {
-    fontSize: 10,
-    fontFamily: "undefined",
-    fontWeight: "500",
-    color: "rgba(55,49,64,1)",
-    width: 88,
-    height: 17,
-    marginBottom: 27,
-  },
+
   Group851: {
     display: "flex",
     flexDirection: "row",
-  },
-  Txt2109: {
-    fontSize: 10,
-    fontFamily: "undefined",
-    fontWeight: "500",
-    color: "rgba(55,49,64,1)",
-    marginRight: 51,
-  },
-  Graph: {
-    width: 18,
-    height: 18,
   },
 
   Group851: {
@@ -561,38 +209,10 @@ const styles = StyleSheet.create({
     borderStyle: "solid",
     borderColor: "rgba(55,49,64,1)",
   },
-  Txt081: {
-    fontSize: 14,
-    fontFamily: "undefined",
-    fontWeight: "500",
-    color: "rgba(55,49,64,1)",
-    width: 80,
-    height: 20,
-    marginBottom: 14,
-  },
-  Txt1084: {
-    fontSize: 10,
-    fontFamily: "undefined",
-    fontWeight: "500",
-    color: "rgba(55,49,64,1)",
-    width: 88,
-    height: 17,
-    marginBottom: 27,
-  },
+
   Group851: {
     display: "flex",
     flexDirection: "row",
-  },
-  Txt2109: {
-    fontSize: 10,
-    fontFamily: "undefined",
-    fontWeight: "500",
-    color: "rgba(55,49,64,1)",
-    marginRight: 51,
-  },
-  Graph: {
-    width: 18,
-    height: 18,
   },
 
   Group884: {
@@ -616,38 +236,10 @@ const styles = StyleSheet.create({
     borderStyle: "solid",
     borderColor: "rgba(55,49,64,1)",
   },
-  Txt081: {
-    fontSize: 14,
-    fontFamily: "undefined",
-    fontWeight: "500",
-    color: "rgba(55,49,64,1)",
-    width: 80,
-    height: 20,
-    marginBottom: 14,
-  },
-  Txt1084: {
-    fontSize: 10,
-    fontFamily: "undefined",
-    fontWeight: "500",
-    color: "rgba(55,49,64,1)",
-    width: 88,
-    height: 17,
-    marginBottom: 27,
-  },
+
   Group851: {
     display: "flex",
     flexDirection: "row",
-  },
-  Txt2109: {
-    fontSize: 10,
-    fontFamily: "undefined",
-    fontWeight: "500",
-    color: "rgba(55,49,64,1)",
-    marginRight: 51,
-  },
-  Graph: {
-    width: 18,
-    height: 18,
   },
 
   Group548: {
@@ -710,45 +302,6 @@ const styles = StyleSheet.create({
     left:10
   },
 
-  Txt966: {
-    fontSize: 12,
-    fontFamily: "undefined",
-    fontWeight: "500",
-    color: "rgba(0,0,0,1)",
-    textAlign: "center",
-    justifyContent: "center",
-  },
-  
-  Txt159: {
-    fontSize: 12,
-    fontFamily: "undefined",
-    fontWeight: "500",
-    color: "rgba(255, 255, 255, 1)",
-    textAlign: "center",
-    justifyContent: "center",
-  },
-
-  Txt160: {
-    fontSize: 12,
-    fontFamily: "undefined",
-    fontWeight: "500",
-    color: "rgba(255, 255, 255, 1)",
-    textAlign: "center",
-    justifyContent: "center",
-    borderBottomWidth:3,
-    borderBottomColor:'rgba(0,97,255,1)'
-  },
-
-  Txt161: {
-    fontSize: 12,
-    fontFamily: "undefined",
-    fontWeight: "500",
-    color: "rgba(255, 255, 255, 1)",
-    textAlign: "center",
-    justifyContent: "center",
-    borderBottomWidth:3,
-  },
-
   Group599: {
     display: "flex",
     flexDirection: "column",
@@ -777,7 +330,7 @@ const styles = StyleSheet.create({
     left:20,
     flex:1
   },
-  
+
   Txt159: {
     fontSize: 12,
     fontFamily: "undefined",
@@ -786,19 +339,14 @@ const styles = StyleSheet.create({
     textAlign: "center",
     justifyContent: "center",
   },
-  Ellipse8: {
-    backgroundColor: "rgba(0,97,255,1)",
-    width: 50,
-    height: 3,
-    borderRadius: 1.5,
-    marginRight: 27,
-  },
-  Txt159: {
+
+  Txt966: {
     fontSize: 12,
     fontFamily: "undefined",
     fontWeight: "500",
-    color: "rgba(255, 255, 255, 1)",
+    color: "rgba(0,0,0,1)",
     textAlign: "center",
     justifyContent: "center",
   },
+
 })
