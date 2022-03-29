@@ -2,8 +2,12 @@ import { createDrawerNavigator } from "@react-navigation/drawer";
 import { createMaterialTopTabNavigator } from "@react-navigation/material-top-tabs";
 import React, { useEffect, useState } from "react"
 import { StyleSheet, Image, Text, View, ImageBackground, FlatList, ScrollView, StatusBar } from "react-native"
+import { useDispatch } from "react-redux";
 import ClientDetailsListTab from "../components/ClientDetailsListTab";
 import ClientPaymentDetailsTab from "../components/ClientPaymentDetailsTab";
+import SupplierDetailsListTab from "../components/SupplierDetailsListTab";
+import SupplierPaymentDetailsTab from "../components/SupplierPaymentDetailsTab";
+import { setClientsData } from "../reduxSlices/infoSlice";
 
 
 
@@ -15,7 +19,7 @@ export default function ClientList() {
   const [clientList, setClientList] = useState(styles.Group548);
   const [clientListText, setClientListText] = useState(styles.Txt159);
 
-  const [clientsData, setClientsData] = useState([]);
+  const dispatch = useDispatch();
 
   const Tab = createMaterialTopTabNavigator();
 
@@ -35,7 +39,7 @@ export default function ClientList() {
 
       let json = clientList.backgroundColor === 'rgba(0,97,255,1)' ? await fetch('https://jsonplaceholder.typicode.com/posts') : await fetch('https://jsonplaceholder.typicode.com/albums')
       let response = await json.json();
-      setClientsData(response);
+      dispatch(setClientsData(response));
       console.log('0000000000000000000000', response)
   }
   
@@ -104,16 +108,27 @@ screenOptions={{
   // tabBarContentContainerStyle:{backgroundColor:'green'}
 }}
 >
-<Tab.Screen
+
+
+{clientList.backgroundColor === 'rgba(0,97,255,1)' ? <Tab.Screen
   name="Feed"
   component={ClientDetailsListTab}
   options={{ tabBarLabel: 'Client List' }}
-/>
-<Tab.Screen
+/> : <Tab.Screen
+  name="Feed"
+  component={SupplierDetailsListTab}
+  options={{ tabBarLabel: 'Supplier List' }}
+/>}
+
+{clientList.backgroundColor === 'rgba(0,97,255,1)' ? <Tab.Screen
   name="Notifications"
   component={ClientPaymentDetailsTab}
   options={{ tabBarLabel: 'Payment Details' }}
-/>
+/> : <Tab.Screen
+  name="Notifications"
+  component={SupplierPaymentDetailsTab}
+  options={{ tabBarLabel: 'Payment Details' }}
+/>}
 
 </Tab.Navigator>
 </>

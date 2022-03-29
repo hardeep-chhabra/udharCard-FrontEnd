@@ -1,12 +1,17 @@
 import { Image, ScrollView, StyleSheet, Text, View } from 'react-native'
 import React, { useEffect, useState } from 'react'
 import { Input } from 'react-native-elements'
+import { useSelector } from 'react-redux'
+import { selectClientsData } from '../reduxSlices/infoSlice'
 
 
 
 
 
 const ClientDetailsListTab = () => {
+
+      const clientsData = useSelector(selectClientsData)
+
 
       useEffect(() => {
         console.log('ClientDetailsListTab MOUNTED');
@@ -16,23 +21,6 @@ const ClientDetailsListTab = () => {
         }
       })
 
-
-      useEffect(() => {
-
-        const clientListAPIFunc = async () => {
-          let json = await fetch('https://jsonplaceholder.typicode.com/posts');
-          let response = await json.json();
-          setClientsData(response);
-          }
-      
-        clientListAPIFunc();
-
-      }, [clientListText])
-
-      
-      const [clientListText, setClientListText] = useState(styles.Txt159);
-
-      const [clientsData, setClientsData] = useState([]);
 
 
 

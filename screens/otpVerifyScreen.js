@@ -168,17 +168,17 @@ export default function OTPVerifyScreen() {
         <TouchableOpacity
 
         onPress={async () => {
-          // const response = await fetch(`https://verify1-1227-pufhrk.twil.io/start-verify`, {
-          //   method: "POST",
-          //   headers: {
-          //     "Content-Type": "application/json",
-          //   },
-          //   body: JSON.stringify({
-          //     to: "+919662079915",
-          //     channel: "sms",
-          //   }),
-          //   });
-          // const json = await response.json();
+          const response = await fetch(`https://verify1-1227-pufhrk.twil.io/start-verify`, {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify({
+              to: "+919662079915",
+              channel: "sms",
+            }),
+            });
+          const json = await response.json();
 
           animatedTextOTPValue.current.setNativeProps({'text':'               OTP Resent Successfully !!!'})
           loginMessageAnimation.start(() => {

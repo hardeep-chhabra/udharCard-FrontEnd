@@ -2,7 +2,8 @@ import { createSlice } from "@reduxjs/toolkit";
 
 
 const initialState = {
-    phoneNumber:null
+    phoneNumber:null,
+    clientsData:new Array
 }
 
 
@@ -13,15 +14,22 @@ export const infoSlice = createSlice({
         setPhoneNumber: (state, action) => {
             state.phoneNumber = action.payload;
         },
+        setClientsData: (state, action) => {
+            state.clientsData = action.payload;
+        },
     },
 })
 
 console.log('HHHHHHHHHHHHHHHHHHHHH');
 
-export const { setPhoneNumber } = infoSlice.actions;
+export const { setPhoneNumber,setClientsData } = infoSlice.actions;
 
 export const selectPhoneNumber = (state) => {
     return state.info.phoneNumber;
+};
+
+export const selectClientsData = (state) => {
+    return state.info.clientsData;
 };
 
 
