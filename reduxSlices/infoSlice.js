@@ -3,7 +3,8 @@ import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
     phoneNumber:null,
-    clientsData:new Array
+    clientsData:new Array,
+    signupUserName:null
 }
 
 
@@ -17,12 +18,15 @@ export const infoSlice = createSlice({
         setClientsData: (state, action) => {
             state.clientsData = action.payload;
         },
+        setSignupUserName: (state, action) => {
+            state.signupUserName = action.payload;
+        },
     },
 })
 
 console.log('HHHHHHHHHHHHHHHHHHHHH');
 
-export const { setPhoneNumber,setClientsData } = infoSlice.actions;
+export const { setPhoneNumber,setClientsData, setSignupUserName } = infoSlice.actions;
 
 export const selectPhoneNumber = (state) => {
     return state.info.phoneNumber;
@@ -30,6 +34,10 @@ export const selectPhoneNumber = (state) => {
 
 export const selectClientsData = (state) => {
     return state.info.clientsData;
+};
+
+export const selectSignupUserName = (state) => {
+    return state.info.signupUserName;
 };
 
 

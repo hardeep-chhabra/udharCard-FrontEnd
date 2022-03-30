@@ -21,7 +21,6 @@ export default function SignIn() {
   const navigation = useNavigation();
 
   const origin = useSelector(selectPhoneNumber)
-  console.log('DDDDDDDDDDDDDDDDDDDDDDDD');
   
   
   return (
@@ -61,14 +60,15 @@ export default function SignIn() {
 
         <View style={styles.Group2611}>
         <TextInput
-          placeholder="Password"
+          placeholder="Mobile Number"
           multiline={false}
           keyboardAppearance="dark"
           // defaultValue="none"
           // inlineImagePadding={"null"}
           // numberOfLines={"null"}
           autoCapitalize="none"
-          keyboardType="default"
+          keyboardType="phone-pad"
+          textContentType="telephoneNumber"
           selectionColor="grey"
           disableFullscreenUI={false}
           clearTextOnFocus={false}
@@ -77,9 +77,7 @@ export default function SignIn() {
           secureTextEntry={true}
           editable={true}
           placeholderTextColor='rgba(0,0,0,1)'
-          // style={styles.textInput}
           style={{height:45, width:300, paddingLeft:40, backgroundColor:'white', fontSize: 12, fontFamily: "undefined", fontWeight: "400", borderRadius:10}} />
-        {/* <Icon name="user" style={styles.icon}></Icon> */}
         <Image
             style={styles.passwordIcon}
             source={{

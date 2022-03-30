@@ -193,31 +193,33 @@ export default function OTPVerifyScreen() {
 
         <TouchableOpacity
           onPress={(async () => {
-            // const response = await fetch(`https://verify1-1227-pufhrk.twil.io/start-verify`, {
-            //   method: "POST",
-            //   headers: {
-            //     "Content-Type": "application/json",
-            //   },
-            //   body: JSON.stringify({
-            //     to: "+919662079915",
-            //     channel: "sms",
-            //   }),
-            //   });
-            // const json = await response.json();
+            const response = await fetch(`https://verify1-1227-pufhrk.twil.io/check-verify`, {
+              method: "POST",
+              headers: {
+                "Content-Type": "application/json",
+              },
+              body: JSON.stringify({
+                to: "+919662079915",
+                verification_code: "3431",
+              }),
+              });
+            const json = await response.json();
+            console.log('EEEEEEEEEEEEEEEEEEEEEEEEEEEE',response,json);
 
-            if (1 > 2) {
-            animatedTextOTPValue.current.setNativeProps({'text':'         Please Insert the Correct OTP !!!'})
-            loginMessageAnimation.start(() => {
-              console.log('EEEEEEEEEEEEEEEEEEEEEEEEEEEE');
-              loginMessageAnimation.reset();
-            });
-            // let sadasd = await AsyncStorage.setItem('mobileNo11','96622915')
-            let sadasd11 = await AsyncStorage.getItem('mobileNo11')
-            console.log('GGGGGGGGGGGGGGGGGGGGGGGGG', sadasd11);
-          }
-            else {
-            navigation.navigate('ClientListDrawerScreens')
-          }
+
+          //   if (1 > 2) {
+          //   animatedTextOTPValue.current.setNativeProps({'text':'         Please Insert the Correct OTP !!!'})
+          //   loginMessageAnimation.start(() => {
+          //     console.log('EEEEEEEEEEEEEEEEEEEEEEEEEEEE');
+          //     loginMessageAnimation.reset();
+          //   });
+          //   // let sadasd = await AsyncStorage.setItem('mobileNo11','96622915')
+          //   let sadasd11 = await AsyncStorage.getItem('mobileNo11')
+          //   console.log('GGGGGGGGGGGGGGGGGGGGGGGGG', sadasd11);
+          // }
+          //   else {
+          //   navigation.navigate('ClientListDrawerScreens')
+          // }
 
           })}
         >
