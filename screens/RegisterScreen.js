@@ -94,22 +94,22 @@ export default function RegisterScreen() {
 
         <TouchableOpacity 
         onPress={(async () => {
-            const response = await fetch(`https://verify1-1227-pufhrk.twil.io/start-verify`, {
-              method: "POST",
-              headers: {
-                "Content-Type": "application/json",
-              },
-              body: JSON.stringify({
-                to: '+917597446644',
-                channel: "sms",
-              }),
-              });
-            const json = await response.json();
-            console.log('333333333333333333333333', response, json)
+            // const response = await fetch(`https://verify1-1227-pufhrk.twil.io/start-verify`, {
+            //   method: "POST",
+            //   headers: {
+            //     "Content-Type": "application/json",
+            //   },
+            //   body: JSON.stringify({
+            //     to: '+91' + phoneNumber,
+            //     channel: "sms",
+            //   }),
+            //   });
+            // const json = await response.json();
+            // console.log('333333333333333333333333', response, json)
 
-            json.success === true && navigation.navigate('OTPVerifyScreen')
+            // json.success === true && navigation.navigate('OTPVerifyScreen')
 
-            // navigation.navigate('OTPVerifyScreen')
+            navigation.navigate('OTPVerifyScreen')
 
             })}
         >

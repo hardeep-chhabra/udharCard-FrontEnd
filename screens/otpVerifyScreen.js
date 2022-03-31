@@ -20,8 +20,10 @@ export default function OTPVerifyScreen() {
       })
 
 
-    const origin = useSelector(selectPhoneNumber)
-    let origin1 = origin ? origin.slice(0,7) + 'xxx' : origin
+    let phoneNumber = useSelector(selectPhoneNumber)
+    let displayMaskedNumber = phoneNumber ? phoneNumber.slice(0,7) + 'xxx' : phoneNumber
+
+    salkdamsd = 2;
 
     const navigation = useNavigation();
 
@@ -88,7 +90,7 @@ export default function OTPVerifyScreen() {
         <Text style={styles.Txt905}>OTP verification</Text>
 
         <Text style={styles.Txt044}>
-          Enter the OTP Sent to Your Number {origin1}
+          Enter the OTP Sent to Your Number {displayMaskedNumber}
         </Text>
 
         <View style={styles.container}>
@@ -141,7 +143,6 @@ export default function OTPVerifyScreen() {
           keyboardAppearance='light'
           style={styles.placeholder3}
           onChangeText={(value) => {
-
             if (value!=='') {
               inputTextValue3.current = value;
               inputTextRef4.current.focus()
@@ -166,7 +167,6 @@ export default function OTPVerifyScreen() {
         </View>
 
         <TouchableOpacity
-
         onPress={async () => {
           const response = await fetch(`https://verify1-1227-pufhrk.twil.io/start-verify`, {
             method: "POST",
@@ -185,44 +185,52 @@ export default function OTPVerifyScreen() {
             loginMessageAnimation.reset();
           });
         }}
-
         style={{flexDirection:'row'}}>
         <Text style={styles.multiple1}>Didn't receive the OTP ? </Text>
         <Text style={styles.multiple2}> RESEND OTP</Text>
         </TouchableOpacity>
 
         <TouchableOpacity
-          onPress={(async () => {
-            const response = await fetch(`https://verify1-1227-pufhrk.twil.io/check-verify`, {
-              method: "POST",
-              headers: {
-                "Content-Type": "application/json",
-              },
-              body: JSON.stringify({
-                to: "+919662079915",
-                verification_code: "3431",
-              }),
-              });
-            const json = await response.json();
-            console.log('EEEEEEEEEEEEEEEEEEEEEEEEEEEE',response,json);
+          onPress={(async (event) => {
+            // const response = await fetch(`https://verify1-1227-pufhrk.twil.io/check-verify`, {
+            //   method: "POST",
+            //   headers: {
+            //     "Content-Type": "application/json",
+            //     to: '+91' + phoneNumber,
+            //     code: inputTextValue1.current + inputTextValue2.current + inputTextValue3.current + inputTextValue4.current
+            //   },
+            //   // body: JSON.stringify({
+            //   //   to: "+919662079915",
+            //   //   verification_code: "5174",
+            //   // }),
+            //   });
+            // const json = await response.json();
+            // console.log('EEEEEEEEEEEEEEEEEEEEEEEEEEEE', json);
 
 
-          //   if (1 > 2) {
-          //   animatedTextOTPValue.current.setNativeProps({'text':'         Please Insert the Correct OTP !!!'})
-          //   loginMessageAnimation.start(() => {
-          //     console.log('EEEEEEEEEEEEEEEEEEEEEEEEEEEE');
-          //     loginMessageAnimation.reset();
-          //   });
-          //   // let sadasd = await AsyncStorage.setItem('mobileNo11','96622915')
-          //   let sadasd11 = await AsyncStorage.getItem('mobileNo11')
-          //   console.log('GGGGGGGGGGGGGGGGGGGGGGGGG', sadasd11);
-          // }
-          //   else {
-          //   navigation.navigate('ClientListDrawerScreens')
-          // }
+            if (1 < 2) {
+            console.log('111111111111111111111111', event.target.viewConfig)
+            if (salkdamsd <= 0) {
+                animatedTextOTPValue.current.setNativeProps({'text':`Maximum Attempts Reached, Please SignIn/SignUp Again`})
+              }
+              else {
+                animatedTextOTPValue.current.setNativeProps({'text':`Incorrect OTP, Please Enter ${salkdamsd} Correct OTP!`})
+              }
+            console.log('222222222222222222222222', salkdamsd)
+            salkdamsd = salkdamsd - 1
+            loginMessageAnimation.start(() => {
+              console.log('333333333333333333333333')
+              loginMessageAnimation.reset();
+            });
+            // let sadasd = await AsyncStorage.setItem('mobileNo11','96622915')
+            // let sadasd11 = await AsyncStorage.getItem('mobileNo11')
+          }
+            else {
+            navigation.navigate('ClientListDrawerScreens')
+          }
 
           })}
-        >
+          >
             <View style={styles.Group12}>
             <Text style={styles.Txt708}>Verify & Proceed</Text>
             </View>
