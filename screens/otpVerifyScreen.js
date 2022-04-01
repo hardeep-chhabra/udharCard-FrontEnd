@@ -175,17 +175,17 @@ export default function OTPVerifyScreen() {
         <TouchableOpacity
           disabled={toggleVerifyButton}
           onPress={async () => {
-          // const response = await fetch(`https://verify1-1227-pufhrk.twil.io/start-verify`, {
-          //   method: "POST",
-          //   headers: {
-          //     "Content-Type": "application/json",
-          //   },
-          //   body: JSON.stringify({
-          //     to: "+919662079915",
-          //     channel: "sms",
-          //   }),
-          //   });
-          // const json = await response.json();
+          const response = await fetch(`https://verify1-1227-pufhrk.twil.io/start-verify`, {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify({
+              to: "+919662079915",
+              channel: "sms",
+            }),
+            });
+          const json = await response.json();
 
           inputTextRef.current.setNativeProps({'text':null})
           inputTextRef2.current.setNativeProps({'text':null})
@@ -206,23 +206,23 @@ export default function OTPVerifyScreen() {
           style={[styles.Group12, {backgroundColor:toggleVerifyButtonColor}]}
           disabled={toggleVerifyButton}
           onPress={(async (event) => {
-            // const response = await fetch(`https://verify1-1227-pufhrk.twil.io/check-verify`, {
-            //   method: "POST",
-            //   headers: {
-            //     "Content-Type": "application/json",
-            //     to: '+91' + phoneNumber,
-            //     code: inputTextValue1.current + inputTextValue2.current + inputTextValue3.current + inputTextValue4.current
-            //   },
-            //   // body: JSON.stringify({
-            //   //   to: "+919662079915",
-            //   //   verification_code: "5174",
-            //   // }),
-            //   });
-            // const json = await response.json();
-            // console.log('EEEEEEEEEEEEEEEEEEEEEEEEEEEE', json);
+            const response = await fetch(`https://verify1-1227-pufhrk.twil.io/check-verify`, {
+              method: "POST",
+              headers: {
+                "Content-Type": "application/json",
+                to: '+91' + phoneNumber,
+                code: inputTextValue1.current + inputTextValue2.current + inputTextValue3.current + inputTextValue4.current
+              },
+              // body: JSON.stringify({
+              //   to: "+919662079915",
+              //   verification_code: "5174",
+              // }),
+              });
+            const json = await response.json();
+            console.log('EEEEEEEEEEEEEEEEEEEEEEEEEEEE', json);
 
 
-            if (1 < 2) {
+            if (json.success === false) {
             if (maxOTPAttempts <= 0) {
                 animatedTextOTPValue.current.setNativeProps({'text':`             Maximum Attempts Reached`});
                 console.log('222222222222222222222222', maxOTPAttempts)

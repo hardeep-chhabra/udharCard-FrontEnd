@@ -1,6 +1,6 @@
 import { useNavigation } from "@react-navigation/native";
 import React, { useEffect } from "react"
-import { StyleSheet, Image, Text, View,StatusBar, TextInput, ImageBackground, TouchableOpacity } from "react-native"
+import { StyleSheet, Image, Text, View,StatusBar, TextInput, ImageBackground, TouchableOpacity, Animated } from "react-native"
 import Icon from "react-native-vector-icons/Feather";
 import { useSelector } from "react-redux";
 import { selectPhoneNumber } from "../reduxSlices/infoSlice";
@@ -29,6 +29,15 @@ export default function SignIn() {
         <Text style={styles.Txt609}>Logo</Text>
 
       <StatusBar backgroundColor="black" />
+
+      <Animated.View style={[styles.animatedViewMsg, {opacity:1, flex:1, backgroundColor:'yellow'}]}>
+        <TextInput
+        multiline 
+        editable={false} 
+        value='sdsasdsadasdasdasdasdsadasdasdsadasdsadsadasdasdasdasdasdasdasdasdasdsadfsdffsdfjsdnfkjdsfkzjfksjdfksdnkfjndskjfjkdsnjfkndasdas' 
+        style={{color:'rgba(255, 255, 255, 1)', backgroundColor:'red', maxWidth:300}}>
+          </TextInput>
+        </Animated.View>
 
       <View style={styles.Group2611}>
         <TextInput
@@ -93,11 +102,23 @@ export default function SignIn() {
         <TouchableOpacity
         style={styles.Group457}
         onPress={(() => {
-          navigation.replace('ClientListScreen')
+          // CALL THE BACKEND API
+          // IF SUCCESSFUL
+          // const response = await fetch(`https://verify1-1227-pufhrk.twil.io/start-verify`, {
+          //     method: "POST",
+          //     headers: {
+          //       "Content-Type": "application/json",
+          //     },
+          //     body: JSON.stringify({
+          //       to: '+91' + phoneNumber,
+          //       channel: "sms",
+          //     }),
+          //     });
+          // const json = await response.json();
+          // ELSE NOT SUCCESSFUL
+          navigation.navigate('OTPVerifyScreen')
         })}>
-        {/* <View style={styles.Group457}> */}
           <Text style={styles.Txt4104}>Sign In</Text>
-        {/* </View> */}
         </TouchableOpacity>
 
         <Text style={styles.Txt3108}>or</Text>
@@ -259,6 +280,7 @@ const styles = StyleSheet.create({
     backgroundColor: "rgba(0,97,255,1)",
     width: 300,
     height: 50,
+    marginTop: 40
   },
 
   Txt4104: {
@@ -423,6 +445,21 @@ const styles = StyleSheet.create({
     height: 54,
     marginTop: 103,
     marginLeft: 19
-  }
+  },
+
+  animatedViewMsg: {
+    // left:25,
+    // marginBottom:-30,
+    // top:70,
+    justifyContent:'flex-start',
+    // alignItems:'flex-start',
+    // alignContent:'flex-start',
+    maxHeight:60,
+    // marginRight:80,
+    // left:-10,
+    // right:30,
+    maxWidth:1000
+    
+    },
 
 })
