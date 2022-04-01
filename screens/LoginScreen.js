@@ -86,16 +86,18 @@ export default function SignIn() {
           />
       </View>
 
-        <TouchableOpacity>
+        {/* <TouchableOpacity>
         <Text style={styles.Txt667}>Forget Password ?</Text>
-        </TouchableOpacity>
+        </TouchableOpacity> */}
 
-        <TouchableOpacity onPress={(() => {
+        <TouchableOpacity
+        style={styles.Group457}
+        onPress={(() => {
           navigation.replace('ClientListScreen')
         })}>
-        <View style={styles.Group457}>
+        {/* <View style={styles.Group457}> */}
           <Text style={styles.Txt4104}>Sign In</Text>
-        </View>
+        {/* </View> */}
         </TouchableOpacity>
 
         <Text style={styles.Txt3108}>or</Text>
@@ -246,6 +248,7 @@ const styles = StyleSheet.create({
     color: "rgba(255, 255, 255, 1)",
     marginBottom: 31,
   },
+
   Group457: {
     paddingTop: 14,
     paddingBottom: 12,

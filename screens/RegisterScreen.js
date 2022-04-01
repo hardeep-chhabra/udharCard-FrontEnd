@@ -33,7 +33,6 @@ export default function RegisterScreen() {
         <View style={styles.Group2611}>
             <TextInput
             onEndEditing={(event) => {
-              console.log('2222222222222222222222', event.nativeEvent.text)
               dispatch(setSignupUserName(event.nativeEvent.text))
             }}
             placeholder="Username"
@@ -64,7 +63,6 @@ export default function RegisterScreen() {
         <View style={styles.Group2611}>
             <TextInput
             onEndEditing={(event) => {
-              console.log('1111111111111111111111111', event.nativeEvent.text)
               dispatch(setPhoneNumber(event.nativeEvent.text))
             }}
             placeholder="Mobile Number"

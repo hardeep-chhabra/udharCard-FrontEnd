@@ -5,29 +5,21 @@ import { StyleSheet, Image, Text, View, ImageBackground, TextInput, TouchableOpa
 import { useSelector } from "react-redux";
 import { selectPhoneNumber } from "../reduxSlices/infoSlice";
 import AsyncStorage from '@react-native-async-storage/async-storage';
+import { removeListener } from "@reduxjs/toolkit";
 
 
 
 
 export default function OTPVerifyScreen() {
 
-      useEffect(() => {
-        console.log('OTPVerifyScreen MOUNTED');
-
-        return () => {
-        console.log('OTPVerifyScreen UNMOUNTED');
-        }
-      })
-
-
     let phoneNumber = useSelector(selectPhoneNumber)
     let displayMaskedNumber = phoneNumber ? phoneNumber.slice(0,7) + 'xxx' : phoneNumber
 
-    salkdamsd = 2;
+    maxOTPAttempts = 2;
 
     const navigation = useNavigation();
 
-    const inputTextRef = useRef('SJDBSJHBD');
+    const inputTextRef = useRef();
     const inputTextRef2 = useRef();
     const inputTextRef3 = useRef();
     const inputTextRef4 = useRef();
@@ -36,6 +28,10 @@ export default function OTPVerifyScreen() {
     const inputTextValue2 = useRef(0);
     const inputTextValue3 = useRef(0);
     const inputTextValue4 = useRef(0);
+
+    const [toggleVerifyButton, setToggleVerifyButton] = useState(false);
+    let toggleVerifyButtonColor = toggleVerifyButton===false ? 'rgba(0,97,255,1)' : 'red'
+    console.log('111111111111111111111111', phoneNumber)
 
     const animatedTextOTPValue = useRef();
 
@@ -54,6 +50,16 @@ export default function OTPVerifyScreen() {
       duration:2000,
       useNativeDriver:false
     })])
+
+
+
+    useEffect(() => {
+      console.log('OTPVerifyScreen MOUNTED');
+
+      return () => {
+      console.log('OTPVerifyScreen UNMOUNTED');
+      }
+    })
 
 
 
@@ -167,18 +173,24 @@ export default function OTPVerifyScreen() {
         </View>
 
         <TouchableOpacity
-        onPress={async () => {
-          const response = await fetch(`https://verify1-1227-pufhrk.twil.io/start-verify`, {
-            method: "POST",
-            headers: {
-              "Content-Type": "application/json",
-            },
-            body: JSON.stringify({
-              to: "+919662079915",
-              channel: "sms",
-            }),
-            });
-          const json = await response.json();
+          disabled={toggleVerifyButton}
+          onPress={async () => {
+          // const response = await fetch(`https://verify1-1227-pufhrk.twil.io/start-verify`, {
+          //   method: "POST",
+          //   headers: {
+          //     "Content-Type": "application/json",
+          //   },
+          //   body: JSON.stringify({
+          //     to: "+919662079915",
+          //     channel: "sms",
+          //   }),
+          //   });
+          // const json = await response.json();
+
+          inputTextRef.current.setNativeProps({'text':null})
+          inputTextRef2.current.setNativeProps({'text':null})
+          inputTextRef3.current.setNativeProps({'text':null})
+          inputTextRef4.current.setNativeProps({'text':null})
 
           animatedTextOTPValue.current.setNativeProps({'text':'               OTP Resent Successfully !!!'})
           loginMessageAnimation.start(() => {
@@ -191,6 +203,8 @@ export default function OTPVerifyScreen() {
         </TouchableOpacity>
 
         <TouchableOpacity
+          style={[styles.Group12, {backgroundColor:toggleVerifyButtonColor}]}
+          disabled={toggleVerifyButton}
           onPress={(async (event) => {
             // const response = await fetch(`https://verify1-1227-pufhrk.twil.io/check-verify`, {
             //   method: "POST",
@@ -209,19 +223,23 @@ export default function OTPVerifyScreen() {
 
 
             if (1 < 2) {
-            console.log('111111111111111111111111', event.target.viewConfig)
-            if (salkdamsd <= 0) {
-                animatedTextOTPValue.current.setNativeProps({'text':`Maximum Attempts Reached, Please SignIn/SignUp Again`})
+            if (maxOTPAttempts <= 0) {
+                animatedTextOTPValue.current.setNativeProps({'text':`             Maximum Attempts Reached`});
+                console.log('222222222222222222222222', maxOTPAttempts)
+                maxOTPAttempts = maxOTPAttempts - 1
+                loginMessageAnimation.start(() => {
+                  console.log('333333333333333333333333');
+                  loginMessageAnimation.reset();
+                  setToggleVerifyButton(true);
+                })
               }
               else {
-                animatedTextOTPValue.current.setNativeProps({'text':`Incorrect OTP, Please Enter ${salkdamsd} Correct OTP!`})
+                animatedTextOTPValue.current.setNativeProps({'text':`   Incorrect OTP, ${maxOTPAttempts} More Attempts Allowed!`})
+                maxOTPAttempts = maxOTPAttempts - 1
+                loginMessageAnimation.start(() => {
+                  loginMessageAnimation.reset();
+                });
               }
-            console.log('222222222222222222222222', salkdamsd)
-            salkdamsd = salkdamsd - 1
-            loginMessageAnimation.start(() => {
-              console.log('333333333333333333333333')
-              loginMessageAnimation.reset();
-            });
             // let sadasd = await AsyncStorage.setItem('mobileNo11','96622915')
             // let sadasd11 = await AsyncStorage.getItem('mobileNo11')
           }
@@ -231,9 +249,7 @@ export default function OTPVerifyScreen() {
 
           })}
           >
-            <View style={styles.Group12}>
             <Text style={styles.Txt708}>Verify & Proceed</Text>
-            </View>
         </TouchableOpacity>
         
       </View>
@@ -253,7 +269,7 @@ export default function OTPVerifyScreen() {
 }
 
 
-
+// console.log('4444444444444444444444', toggleVerifyButton)
 
 const styles = StyleSheet.create({
 
@@ -496,7 +512,7 @@ placeholder4: {
     paddingLeft: 57,
     paddingRight: 52,
     borderRadius: 5,
-    backgroundColor: "rgba(0,97,255,1)",
+    // backgroundColor: 'rgba(0,97,255,1)',
     width: 232,
     height: 50,
     left:50,
