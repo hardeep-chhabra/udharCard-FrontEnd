@@ -1,13 +1,35 @@
 import { useNavigation } from "@react-navigation/native";
-import React, { useEffect } from "react"
+import React, { useEffect, useRef } from "react"
 import { StyleSheet, Image, Text, View,StatusBar, TextInput, ImageBackground, TouchableOpacity, Animated } from "react-native"
 import Icon from "react-native-vector-icons/Feather";
-import { useSelector } from "react-redux";
-import { selectPhoneNumber } from "../reduxSlices/infoSlice";
+import { useDispatch, useSelector } from "react-redux";
+import { selectPhoneNumber, setPhoneNumber, setSignupUserName } from "../reduxSlices/infoSlice";
 
 
 
-export default function SignIn() {
+export default function SignIn() {  
+  
+  const navigation = useNavigation();
+
+  const animateTextOpacity = new Animated.Value(0)
+
+  const messageAnimatedView = useRef(0);
+  const phoneNumber = useSelector(selectPhoneNumber)
+  const dispatch = useDispatch();
+
+  const failLoginMessageAnimation = Animated.sequence([Animated.timing(animateTextOpacity, {
+        toValue:1,
+        delay:100,
+        duration:1000,
+        useNativeDriver:true
+      }),
+      Animated.timing(animateTextOpacity, {
+        toValue:0,
+        delay:100,
+        duration:3000,
+        useNativeDriver:true
+      })])
+
 
   useEffect(() => {
     console.log('LOGINSCREEN MOUNTED');
@@ -16,11 +38,8 @@ export default function SignIn() {
     console.log('LOGINSCREEN UNMOUNTED');
     }
   })
-  
-  
-  const navigation = useNavigation();
 
-  const origin = useSelector(selectPhoneNumber)
+
   
   
   return (
@@ -30,17 +49,22 @@ export default function SignIn() {
 
       <StatusBar backgroundColor="black" />
 
-      <Animated.View style={[styles.animatedViewMsg, {opacity:1, flex:1, backgroundColor:'yellow'}]}>
+      <Animated.View
+      ref={messageAnimatedView}
+      style={[styles.animatedViewMsg, {flex:1, opacity:animateTextOpacity, display:'none'}]}>
         <TextInput
         multiline 
         editable={false} 
-        value='sdsasdsadasdasdasdasdsadasdasdsadasdsadsadasdasdasdasdasdasdasdasdasdsadfsdffsdfjsdnfkjdsfkzjfksjdfksdnkfjndskjfjkdsnjfkndasdas' 
-        style={{color:'rgba(255, 255, 255, 1)', backgroundColor:'red', maxWidth:300}}>
+        value='Mobile Number Not Registered on our Server, Please Signup/Register First!!!' 
+        style={{color:'white', maxWidth:300}}>
           </TextInput>
         </Animated.View>
 
       <View style={styles.Group2611}>
         <TextInput
+          onEndEditing={(event) => {
+            dispatch(setSignupUserName(event.nativeEvent.text))
+          }}
           placeholder="Username"
           multiline={false}
           keyboardAppearance="dark"
@@ -69,6 +93,9 @@ export default function SignIn() {
 
         <View style={styles.Group2611}>
         <TextInput
+          onEndEditing={(event) => {
+            dispatch(setPhoneNumber(event.nativeEvent.text))
+          }}
           placeholder="Mobile Number"
           multiline={false}
           keyboardAppearance="dark"
@@ -101,22 +128,28 @@ export default function SignIn() {
 
         <TouchableOpacity
         style={styles.Group457}
-        onPress={(() => {
+        onPress={(async () => {
           // CALL THE BACKEND API
           // IF SUCCESSFUL
-          // const response = await fetch(`https://verify1-1227-pufhrk.twil.io/start-verify`, {
-          //     method: "POST",
-          //     headers: {
-          //       "Content-Type": "application/json",
-          //     },
-          //     body: JSON.stringify({
-          //       to: '+91' + phoneNumber,
-          //       channel: "sms",
-          //     }),
-          //     });
-          // const json = await response.json();
+          const response = await fetch(`https://verify1-1227-pufhrk.twil.io/start-verify`, {
+              method: "POST",
+              headers: {
+                "Content-Type": "application/json",
+              },
+              body: JSON.stringify({
+                to: '+91' + phoneNumber,
+                channel: "sms",
+              }),
+              });
+          const json = await response.json();
+          navigation.navigate('OTPVerifyScreen');
           // ELSE NOT SUCCESSFUL
-          navigation.navigate('OTPVerifyScreen')
+          // messageAnimatedView.current.setNativeProps({'style':{'display':'flex'}});
+          // failLoginMessageAnimation.start((message) => {
+          //   console.log('00000000000000000000', messageAnimatedView.current.setNativeProps);
+          //   messageAnimatedView.current.setNativeProps({'style':{'display':'none'}});
+          //   failLoginMessageAnimation.reset();
+          // })
         })}>
           <Text style={styles.Txt4104}>Sign In</Text>
         </TouchableOpacity>
@@ -451,14 +484,14 @@ const styles = StyleSheet.create({
     // left:25,
     // marginBottom:-30,
     // top:70,
-    justifyContent:'flex-start',
+    // justifyContent:'flex-start',
     // alignItems:'flex-start',
     // alignContent:'flex-start',
-    maxHeight:60,
+    maxHeight:100,
     // marginRight:80,
     // left:-10,
     // right:30,
-    maxWidth:1000
+    // maxWidth:1000
     
     },
 
