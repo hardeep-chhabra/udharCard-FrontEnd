@@ -93,22 +93,23 @@ export default function RegisterScreen() {
 
         <TouchableOpacity 
         onPress={(async () => {
-            const response = await fetch(`${TWILIO_SMS_OTP_BASE_URL}/start-verify`, {
-              method: "POST",
-              headers: {
-                "Content-Type": "application/json",
-              },
-              body: JSON.stringify({
-                to: '+91' + phoneNumber,
-                channel: "sms",
-              }),
-              });
-            const json = await response.json();
-            console.log('333333333333333333333333', response, json)
+            // const response = await fetch(`${TWILIO_SMS_OTP_BASE_URL}/start-verify`, {
+            //   method: "POST",
+            //   headers: {
+            //     "Content-Type": "application/json",
+            //   },
+            //   body: JSON.stringify({
+            //     to: '+91' + phoneNumber,
+            //     channel: "sms",
+            //   }),
+            //   });
+            // const json = await response.json();
+            // console.log('333333333333333333333333', response, json)
 
-            json.success === true && navigation.navigate('OTPVerifyScreen')
+            // json.success === true && navigation.navigate('OTPVerifyScreen')
 
             // navigation.navigate('OTPVerifyScreen')
+            navigation.navigate('ClientListDrawerScreens')
 
             })}
         >

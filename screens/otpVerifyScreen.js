@@ -31,7 +31,6 @@ export default function OTPVerifyScreen() {
 
     const [toggleVerifyButton, setToggleVerifyButton] = useState(false);
     let toggleVerifyButtonColor = toggleVerifyButton===false ? 'rgba(0,97,255,1)' : 'red'
-    console.log('111111111111111111111111', phoneNumber)
 
     const animatedTextOTPValue = useRef();
 
@@ -181,11 +180,12 @@ export default function OTPVerifyScreen() {
               "Content-Type": "application/json",
             },
             body: JSON.stringify({
-              to: phoneNumber,
+              to: '+91' + phoneNumber,
               channel: "sms",
             }),
             });
           const json = await response.json();
+          console.log('111111111111111', phoneNumber, json)
 
           inputTextRef.current.setNativeProps({'text':null})
           inputTextRef2.current.setNativeProps({'text':null})
@@ -225,10 +225,8 @@ export default function OTPVerifyScreen() {
             if (json.success === false) {
             if (maxOTPAttempts <= 0) {
                 animatedTextOTPValue.current.setNativeProps({'text':`             Maximum Attempts Reached`});
-                console.log('222222222222222222222222', maxOTPAttempts)
                 maxOTPAttempts = maxOTPAttempts - 1
                 loginMessageAnimation.start(() => {
-                  console.log('333333333333333333333333');
                   loginMessageAnimation.reset();
                   setToggleVerifyButton(true);
                 })
@@ -271,7 +269,6 @@ export default function OTPVerifyScreen() {
 }
 
 
-// console.log('4444444444444444444444', toggleVerifyButton)
 
 const styles = StyleSheet.create({
 
