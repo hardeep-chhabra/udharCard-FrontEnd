@@ -92,7 +92,7 @@ export default function RegisterScreen() {
 
         <TouchableOpacity 
         onPress={(async () => {
-            const response = await fetch(`https://verify1-1227-pufhrk.twil.io/start-verify`, {
+            const response = await fetch(`${TWILIO_SMS_OTP_BASE_URL}/start-verify`, {
               method: "POST",
               headers: {
                 "Content-Type": "application/json",

@@ -11,7 +11,7 @@ import { selectClientsData } from '../reduxSlices/infoSlice'
 const ClientDetailsListTab = () => {
 
       const clientsData = useSelector(selectClientsData)
-
+      console.log('33333333333333333333', clientsData.length)
 
       useEffect(() => {
         console.log('ClientDetailsListTab MOUNTED');
@@ -31,8 +31,27 @@ const ClientDetailsListTab = () => {
         
       <ScrollView style={styles.Group482} contentContainerStyle={{alignItems:'center', paddingBottom:24}}>
 
-          {clientsData.map((index,item) => {
-          return (<View style={styles.Group9104}>
+          {/* {clientsData.map((index,item) => {
+          return (
+          <View key={item} style={styles.Group9104}>
+            <View style={styles.Group091}>
+              <Text style={styles.Txt081}>John Due</Text>
+              <Text style={styles.Txt766}>info@gmail.com</Text>
+              <View style={styles.Line3} />
+              <View style={styles.Group851}>
+                <Text style={styles.Txt2109}>Expense : 500</Text>
+                <Image
+                  style={styles.Graph}
+                  source={{
+                    uri: "https://firebasestorage.googleapis.com/v0/b/unify-bc2ad.appspot.com/o/8YKbQsmLBfONJUj4JItjeY-56%3A508?alt=media&token=637fa258-99ac-42ab-aed8-071f86f14063",
+                  }}
+                />
+              </View>
+            </View>
+          </View>)
+        })} */}
+
+            <View style={styles.Group9104}>
             <View style={styles.Group091}>
               <Text style={styles.Txt081}>John Due</Text>
               <Text style={styles.Txt766}>info@gmail.com</Text>
@@ -61,10 +80,9 @@ const ClientDetailsListTab = () => {
                   />
                 </View>
             </View>
-          </View>)
-        })}
+          </View>
 
-          {/* <View style={styles.Group9104}>
+          <View style={styles.Group9104}>
             <View style={styles.Group091}>
               <Text style={styles.Txt081}>John Due</Text>
               <Text style={styles.Txt766}>info@gmail.com</Text>
@@ -80,6 +98,23 @@ const ClientDetailsListTab = () => {
               </View>
             </View>
             <View style={styles.Group091}>
+                <Text style={styles.Txt081}>John Due</Text>
+                <Text style={styles.Txt766}>info@gmail.com</Text>
+                  <View style={styles.Line3} />
+                <View style={styles.Group851}>
+                  <Text style={styles.Txt2109}>Expense : 500</Text>
+                  <Image
+                    style={styles.Graph}
+                    source={{
+                      uri: "https://firebasestorage.googleapis.com/v0/b/unify-bc2ad.appspot.com/o/8YKbQsmLBfONJUj4JItjeY-56%3A513?alt=media&token=55e1952a-d007-4708-a91f-6b77bb0da9d7",
+                    }}
+                  />
+                </View>
+            </View>
+          </View>
+
+          <View style={styles.Group9104}>
+            <View style={styles.Group091}>
               <Text style={styles.Txt081}>John Due</Text>
               <Text style={styles.Txt766}>info@gmail.com</Text>
               <View style={styles.Line3} />
@@ -93,7 +128,145 @@ const ClientDetailsListTab = () => {
                 />
               </View>
             </View>
-          </View> */}
+            <View style={styles.Group091}>
+                <Text style={styles.Txt081}>John Due</Text>
+                <Text style={styles.Txt766}>info@gmail.com</Text>
+                  <View style={styles.Line3} />
+                <View style={styles.Group851}>
+                  <Text style={styles.Txt2109}>Expense : 500</Text>
+                  <Image
+                    style={styles.Graph}
+                    source={{
+                      uri: "https://firebasestorage.googleapis.com/v0/b/unify-bc2ad.appspot.com/o/8YKbQsmLBfONJUj4JItjeY-56%3A513?alt=media&token=55e1952a-d007-4708-a91f-6b77bb0da9d7",
+                    }}
+                  />
+                </View>
+            </View>
+          </View>
+
+          <View style={styles.Group9104}>
+            <View style={styles.Group091}>
+              <Text style={styles.Txt081}>John Due</Text>
+              <Text style={styles.Txt766}>info@gmail.com</Text>
+              <View style={styles.Line3} />
+              <View style={styles.Group851}>
+                <Text style={styles.Txt2109}>Expense : 500</Text>
+                <Image
+                  style={styles.Graph}
+                  source={{
+                    uri: "https://firebasestorage.googleapis.com/v0/b/unify-bc2ad.appspot.com/o/8YKbQsmLBfONJUj4JItjeY-56%3A508?alt=media&token=637fa258-99ac-42ab-aed8-071f86f14063",
+                  }}
+                />
+              </View>
+            </View>
+            <View style={styles.Group091}>
+                <Text style={styles.Txt081}>John Due</Text>
+                <Text style={styles.Txt766}>info@gmail.com</Text>
+                  <View style={styles.Line3} />
+                <View style={styles.Group851}>
+                  <Text style={styles.Txt2109}>Expense : 500</Text>
+                  <Image
+                    style={styles.Graph}
+                    source={{
+                      uri: "https://firebasestorage.googleapis.com/v0/b/unify-bc2ad.appspot.com/o/8YKbQsmLBfONJUj4JItjeY-56%3A513?alt=media&token=55e1952a-d007-4708-a91f-6b77bb0da9d7",
+                    }}
+                  />
+                </View>
+            </View>
+          </View>
+
+          <View style={styles.Group9104}>
+            <View style={styles.Group091}>
+              <Text style={styles.Txt081}>John Due</Text>
+              <Text style={styles.Txt766}>info@gmail.com</Text>
+              <View style={styles.Line3} />
+              <View style={styles.Group851}>
+                <Text style={styles.Txt2109}>Expense : 500</Text>
+                <Image
+                  style={styles.Graph}
+                  source={{
+                    uri: "https://firebasestorage.googleapis.com/v0/b/unify-bc2ad.appspot.com/o/8YKbQsmLBfONJUj4JItjeY-56%3A508?alt=media&token=637fa258-99ac-42ab-aed8-071f86f14063",
+                  }}
+                />
+              </View>
+            </View>
+            <View style={styles.Group091}>
+                <Text style={styles.Txt081}>John Due</Text>
+                <Text style={styles.Txt766}>info@gmail.com</Text>
+                  <View style={styles.Line3} />
+                <View style={styles.Group851}>
+                  <Text style={styles.Txt2109}>Expense : 500</Text>
+                  <Image
+                    style={styles.Graph}
+                    source={{
+                      uri: "https://firebasestorage.googleapis.com/v0/b/unify-bc2ad.appspot.com/o/8YKbQsmLBfONJUj4JItjeY-56%3A513?alt=media&token=55e1952a-d007-4708-a91f-6b77bb0da9d7",
+                    }}
+                  />
+                </View>
+            </View>
+          </View>
+
+          <View style={styles.Group9104}>
+            <View style={styles.Group091}>
+              <Text style={styles.Txt081}>John Due</Text>
+              <Text style={styles.Txt766}>info@gmail.com</Text>
+              <View style={styles.Line3} />
+              <View style={styles.Group851}>
+                <Text style={styles.Txt2109}>Expense : 500</Text>
+                <Image
+                  style={styles.Graph}
+                  source={{
+                    uri: "https://firebasestorage.googleapis.com/v0/b/unify-bc2ad.appspot.com/o/8YKbQsmLBfONJUj4JItjeY-56%3A508?alt=media&token=637fa258-99ac-42ab-aed8-071f86f14063",
+                  }}
+                />
+              </View>
+            </View>
+            <View style={styles.Group091}>
+                <Text style={styles.Txt081}>John Due</Text>
+                <Text style={styles.Txt766}>info@gmail.com</Text>
+                  <View style={styles.Line3} />
+                <View style={styles.Group851}>
+                  <Text style={styles.Txt2109}>Expense : 500</Text>
+                  <Image
+                    style={styles.Graph}
+                    source={{
+                      uri: "https://firebasestorage.googleapis.com/v0/b/unify-bc2ad.appspot.com/o/8YKbQsmLBfONJUj4JItjeY-56%3A513?alt=media&token=55e1952a-d007-4708-a91f-6b77bb0da9d7",
+                    }}
+                  />
+                </View>
+            </View>
+          </View>
+
+          <View style={styles.Group9104}>
+            <View style={styles.Group091}>
+              <Text style={styles.Txt081}>John Due</Text>
+              <Text style={styles.Txt766}>info@gmail.com</Text>
+              <View style={styles.Line3} />
+              <View style={styles.Group851}>
+                <Text style={styles.Txt2109}>Expense : 500</Text>
+                <Image
+                  style={styles.Graph}
+                  source={{
+                    uri: "https://firebasestorage.googleapis.com/v0/b/unify-bc2ad.appspot.com/o/8YKbQsmLBfONJUj4JItjeY-56%3A508?alt=media&token=637fa258-99ac-42ab-aed8-071f86f14063",
+                  }}
+                />
+              </View>
+            </View>
+            <View style={styles.Group091}>
+                <Text style={styles.Txt081}>John Due</Text>
+                <Text style={styles.Txt766}>info@gmail.com</Text>
+                  <View style={styles.Line3} />
+                <View style={styles.Group851}>
+                  <Text style={styles.Txt2109}>Expense : 500</Text>
+                  <Image
+                    style={styles.Graph}
+                    source={{
+                      uri: "https://firebasestorage.googleapis.com/v0/b/unify-bc2ad.appspot.com/o/8YKbQsmLBfONJUj4JItjeY-56%3A513?alt=media&token=55e1952a-d007-4708-a91f-6b77bb0da9d7",
+                    }}
+                  />
+                </View>
+            </View>
+          </View>
 
       </ScrollView>
 
@@ -176,12 +349,6 @@ const styles = StyleSheet.create({
     borderRadius:10,
     left:160,
     marginTop:10
-  },
-  
-  Group9104: {
-    display: "flex",
-    flexDirection: "row",
-    marginBottom: 16,
   },
 
   Group091: {

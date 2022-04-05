@@ -5,7 +5,7 @@ import { StyleSheet, Image, Text, View, ImageBackground, TextInput, TouchableOpa
 import { useSelector } from "react-redux";
 import { selectPhoneNumber } from "../reduxSlices/infoSlice";
 import AsyncStorage from '@react-native-async-storage/async-storage';
-import { removeListener } from "@reduxjs/toolkit";
+import { DEV_DJANGO_BASE_URL, TWILIO_SMS_OTP_BASE_URL } from '@env';
 
 
 
@@ -175,7 +175,7 @@ export default function OTPVerifyScreen() {
         <TouchableOpacity
           disabled={toggleVerifyButton}
           onPress={async () => {
-          const response = await fetch(`https://verify1-1227-pufhrk.twil.io/start-verify`, {
+          const response = await fetch(`${TWILIO_SMS_OTP_BASE_URL}/start-verify`, {
             method: "POST",
             headers: {
               "Content-Type": "application/json",
@@ -206,46 +206,48 @@ export default function OTPVerifyScreen() {
           style={[styles.Group12, {backgroundColor:toggleVerifyButtonColor}]}
           disabled={toggleVerifyButton}
           onPress={(async (event) => {
-            const response = await fetch(`https://verify1-1227-pufhrk.twil.io/check-verify`, {
-              method: "POST",
-              headers: {
-                "Content-Type": "application/json",
-                to: '+91' + phoneNumber,
-                code: inputTextValue1.current + inputTextValue2.current + inputTextValue3.current + inputTextValue4.current
-              },
-              // body: JSON.stringify({
-              //   to: "+919662079915",
-              //   verification_code: "5174",
-              // }),
-              });
-            const json = await response.json();
-            console.log('EEEEEEEEEEEEEEEEEEEEEEEEEEEE', json);
+          //   const response = await fetch(`${TWILIO_SMS_OTP_BASE_URL}/check-verify`, {
+          //     method: "POST",
+          //     headers: {
+          //       "Content-Type": "application/json",
+          //       to: '+91' + phoneNumber,
+          //       code: inputTextValue1.current + inputTextValue2.current + inputTextValue3.current + inputTextValue4.current
+          //     },
+          //     // body: JSON.stringify({
+          //     //   to: "+919662079915",
+          //     //   verification_code: "5174",
+          //     // }),
+          //     });
+          //   const json = await response.json();
+          //   console.log('EEEEEEEEEEEEEEEEEEEEEEEEEEEE', json);
 
 
-            if (json.success === false) {
-            if (maxOTPAttempts <= 0) {
-                animatedTextOTPValue.current.setNativeProps({'text':`             Maximum Attempts Reached`});
-                console.log('222222222222222222222222', maxOTPAttempts)
-                maxOTPAttempts = maxOTPAttempts - 1
-                loginMessageAnimation.start(() => {
-                  console.log('333333333333333333333333');
-                  loginMessageAnimation.reset();
-                  setToggleVerifyButton(true);
-                })
-              }
-              else {
-                animatedTextOTPValue.current.setNativeProps({'text':`   Incorrect OTP, ${maxOTPAttempts} More Attempts Allowed!`})
-                maxOTPAttempts = maxOTPAttempts - 1
-                loginMessageAnimation.start(() => {
-                  loginMessageAnimation.reset();
-                });
-              }
-            // let sadasd = await AsyncStorage.setItem('mobileNo11','96622915')
-            // let sadasd11 = await AsyncStorage.getItem('mobileNo11')
-          }
-            else {
-            navigation.navigate('ClientListDrawerScreens')
-          }
+          //   if (json.success === false) {
+          //   if (maxOTPAttempts <= 0) {
+          //       animatedTextOTPValue.current.setNativeProps({'text':`             Maximum Attempts Reached`});
+          //       console.log('222222222222222222222222', maxOTPAttempts)
+          //       maxOTPAttempts = maxOTPAttempts - 1
+          //       loginMessageAnimation.start(() => {
+          //         console.log('333333333333333333333333');
+          //         loginMessageAnimation.reset();
+          //         setToggleVerifyButton(true);
+          //       })
+          //     }
+          //     else {
+          //       animatedTextOTPValue.current.setNativeProps({'text':`   Incorrect OTP, ${maxOTPAttempts} More Attempts Allowed!`})
+          //       maxOTPAttempts = maxOTPAttempts - 1
+          //       loginMessageAnimation.start(() => {
+          //         loginMessageAnimation.reset();
+          //       });
+          //     }
+          //   // let sadasd = await AsyncStorage.setItem('mobileNo11','96622915')
+          //   // let sadasd11 = await AsyncStorage.getItem('mobileNo11')
+          // }
+          //   else {
+          //   navigation.navigate('ClientListDrawerScreens')
+          // }
+
+          navigation.navigate('ClientListDrawerScreens')
 
           })}
           >

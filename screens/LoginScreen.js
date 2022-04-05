@@ -4,13 +4,14 @@ import { StyleSheet, Image, Text, View,StatusBar, TextInput, ImageBackground, To
 import Icon from "react-native-vector-icons/Feather";
 import { useDispatch, useSelector } from "react-redux";
 import { selectPhoneNumber, setPhoneNumber, setSignupUserName } from "../reduxSlices/infoSlice";
+import { DEV_DJANGO_BASE_URL, TWILIO_SMS_OTP_BASE_URL } from '@env';
 
 
 
 export default function SignIn() {  
   
   const navigation = useNavigation();
-
+  console.log('1111111111111111111111111111111', DEV_DJANGO_BASE_URL);
   const animateTextOpacity = new Animated.Value(0)
 
   const messageAnimatedView = useRef(0);
@@ -131,17 +132,17 @@ export default function SignIn() {
         onPress={(async () => {
           // CALL THE BACKEND API
           // IF SUCCESSFUL
-          const response = await fetch(`https://verify1-1227-pufhrk.twil.io/start-verify`, {
-              method: "POST",
-              headers: {
-                "Content-Type": "application/json",
-              },
-              body: JSON.stringify({
-                to: '+91' + phoneNumber,
-                channel: "sms",
-              }),
-              });
-          const json = await response.json();
+          // const response = await fetch(`${TWILIO_SMS_OTP_BASE_URL}/start-verify`, {
+          //     method: "POST",
+          //     headers: {
+          //       "Content-Type": "application/json",
+          //     },
+          //     body: JSON.stringify({
+          //       to: '+91' + phoneNumber,
+          //       channel: "sms",
+          //     }),
+          //     });
+          // const json = await response.json();
           navigation.navigate('OTPVerifyScreen');
           // ELSE NOT SUCCESSFUL
           // messageAnimatedView.current.setNativeProps({'style':{'display':'flex'}});
