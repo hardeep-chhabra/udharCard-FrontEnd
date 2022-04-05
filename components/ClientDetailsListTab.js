@@ -11,7 +11,6 @@ import { selectClientsData } from '../reduxSlices/infoSlice'
 const ClientDetailsListTab = () => {
 
       const clientsData = useSelector(selectClientsData)
-      console.log('33333333333333333333', clientsData.length)
 
       useEffect(() => {
         console.log('ClientDetailsListTab MOUNTED');
@@ -31,15 +30,23 @@ const ClientDetailsListTab = () => {
         
       <ScrollView style={styles.Group482} contentContainerStyle={{alignItems:'center', paddingBottom:24}}>
 
-          {/* {clientsData.map((index,item) => {
+        {clientsData.map((index,item) => {
+            
+        if (item % 2 === 0 && item+1 !== clientsData.length && item+1 % 2!==0) {
+
+          console.log('33333333333333333333', item)
+          let backgroundColor1st = item % 5 === 0 ? 'rgba(220,200,172,1)' : item % 5 === 1 ? 'rgba(255,200,87,1)' : item % 5 === 2 ? 'rgba(255,200,87,1)' : item % 5 === 3 ? 'rgba(220,200,172,1)' : 'rgba(78,184,217,1)'
+
+          let backgroundColor2nd = item+1 % 5 === 0 ? 'rgba(97,219,180,1)' : item+1 % 5 === 1 ? 'rgba(97,219,180,1)' : item+1 % 5 === 2 ? 'rgba(255,176,178,1)' : item+1 % 5 === 3 ? 'rgba(255,176,178,1)' : 'rgba(202,229,210,1)'
+          
           return (
           <View key={item} style={styles.Group9104}>
-            <View style={styles.Group091}>
-              <Text style={styles.Txt081}>John Due</Text>
+            <View style={[styles.Group091, {backgroundColor:backgroundColor1st}]}>
+              <Text style={styles.Txt081}>{clientsData[item].title}</Text>
               <Text style={styles.Txt766}>info@gmail.com</Text>
               <View style={styles.Line3} />
               <View style={styles.Group851}>
-                <Text style={styles.Txt2109}>Expense : 500</Text>
+                <Text style={styles.Txt2109}>{clientsData[item].id}</Text>
                 <Image
                   style={styles.Graph}
                   source={{
@@ -48,10 +55,27 @@ const ClientDetailsListTab = () => {
                 />
               </View>
             </View>
-          </View>)
-        })} */}
+            <View style={[styles.Group091, {backgroundColor:backgroundColor2nd}]}>
+              <Text style={styles.Txt081}>{clientsData[item+1].title}</Text>
+              <Text style={styles.Txt766}>info@gmail.com</Text>
+              <View style={styles.Line3} />
+              <View style={styles.Group851}>
+                <Text style={styles.Txt2109}>{clientsData[item+1].id}</Text>
+                <Image
+                  style={styles.Graph}
+                  source={{
+                    uri: "https://firebasestorage.googleapis.com/v0/b/unify-bc2ad.appspot.com/o/8YKbQsmLBfONJUj4JItjeY-56%3A508?alt=media&token=637fa258-99ac-42ab-aed8-071f86f14063",
+                  }}
+                />
+              </View>
+            </View>
+          </View>
+          )
+                }
+          
+        })}
 
-            <View style={styles.Group9104}>
+            {/* <View style={styles.Group9104}>
             <View style={styles.Group091}>
               <Text style={styles.Txt081}>John Due</Text>
               <Text style={styles.Txt766}>info@gmail.com</Text>
@@ -266,7 +290,7 @@ const ClientDetailsListTab = () => {
                   />
                 </View>
             </View>
-          </View>
+          </View> */}
 
       </ScrollView>
 
@@ -360,7 +384,7 @@ const styles = StyleSheet.create({
     paddingRight: 10,
     marginRight: 11,
     borderRadius: 10,
-    backgroundColor: "rgba(255,200,87,1)",
+    // backgroundColor: "rgba(255,200,87,1)",
   },
 
   Group909: {

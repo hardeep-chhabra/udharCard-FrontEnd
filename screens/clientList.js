@@ -37,7 +37,7 @@ export default function ClientList() {
 
     const clientListAPIFunc = async () => {
 
-      let json = clientList.backgroundColor === 'rgba(0,97,255,1)' ? await fetch('https://jsonplaceholder.typicode.com/posts') : await fetch('https://jsonplaceholder.typicode.com/albums')
+      let json = clientList.backgroundColor === 'rgba(0,97,255,1)' ? await fetch('https://jsonplaceholder.typicode.com/albums') : await fetch('https://jsonplaceholder.typicode.com/posts')
       let response = await json.json();
       dispatch(setClientsData(response));
   }

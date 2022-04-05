@@ -3,6 +3,7 @@ import React, { useEffect } from "react"
 import { StyleSheet, Image, Text, View, ImageBackground, TouchableOpacity, TextInput, StatusBar, Animated } from "react-native"
 import { useDispatch, useSelector } from "react-redux";
 import { selectPhoneNumber, setPhoneNumber, setSignupUserName } from "../reduxSlices/infoSlice";
+import { TWILIO_SMS_OTP_BASE_URL } from '@env';
 
 
 

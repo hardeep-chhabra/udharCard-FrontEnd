@@ -143,14 +143,14 @@ export default function SignIn() {
           //     }),
           //     });
           // const json = await response.json();
-          navigation.navigate('OTPVerifyScreen');
+          // navigation.navigate('OTPVerifyScreen');
           // ELSE NOT SUCCESSFUL
-          // messageAnimatedView.current.setNativeProps({'style':{'display':'flex'}});
-          // failLoginMessageAnimation.start((message) => {
-          //   console.log('00000000000000000000', messageAnimatedView.current.setNativeProps);
-          //   messageAnimatedView.current.setNativeProps({'style':{'display':'none'}});
-          //   failLoginMessageAnimation.reset();
-          // })
+          messageAnimatedView.current.setNativeProps({'style':{'display':'flex'}});
+          failLoginMessageAnimation.start((message) => {
+            console.log('00000000000000000000', messageAnimatedView.current.setNativeProps);
+            messageAnimatedView.current.setNativeProps({'style':{'display':'none'}});
+            failLoginMessageAnimation.reset();
+          })
         })}>
           <Text style={styles.Txt4104}>Sign In</Text>
         </TouchableOpacity>
