@@ -34,7 +34,6 @@ const ClientDetailsListTab = () => {
             
         if (item % 2 === 0 && item+1 !== clientsData.length && item+1 % 2!==0) {
 
-          console.log('33333333333333333333', item)
           let backgroundColor1st = item % 5 === 0 ? 'rgba(220,200,172,1)' : item % 5 === 1 ? 'rgba(255,200,87,1)' : item % 5 === 2 ? 'rgba(255,200,87,1)' : item % 5 === 3 ? 'rgba(220,200,172,1)' : 'rgba(78,184,217,1)'
 
           let backgroundColor2nd = item+1 % 5 === 0 ? 'rgba(97,219,180,1)' : item+1 % 5 === 1 ? 'rgba(97,219,180,1)' : item+1 % 5 === 2 ? 'rgba(255,176,178,1)' : item+1 % 5 === 3 ? 'rgba(255,176,178,1)' : 'rgba(202,229,210,1)'

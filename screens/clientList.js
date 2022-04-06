@@ -1,7 +1,7 @@
 import { createDrawerNavigator } from "@react-navigation/drawer";
 import { createMaterialTopTabNavigator } from "@react-navigation/material-top-tabs";
 import React, { useEffect, useState } from "react"
-import { StyleSheet, Image, Text, View, ImageBackground, FlatList, ScrollView, StatusBar } from "react-native"
+import { StyleSheet, Image, Text, View, ImageBackground, FlatList, ScrollView, StatusBar, TouchableOpacity } from "react-native"
 import { useDispatch } from "react-redux";
 import ClientDetailsListTab from "../components/ClientDetailsListTab";
 import ClientPaymentDetailsTab from "../components/ClientPaymentDetailsTab";
@@ -12,7 +12,7 @@ import { setClientsData } from "../reduxSlices/infoSlice";
 
 
 
-export default function ClientList() {
+export default function ClientList({navigation}) {
 
   const [supplierList, setSupplierList] = useState(styles.Group105);
   const [supplierListText, setSupplierListText] = useState(styles.Txt966);
@@ -22,6 +22,8 @@ export default function ClientList() {
   const dispatch = useDispatch();
 
   const Tab = createMaterialTopTabNavigator();
+
+  // console.log('11111111111111111111', navigation.toggleDrawer())
 
 
   useEffect(() => {
@@ -51,6 +53,13 @@ export default function ClientList() {
   return (
     <>
       <View style={styles.ClientList}>
+
+      <TouchableOpacity onPress={() => navigation.toggleDrawer()}>
+      <View style={styles.Line10} />
+      <View style={styles.Line11} />
+      <View style={styles.Line12} />
+      </TouchableOpacity>
+
       <Image
         style={styles.Search}
         source={{
@@ -86,16 +95,8 @@ export default function ClientList() {
         }} 
         style={clientListText}>Client list</Text>
       </View>
-
-      {/* <View style={styles.Group599}>
-        <View style={styles.Group13}></View>
-        <View style={styles.Group856}>
-          <Text style={styles.Txt160}>Buyer List</Text>
-          <Text style={styles.Txt161}>Payment details</Text>
-        </View>
-      </View> */}
-    
     </View>
+
 
 <Tab.Navigator
 sceneContainerStyle={{backgroundColor:'black'}}
@@ -361,6 +362,45 @@ const styles = StyleSheet.create({
     color: "rgba(0,0,0,1)",
     textAlign: "center",
     justifyContent: "center",
+  },
+
+  Line10: {
+    // borderWidth: 2,
+    // borderStyle: "solid",
+    // borderColor: "rgba(255,255,255,1)",
+    backgroundColor:'white',
+    width: 25,
+    height: 2,
+    // marginBottom: 23,
+    // borderRadius:10,
+    left:10,
+    marginTop:20,
+  },
+
+  Line11: {
+    // borderWidth: 2,
+    // borderStyle: "solid",
+    // borderColor: "rgba(255,255,255,1)",
+    backgroundColor:'white',
+    width: 25,
+    height: 2,
+    // marginBottom: 23,
+    // borderRadius:10,
+    left:10,
+    marginTop:7,
+  },
+
+  Line12: {
+    // borderWidth: 2,
+    // borderStyle: "solid",
+    // borderColor: "rgba(255,255,255,1)",
+    backgroundColor:'white',
+    width: 25,
+    height: 2,
+    // marginBottom: 23,
+    // borderRadius:10,
+    left:10,
+    marginTop:7,
   },
 
 })
