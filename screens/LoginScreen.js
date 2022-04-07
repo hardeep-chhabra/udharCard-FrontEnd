@@ -61,7 +61,7 @@ export default function SignIn() {
           </TextInput>
         </Animated.View>
 
-      <View style={styles.Group2611}>
+      <View style={[styles.Group2611, {display:'none'}]}>
         <TextInput
           onEndEditing={(event) => {
             dispatch(setSignupUserName(event.nativeEvent.text))

@@ -21,19 +21,11 @@ const ClientPaymentDetailsTab = () => {
 
       return (
         
-      <ScrollView style={[styles.container]}>
+      <ScrollView style={[styles.container]} contentContainerStyle={{paddingBottom:24}}>
 
-      {/* <View style={styles.scrollArea}> */}
-        {/* <ScrollView
-          horizontal={false}
-          contentContainerStyle={styles.scrollArea_contentContainerStyle}
-        > */}
           <View style={styles.loremIpsumStackColumnRow}>
             <View style={styles.loremIpsumStackColumn}>
-              {/* <View style={styles.loremIpsumStack}> */}
-                {/* <Text style={styles.loremIpsum}></Text> */}
                 <Text style={styles.johnDue}>John Due</Text>
-              {/* </View> */}
               <Text style={styles.paymentDUe}>Payment Due on 25-02-2012</Text>
             </View>
               <View style={styles.ellipseStack2}>
@@ -55,12 +47,35 @@ const ClientPaymentDetailsTab = () => {
 
           </View>
 
-          <View style={styles.loremIpsumStackColumnRow}>
+          <View style={styles.loremIpsumStackColumnRow2}>
+
+          <View style={styles.rect3} />
+
+          <View style={styles.ellipseStack3}>
+                <Svg viewBox="0 0 35.1 39.55" style={styles.ellipse2}>
+                  <Ellipse
+                    stroke="rgba(230, 230, 230,1)"
+                    strokeWidth={0}
+                    fill="green"
+                    cx={18}
+                    cy={19}
+                    rx={16}
+                    ry={19}
+                  ></Ellipse>
+                </Svg>
+                <EntypoIcon name="check" style={styles.icon3}></EntypoIcon>
+              </View>
+
+            <View style={styles.loremIpsumStackColumn2}>
+                <Text style={styles.johnDue2}>James Bond</Text>
+              <Text style={styles.paymentDUe2}>Payment Due on 25-02-2012</Text>
+            </View>
+
+          </View>
+
+          <View style={[styles.loremIpsumStackColumnRow, {backgroundColor:'rgba(255,176,178,1)'}]}>
             <View style={styles.loremIpsumStackColumn}>
-              {/* <View style={styles.loremIpsumStack}> */}
-                {/* <Text style={styles.loremIpsum}></Text> */}
                 <Text style={styles.johnDue}>John Due</Text>
-              {/* </View> */}
               <Text style={styles.paymentDUe}>Payment Due on 25-02-2012</Text>
             </View>
               <View style={styles.ellipseStack2}>
@@ -82,12 +97,9 @@ const ClientPaymentDetailsTab = () => {
 
           </View>
 
-          <View style={styles.loremIpsumStackColumnRow}>
+          <View style={[styles.loremIpsumStackColumnRow, {backgroundColor:'rgba(202,229,210,1)'}]}>
             <View style={styles.loremIpsumStackColumn}>
-              {/* <View style={styles.loremIpsumStack}> */}
-                {/* <Text style={styles.loremIpsum}></Text> */}
                 <Text style={styles.johnDue}>John Due</Text>
-              {/* </View> */}
               <Text style={styles.paymentDUe}>Payment Due on 25-02-2012</Text>
             </View>
               <View style={styles.ellipseStack2}>
@@ -109,195 +121,57 @@ const ClientPaymentDetailsTab = () => {
 
           </View>
 
-          <View style={styles.loremIpsumStackColumnRow}>
-            <View style={styles.loremIpsumStackColumn}>
-              {/* <View style={styles.loremIpsumStack}> */}
-                {/* <Text style={styles.loremIpsum}></Text> */}
-                <Text style={styles.johnDue}>John Due</Text>
-              {/* </View> */}
-              <Text style={styles.paymentDUe}>Payment Due on 25-02-2012</Text>
-            </View>
-              <View style={styles.ellipseStack2}>
-                <Svg viewBox="0 0 35.1 39.55" style={styles.ellipse}>
+          <View style={[styles.loremIpsumStackColumnRow2, {backgroundColor:'rgba(78,184,217,1)'}]}>
+
+          <View style={styles.rect3} />
+
+          <View style={styles.ellipseStack3}>
+                <Svg viewBox="0 0 35.1 39.55" style={styles.ellipse2}>
                   <Ellipse
                     stroke="rgba(230, 230, 230,1)"
                     strokeWidth={0}
-                    fill="red"
+                    fill="green"
                     cx={18}
                     cy={19}
                     rx={16}
                     ry={19}
                   ></Ellipse>
                 </Svg>
-                <EntypoIcon name="cross" style={styles.icon}></EntypoIcon>
+                <EntypoIcon name="check" style={styles.icon3}></EntypoIcon>
               </View>
 
-            <View style={styles.rect} />
+            <View style={styles.loremIpsumStackColumn2}>
+                <Text style={styles.johnDue2}>James Bond</Text>
+              <Text style={styles.paymentDUe2}>Payment Due on 25-02-2012</Text>
+            </View>
 
           </View>
 
-          <View style={styles.loremIpsumStackColumnRow}>
-            <View style={styles.loremIpsumStackColumn}>
-              {/* <View style={styles.loremIpsumStack}> */}
-                {/* <Text style={styles.loremIpsum}></Text> */}
-                <Text style={styles.johnDue}>John Due</Text>
-              {/* </View> */}
-              <Text style={styles.paymentDUe}>Payment Due on 25-02-2012</Text>
-            </View>
-              <View style={styles.ellipseStack2}>
-                <Svg viewBox="0 0 35.1 39.55" style={styles.ellipse}>
+          <View style={[styles.loremIpsumStackColumnRow2, {backgroundColor:'rgba(255,200,87,1)'}]}>
+
+          <View style={styles.rect3} />
+
+          <View style={styles.ellipseStack3}>
+                <Svg viewBox="0 0 35.1 39.55" style={styles.ellipse2}>
                   <Ellipse
                     stroke="rgba(230, 230, 230,1)"
                     strokeWidth={0}
-                    fill="red"
+                    fill="green"
                     cx={18}
                     cy={19}
                     rx={16}
                     ry={19}
                   ></Ellipse>
                 </Svg>
-                <EntypoIcon name="cross" style={styles.icon}></EntypoIcon>
+                <EntypoIcon name="check" style={styles.icon3}></EntypoIcon>
               </View>
 
-            <View style={styles.rect} />
+            <View style={styles.loremIpsumStackColumn2}>
+                <Text style={styles.johnDue2}>James Bond</Text>
+              <Text style={styles.paymentDUe2}>Payment Due on 25-02-2012</Text>
+            </View>
 
           </View>
-
-          <View style={styles.loremIpsumStackColumnRow}>
-            <View style={styles.loremIpsumStackColumn}>
-              {/* <View style={styles.loremIpsumStack}> */}
-                {/* <Text style={styles.loremIpsum}></Text> */}
-                <Text style={styles.johnDue}>John Due</Text>
-              {/* </View> */}
-              <Text style={styles.paymentDUe}>Payment Due on 25-02-2012</Text>
-            </View>
-              <View style={styles.ellipseStack2}>
-                <Svg viewBox="0 0 35.1 39.55" style={styles.ellipse}>
-                  <Ellipse
-                    stroke="rgba(230, 230, 230,1)"
-                    strokeWidth={0}
-                    fill="red"
-                    cx={18}
-                    cy={19}
-                    rx={16}
-                    ry={19}
-                  ></Ellipse>
-                </Svg>
-                <EntypoIcon name="cross" style={styles.icon}></EntypoIcon>
-              </View>
-
-            <View style={styles.rect} />
-
-          </View>
-
-          <View style={styles.loremIpsumStackColumnRow}>
-            <View style={styles.loremIpsumStackColumn}>
-              {/* <View style={styles.loremIpsumStack}> */}
-                {/* <Text style={styles.loremIpsum}></Text> */}
-                <Text style={styles.johnDue}>John Due</Text>
-              {/* </View> */}
-              <Text style={styles.paymentDUe}>Payment Due on 25-02-2012</Text>
-            </View>
-              <View style={styles.ellipseStack2}>
-                <Svg viewBox="0 0 35.1 39.55" style={styles.ellipse}>
-                  <Ellipse
-                    stroke="rgba(230, 230, 230,1)"
-                    strokeWidth={0}
-                    fill="red"
-                    cx={18}
-                    cy={19}
-                    rx={16}
-                    ry={19}
-                  ></Ellipse>
-                </Svg>
-                <EntypoIcon name="cross" style={styles.icon}></EntypoIcon>
-              </View>
-
-            <View style={styles.rect} />
-
-          </View>
-
-          <View style={styles.loremIpsumStackColumnRow}>
-            <View style={styles.loremIpsumStackColumn}>
-              {/* <View style={styles.loremIpsumStack}> */}
-                {/* <Text style={styles.loremIpsum}></Text> */}
-                <Text style={styles.johnDue}>John Due</Text>
-              {/* </View> */}
-              <Text style={styles.paymentDUe}>Payment Due on 25-02-2012</Text>
-            </View>
-              <View style={styles.ellipseStack2}>
-                <Svg viewBox="0 0 35.1 39.55" style={styles.ellipse}>
-                  <Ellipse
-                    stroke="rgba(230, 230, 230,1)"
-                    strokeWidth={0}
-                    fill="red"
-                    cx={18}
-                    cy={19}
-                    rx={16}
-                    ry={19}
-                  ></Ellipse>
-                </Svg>
-                <EntypoIcon name="cross" style={styles.icon}></EntypoIcon>
-              </View>
-
-            <View style={styles.rect} />
-
-          </View>
-
-          <View style={styles.loremIpsumStackColumnRow}>
-            <View style={styles.loremIpsumStackColumn}>
-              {/* <View style={styles.loremIpsumStack}> */}
-                {/* <Text style={styles.loremIpsum}></Text> */}
-                <Text style={styles.johnDue}>John Due</Text>
-              {/* </View> */}
-              <Text style={styles.paymentDUe}>Payment Due on 25-02-2012</Text>
-            </View>
-              <View style={styles.ellipseStack2}>
-                <Svg viewBox="0 0 35.1 39.55" style={styles.ellipse}>
-                  <Ellipse
-                    stroke="rgba(230, 230, 230,1)"
-                    strokeWidth={0}
-                    fill="red"
-                    cx={18}
-                    cy={19}
-                    rx={16}
-                    ry={19}
-                  ></Ellipse>
-                </Svg>
-                <EntypoIcon name="cross" style={styles.icon}></EntypoIcon>
-              </View>
-
-            <View style={styles.rect} />
-
-          </View>
-        {/* </ScrollView> */}
-      {/* </View> */}
-
-      {/* <View style={styles.scrollArea1Stack}>
-        <View style={styles.scrollArea1}>
-            <View style={styles.rect2Row}>
-              <View style={styles.rect2}></View>
-              <View style={styles.ellipseStack}>
-                <Svg viewBox="0 0 35.1 37.55" style={styles.ellipse}>
-                  <Ellipse
-                    stroke="rgba(230, 230, 230,1)"
-                    strokeWidth={0}
-                    fill="rgba(65,117,5,1)"
-                    cx={18}
-                    cy={19}
-                    rx={18}
-                    ry={19}
-                  ></Ellipse>
-                </Svg>
-                <EntypoIcon name="check" style={styles.icon2}></EntypoIcon>
-              </View>
-              <Text style={styles.paymentDUe1}>
-                Payment Successfull on 25 02 2012
-              </Text>
-            </View>
-        </View>
-        <Text style={styles.johnDue1}>John Due</Text>
-      </View> */}
 
     </ScrollView>
 
@@ -314,7 +188,7 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor:'black',
-    flexDirection:'column'
+    flexDirection:'column',
   },
   scrollArea: {
     width: 319,
@@ -356,6 +230,19 @@ const styles = StyleSheet.create({
     height: 31,
     fontSize: 15
   },
+
+  johnDue2: {
+    top: 10,
+    right:10,
+    // position: "absolute",
+    // fontFamily: "Arial, Helvetica, sans-serif",
+    color: "black",
+    width: 270,
+    height: 31,
+    fontSize: 15,
+    textAlign:'right'
+  },
+
   loremIpsumStack: {
     width: 163,
     height: 31
@@ -368,9 +255,23 @@ const styles = StyleSheet.create({
     width:300,
     left:20
   },
+
+  paymentDUe2: {
+    fontFamily: "roboto-regular",
+    color: "black",
+    marginTop: 4,
+    fontSize:10,
+    width:300,
+    left:111
+  },
+
   loremIpsumStackColumn: {
     width: 175,
     marginBottom: 8
+  },
+  loremIpsumStackColumn2: {
+    // width: 15,
+    // marginBottom: 8
   },
   rect: {
     width: 7,
@@ -380,6 +281,15 @@ const styles = StyleSheet.create({
     borderRadius:10,
     marginTop:12
   },
+
+  rect3: {
+    width: 7,
+    height: 50,
+    backgroundColor: "white",
+    borderRadius:10,
+    marginTop:12
+  },
+
   loremIpsumStackColumnRow: {
     height: 75,
     flexDirection: "row",
@@ -387,9 +297,21 @@ const styles = StyleSheet.create({
     backgroundColor:'rgba(220,200,172,1)',
     // paddingLeft:20,
     marginRight:30,
-    borderTopRightRadius:10,
-    borderBottomRightRadius:10,
+    borderTopRightRadius:15,
+    borderBottomRightRadius:15,
   },
+
+  loremIpsumStackColumnRow2: {
+    height: 75,
+    flexDirection: "row",
+    marginTop: 20,
+    backgroundColor:'rgba(97,219,180,1)',
+    // paddingLeft:20,
+    marginLeft:30,
+    borderTopLeftRadius:15,
+    borderBottomLeftRadius:15,
+  },
+
   scrollArea1: {
     top: 0,
     left: 0,
@@ -429,6 +351,15 @@ const styles = StyleSheet.create({
     height: 38,
     position: "absolute"
   },
+
+  ellipse2: {
+    top: 0,
+    left: 0,
+    width: 35,
+    height: 38,
+    // position: "absolute"
+  },
+
   icon2: {
     top: 0,
     left: 4,
@@ -438,6 +369,16 @@ const styles = StyleSheet.create({
     width: 32,
     height: 35
   },
+
+  icon3: {
+    top: 0,
+    position: "absolute",
+    color: "rgba(255,255,255,1)",
+    fontSize: 32,
+    width: 32,
+    height: 35
+  },
+
   icon: {
     top: 1,
     left: 3,
@@ -459,6 +400,14 @@ const styles = StyleSheet.create({
     marginLeft: 95,
     marginTop: 18
   },
+
+  ellipseStack3: {
+    // width: 36,
+    // height: 38,
+    marginLeft: 9,
+    marginTop: 18
+  },
+
   paymentDUe1: {
     fontFamily: "roboto-regular",
     color: "#121212",

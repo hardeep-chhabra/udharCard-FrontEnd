@@ -109,6 +109,7 @@ export default function RegisterScreen() {
             // json.success === true && navigation.navigate('OTPVerifyScreen')
 
             // navigation.navigate('OTPVerifyScreen')
+            
             navigation.navigate('ClientListDrawerScreens')
 
             })}

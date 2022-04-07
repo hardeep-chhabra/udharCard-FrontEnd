@@ -1,6 +1,6 @@
 import { createDrawerNavigator } from "@react-navigation/drawer";
 import { createMaterialTopTabNavigator } from "@react-navigation/material-top-tabs";
-import React, { useEffect, useState } from "react"
+import React, { useEffect, useLayoutEffect, useState } from "react"
 import { StyleSheet, Image, Text, View, ImageBackground, FlatList, ScrollView, StatusBar, TouchableOpacity } from "react-native"
 import { useDispatch } from "react-redux";
 import ClientDetailsListTab from "../components/ClientDetailsListTab";
@@ -35,7 +35,7 @@ export default function ClientList({navigation}) {
   })
 
 
-  useEffect(() => {
+  useLayoutEffect(() => {
 
     const clientListAPIFunc = async () => {
 

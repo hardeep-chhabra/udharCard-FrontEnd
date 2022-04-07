@@ -8,16 +8,16 @@ import { selectClientsData } from '../reduxSlices/infoSlice'
 
 
 
-const ClientDetailsListTab = () => {
+const SupplierDetailsListTab = () => {
 
       const clientsData = useSelector(selectClientsData)
 
 
       useEffect(() => {
-        console.log('ClientDetailsListTab MOUNTED');
+        console.log('SupplierDetailsListTab MOUNTED');
 
         return () => {
-        console.log('ClientDetailsListTab UNMOUNTED');
+        console.log('SupplierDetailsListTab UNMOUNTED');
         }
       })
 
@@ -101,7 +101,7 @@ const ClientDetailsListTab = () => {
   )
 }
 
-export default ClientDetailsListTab
+export default SupplierDetailsListTab
 
 
 
