@@ -185,7 +185,6 @@ export default function OTPVerifyScreen() {
             }),
             });
           const json = await response.json();
-          console.log('111111111111111', phoneNumber, json)
 
           inputTextRef.current.setNativeProps({'text':null})
           inputTextRef2.current.setNativeProps({'text':null})
@@ -219,7 +218,6 @@ export default function OTPVerifyScreen() {
               // }),
               });
             const json = await response.json();
-            console.log('EEEEEEEEEEEEEEEEEEEEEEEEEEEE', json);
 
 
             if (json.success === false) {

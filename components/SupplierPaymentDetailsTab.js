@@ -1,5 +1,5 @@
-import { StyleSheet, Text, View } from 'react-native'
 import React, { useEffect } from 'react'
+import UISupplierClientPaymentListTab from './UISupplierClientPaymentListTab';
 
 
 
@@ -16,16 +16,12 @@ const SupplierPaymentDetailsTab = () => {
 
 
   return (
-    <View>
-      <Text>SupplierPaymentDetailsTab</Text>
-    </View>
+      
+    <UISupplierClientPaymentListTab />
+  
   )
 
 
 }
 
 export default SupplierPaymentDetailsTab
-
-
-
-const styles = StyleSheet.create({})

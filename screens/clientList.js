@@ -23,8 +23,6 @@ export default function ClientList({navigation}) {
 
   const Tab = createMaterialTopTabNavigator();
 
-  // console.log('11111111111111111111', navigation.toggleDrawer())
-
 
   useEffect(() => {
     console.log('CLIENTLIST SCREEN MOUNTED');
@@ -34,19 +32,22 @@ export default function ClientList({navigation}) {
     }
   })
 
-
   useLayoutEffect(() => {
 
     const clientListAPIFunc = async () => {
 
       let json = clientList.backgroundColor === 'rgba(0,97,255,1)' ? await fetch('https://jsonplaceholder.typicode.com/albums') : await fetch('https://jsonplaceholder.typicode.com/posts')
       let response = await json.json();
+      clientList.backgroundColor === 'rgba(0,97,255,1)' ? response.push('clientDetailsList') : response.push('supplierDetailsList')
       dispatch(setClientsData(response));
   }
   
     clientListAPIFunc();
 
   }, [clientList])
+
+
+  console.log('000000000000000000000000')
 
 
 

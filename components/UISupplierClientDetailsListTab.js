@@ -5,12 +5,11 @@ import { selectClientsData } from '../reduxSlices/infoSlice'
 
 
 
-const UISupplierClientDetailsListTab = (clientsData11) => {
+const UISupplierClientDetailsListTab = () => {
 
       const clientsData = useSelector(selectClientsData)
 
-      console.log('1111111111111111111111111111', clientsData11)
-
+      
 
     return (
         <>
@@ -227,15 +226,7 @@ const styles = StyleSheet.create({
       borderStyle: "solid",
       borderColor: "rgba(55,49,64,1)",
     },
-    Txt081: {
-      fontSize: 14,
-      fontFamily: "undefined",
-      fontWeight: "500",
-      color: "rgba(55,49,64,1)",
-      width: 80,
-      height: 20,
-      marginBottom: 14,
-    },
+    
     Txt1084: {
       fontSize: 10,
       fontFamily: "undefined",
@@ -288,15 +279,7 @@ const styles = StyleSheet.create({
       borderStyle: "solid",
       borderColor: "rgba(55,49,64,1)",
     },
-    Txt081: {
-      fontSize: 14,
-      fontFamily: "undefined",
-      fontWeight: "500",
-      color: "rgba(55,49,64,1)",
-      width: 80,
-      height: 20,
-      marginBottom: 14,
-    },
+    
     Txt1084: {
       fontSize: 10,
       fontFamily: "undefined",
@@ -343,15 +326,7 @@ const styles = StyleSheet.create({
       borderStyle: "solid",
       borderColor: "rgba(55,49,64,1)",
     },
-    Txt081: {
-      fontSize: 14,
-      fontFamily: "undefined",
-      fontWeight: "500",
-      color: "rgba(55,49,64,1)",
-      width: 80,
-      height: 20,
-      marginBottom: 14,
-    },
+    
     Txt1084: {
       fontSize: 10,
       fontFamily: "undefined",
@@ -403,15 +378,7 @@ const styles = StyleSheet.create({
       borderStyle: "solid",
       borderColor: "rgba(55,49,64,1)",
     },
-    Txt081: {
-      fontSize: 14,
-      fontFamily: "undefined",
-      fontWeight: "500",
-      color: "rgba(55,49,64,1)",
-      width: 80,
-      height: 20,
-      marginBottom: 14,
-    },
+    
     Txt1084: {
       fontSize: 10,
       fontFamily: "undefined",
@@ -458,15 +425,7 @@ const styles = StyleSheet.create({
       borderStyle: "solid",
       borderColor: "rgba(55,49,64,1)",
     },
-    Txt081: {
-      fontSize: 14,
-      fontFamily: "undefined",
-      fontWeight: "500",
-      color: "rgba(55,49,64,1)",
-      width: 80,
-      height: 20,
-      marginBottom: 14,
-    },
+    
     Txt1084: {
       fontSize: 10,
       fontFamily: "undefined",
