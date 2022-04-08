@@ -1,6 +1,6 @@
 import { useNavigation } from "@react-navigation/native";
 import React, { useEffect, useRef } from "react"
-import { StyleSheet, Image, Text, View,StatusBar, TextInput, ImageBackground, TouchableOpacity, Animated } from "react-native"
+import { StyleSheet, Image, Text, View,StatusBar, TextInput, ImageBackground, TouchableOpacity, Animated, BackHandler, Alert } from "react-native"
 import Icon from "react-native-vector-icons/Feather";
 import { useDispatch, useSelector } from "react-redux";
 import { selectPhoneNumber, setPhoneNumber, setSignupUserName } from "../reduxSlices/infoSlice";
@@ -11,7 +11,7 @@ import { DEV_DJANGO_BASE_URL, TWILIO_SMS_OTP_BASE_URL } from '@env';
 export default function SignIn() {  
   
   const navigation = useNavigation();
-  console.log('1111111111111111111111111111111', DEV_DJANGO_BASE_URL);
+
   const animateTextOpacity = new Animated.Value(0)
 
   const messageAnimatedView = useRef(0);
@@ -32,6 +32,7 @@ export default function SignIn() {
       })])
 
 
+
   useEffect(() => {
     console.log('LOGINSCREEN MOUNTED');
 
@@ -39,6 +40,29 @@ export default function SignIn() {
     console.log('LOGINSCREEN UNMOUNTED');
     }
   })
+
+  useEffect(() => {
+
+    const backAction = () => {
+      Alert.alert("Exiting The App", "Are you sure you want to exit the App?", [
+        {
+          text: "Cancel",
+          onPress: () => null,
+          style: "cancel"
+        },
+        { text: "YES", onPress: () => BackHandler.exitApp() }
+      ]);
+      return true;
+    };
+
+    const backHandler = BackHandler.addEventListener(
+      "hardwareBackPress",
+      backAction
+    );
+
+    return () => backHandler.remove();
+
+  }, [])
 
 
   
