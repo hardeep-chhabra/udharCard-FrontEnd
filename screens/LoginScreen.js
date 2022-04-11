@@ -83,7 +83,7 @@ export default function SignIn() {
         multiline 
         editable={false} 
         value='Mobile Number Not Registered on our Server, Please Signup/Register First!!!' 
-        style={{color:'white', maxWidth:300}}>
+        style={styles.animatedViewText}>
           </TextInput>
         </Animated.View>
 
@@ -113,7 +113,7 @@ export default function SignIn() {
         <Image
             style={styles.userIcon}
             source={{
-              uri: "https://firebasestorage.googleapis.com/v0/b/unify-bc2ad.appspot.com/o/8YKbQsmLBfONJUj4JItjeY-34%3A226?alt=media&token=b6802ea3-cd6b-4478-8d43-f26269ae5b50",
+              uri: styles.iconsAndImages.usernameImage
             }}
           />
       </View>
@@ -144,7 +144,7 @@ export default function SignIn() {
         <Image
             style={styles.passwordIcon}
             source={{
-              uri: "https://firebasestorage.googleapis.com/v0/b/unify-bc2ad.appspot.com/o/8YKbQsmLBfONJUj4JItjeY-34%3A219?alt=media&token=70116d08-2e36-4de7-931c-fdf443c5a6a5",
+              uri: styles.iconsAndImages.passwordImage,
             }}
           />
       </View>
@@ -189,7 +189,7 @@ export default function SignIn() {
             <Image
               style={styles.Surface85389450}
               source={{
-                uri: "https://firebasestorage.googleapis.com/v0/b/unify-bc2ad.appspot.com/o/otg5zsu5uf-88%3A470?alt=media&token=c62e2d2c-2026-406a-8300-569d0d9a4a72",
+                uri: styles.iconsAndImages.googleLoginImg,
               }}
             />
           </View>
@@ -199,7 +199,7 @@ export default function SignIn() {
             <Image
               style={styles.Surface85324364}
               source={{
-                uri: "https://firebasestorage.googleapis.com/v0/b/unify-bc2ad.appspot.com/o/otg5zsu5uf-88%3A468?alt=media&token=9e6357e7-00e1-40cf-b2f9-c128b7bcf04c",
+                uri: styles.iconsAndImages.facebookLoginImg,
               }}
             />
           </View>

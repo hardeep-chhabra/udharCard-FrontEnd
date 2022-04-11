@@ -188,6 +188,19 @@ const styles = StyleSheet.create({
       // maxWidth:1000
       
       },
+
+    animatedViewText: {
+        color:'black',
+        maxWidth:300
+    },
+
+    iconsAndImages: {
+        usernameImage: 'https://firebasestorage.googleapis.com/v0/b/unify-bc2ad.appspot.com/o/8YKbQsmLBfONJUj4JItjeY-34%3A226?alt=media&token=b6802ea3-cd6b-4478-8d43-f26269ae5b50',
+        passwordImage: 'https://firebasestorage.googleapis.com/v0/b/unify-bc2ad.appspot.com/o/8YKbQsmLBfONJUj4JItjeY-34%3A219?alt=media&token=70116d08-2e36-4de7-931c-fdf443c5a6a5',
+        googleLoginImg: 'https://firebasestorage.googleapis.com/v0/b/unify-bc2ad.appspot.com/o/otg5zsu5uf-88%3A470?alt=media&token=c62e2d2c-2026-406a-8300-569d0d9a4a72',
+        facebookLoginImg:'https://firebasestorage.googleapis.com/v0/b/unify-bc2ad.appspot.com/o/otg5zsu5uf-88%3A468?alt=media&token=9e6357e7-00e1-40cf-b2f9-c128b7bcf04c'
+
+    }
   
   })
 
